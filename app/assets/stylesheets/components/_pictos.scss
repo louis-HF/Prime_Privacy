@@ -1,0 +1,45 @@
+.picto {
+  width: 64px;
+  height: 64px;
+}
+
+.drag {
+  background-image: url('drag.png');
+}
+
+.politics {
+  background-image: url('politic.png');
+}
+
+.swearing {
+  background-image: url('swearing.png');
+}
+
+.religion {
+  background-image: url('religion.png');
+}
+
+.party {
+  background-image: url('party.png');
+}
+
+.drugs {
+  background-image: url('drugs.png');
+}
+
+.personal {
+  background-image: url('personal.png');
+}
+
+.delete-cross {
+  background-image: url('delete-cross.png');
+}
+
+.picto-showcase div {
+  height:100px;
+  background-color: $black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
