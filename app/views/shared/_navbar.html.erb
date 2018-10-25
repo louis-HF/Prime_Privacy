@@ -15,14 +15,12 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "Host", "#", class: "navbar-prime-item navbar-prime-link" %>
-      <%= link_to "Trips", "#", class: "navbar-prime-item navbar-prime-link" %>
-      <%= link_to "Messages", "#", class: "navbar-prime-item navbar-prime-link" %>
+      <%= link_to "Sign in", "#", class: "navbar-prime-item navbar-prime-link" %>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-prime-item">
         <div class="dropdown">
-          <%= image_tag "http://kitt.leprime.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbar-prime-menu", "data-toggle" => "dropdown" %>
+          <%= image_tag "https://cdn0.iconfinder.com/data/icons/user-pictures/100/matureman1-512.png", class: "avatar dropdown-toggle", id: "navbar-prime-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-prime-dropdown-menu">
             <li>
               <%= link_to "#" do %>
