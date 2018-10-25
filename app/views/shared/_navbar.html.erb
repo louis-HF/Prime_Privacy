@@ -1,7 +1,12 @@
 <div class="navbar-prime">
+  <!-- Left Navigation -->
+  <div class="navbar-prime-left hidden-xs hidden-sm">
+    <%= link_to "Prime Privacy", "/", class: "navbar-prime-title" %>
+  </div>
+
   <!-- Logo -->
-  <%= link_to root_path, class: "navbar-prime-brand" do %>
-    <%= image_tag "logo.png", height: 50 %>
+  <%= link_to root_path, class: "navbar-prime-logo" do %>
+    <%= image_tag "logo.png" %>
   <% end %>
 
   <!-- Right Navigation -->

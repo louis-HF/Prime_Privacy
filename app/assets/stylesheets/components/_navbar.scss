@@ -1,25 +1,53 @@
 /* Main navbar */
 .navbar-prime {
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
-  background: white;
+  background: $black;
   transition: all 0.3s ease;
-  height: 70px;
+  height: 60px;
   padding: 0px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: solid #59DAFD 1px;
+  font-family: "Roboto";
+  font-weight: 100;
+}
+
+.navbar-prime-title {
+  font-size: 20px;
+  line-height: 23px;
+  align: center;
+  fill: solid;
+  color: #FFFFFF;
+  transition: color 0.5s ease;
+}
+
+.navbar-prime-title:hover {
+  color: $blue;
+  text-decoration: none;
+}
+
+.navbar-prime-left {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
 /* Logo */
-.navbar-prime-brand img {
+.navbar-prime-logo img {
   height: 50px;
+  transition: transform 0.5s ease;
+}
+
+.navbar-prime-logo img:hover {
+  color: #59DAFD;
+  transform: scale(1.2);
 }
 
 /* User Avatar */
 .navbar-prime .avatar {
   height: 35px;
   width: 35px;
-  border-radius: 50%;
 }
 
 /* Right section */
@@ -33,15 +61,18 @@
 .navbar-prime-item {
   cursor: pointer;
   padding: 0 20px;
+  transition: color 0.5s ease;
 }
 
 /* Navbar link */
 .navbar-prime-link {
-  color: #616668;
+  color: #FFFFFF;
   font-size: 14px;
+  transition: color 0.5s ease;
 }
+
 .navbar-prime-link:hover {
-  color: #da552f;
+  color: $blue;
   text-decoration: none;
 }
 
