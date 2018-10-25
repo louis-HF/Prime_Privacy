@@ -10,10 +10,61 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_25_085148) do
+ActiveRecord::Schema.define(version: 2018_10_25_121214) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "content_keywords", force: :cascade do |t|
+    t.bigint "content_id"
+    t.bigint "keyword_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["content_id"], name: "index_content_keywords_on_content_id"
+    t.index ["keyword_id"], name: "index_content_keywords_on_keyword_id"
+  end
+
+  create_table "contents", force: :cascade do |t|
+    t.string "external_provider"
+    t.text "external_id"
+    t.date "external_created_date"
+    t.date "external_edit_date"
+    t.date "external_deleted_date"
+    t.string "type"
+    t.boolean "selected"
+    t.integer "coef_total"
+    t.bigint "user_id"
+    t.date "scan_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_contents_on_user_id"
+  end
+
+  create_table "keywords", force: :cascade do |t|
+    t.string "name"
+    t.bigint "topic_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["topic_id"], name: "index_keywords_on_topic_id"
+  end
+
+  create_table "preferences", force: :cascade do |t|
+    t.integer "rank"
+    t.bigint "user_id"
+    t.bigint "topic_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["topic_id"], name: "index_preferences_on_topic_id"
+    t.index ["user_id"], name: "index_preferences_on_user_id"
+  end
+
+  create_table "topics", force: :cascade do |t|
+    t.string "name"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_topics_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -28,4 +79,11 @@ ActiveRecord::Schema.define(version: 2018_10_25_085148) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "content_keywords", "contents"
+  add_foreign_key "content_keywords", "keywords"
+  add_foreign_key "contents", "users"
+  add_foreign_key "keywords", "topics"
+  add_foreign_key "preferences", "topics"
+  add_foreign_key "preferences", "users"
+  add_foreign_key "topics", "users"
 end
