@@ -3,10 +3,13 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   get 'components' => 'pages#components'
+  get 'loadingpage' => 'pages#loadingpage'
+  get 'datadashboard' => 'pages#datadashboard'
+  get 'userdashboard' => 'pages#userdashboard'
 
   resources :preferences, only: [ :update, :index]
 
   resources :topics, only: [ :create, :update, :destroy]
   resources :keywords, only: [ :create, :update, :destroy]
-  resources :content, only: [ :update]
+  resources :contents, only: [ :index, :update]
 end
