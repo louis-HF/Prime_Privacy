@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
+
   get 'components' => 'pages#components'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  resources :preferences, only: [ :update, :index]
+
+  resources :topics, only: [ :create, :update, :destroy]
+  resources :keywords, only: [ :create, :update, :destroy]
+  resources :content, only: [ :update]
 end
