@@ -1,13 +1,9 @@
-// .bg-texture {
-//   background: linear-gradient(160deg, rgba(255, 255, 255, 0.9) 26.65%, #F6F6F6 48.57%), url(background.png);
-//   border-radius: 11px;
-//   transform: rotate(-90deg);
-//   fit-content: 100%;
-// }
-
-
 .bg-texture {
   background: linear-gradient(60deg, rgba(255, 255, 255, 0.25) 5.65%, #F6F6F6 30.57%), url('background.png') no-repeat;
   height: 594px;
   width: 100%;
+}
+
+.bg-black {
+  background-color: $black;
 }
