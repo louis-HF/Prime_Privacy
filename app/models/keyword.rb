@@ -1,4 +1,5 @@
 class Keyword < ApplicationRecord
   belongs_to :topic
-  has_many :content_keywords
+  has_many :content_keywords, dependent: :destroy
+  validates :name, presence: true
 end
