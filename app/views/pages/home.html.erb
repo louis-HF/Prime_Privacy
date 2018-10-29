@@ -1,2 +1,22 @@
-<h1>Pages#home</h1>
-<p>Louis ne se lave pas suffisament </p>
+<div class="container">
+
+  <% if user_signed_in? %>
+  <div class="row text-center">
+    <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
+    <%= link_to "Go to your dashboard", userdashboard_path, class: "btn-black-and-blue" %>
+    </div>
+  </div>
+  <% else %>
+  <div class="row text-center">
+    <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
+    <%= link_to "Take control of my data", new_user_registration_path, class: "btn-black-and-blue" %>
+    </div>
+  </div>
+  <div class="row text-center">
+    <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
+      <%= link_to "Already have an account?", new_user_session_path %>
+    </div>
+  </div>
+  <% end %>
+</div>
+
