@@ -1,0 +1,56 @@
+.card {
+  height: 175px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  background-size: cover !important;
+  background-position: center;
+  color: white;
+  position: relative;
+  background-image: url('https://images.unsplash.com/photo-1493078640264-28e9ec0ae9ae?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1679b9338ca51be3405097747df3d6cd&auto=format&fit=crop&w=1050&q=80s');
+  border-radius: 3px;
+}
+.card-tick {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 40px;
+  border-radius: 5px;
+  width:20px;
+  height:20px;
+  text-decoration:none;
+  color:white;
+  text-align:center;
+  font-weight:bold;
+  background-color:white;
+  padding:5px;
+}
+
+.card-description {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+.card-description h2 {
+  font-size: 24px;
+}
+.card-description p {
+  font-size: 14px;
+  opacity: 0.7;
+  font-weight: lighter;
+}
+.card-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  z-index: 2;
+  background: black;
+  opacity: 0;
+}
+.card-link:hover {
+  opacity: 0.1;
+}
+.row{
+  margin-top: 20px;
+  margin-bottom: 300px;
+}
