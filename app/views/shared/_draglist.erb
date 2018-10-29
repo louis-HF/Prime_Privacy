@@ -1,76 +1,62 @@
 <div class="draglist-container bg-black">
-  <div class="draglist-box">
-    <p class="rank">1</p>
-    <%= image_tag 'swearing.png', class: 'picto swearing' %>
-    <p class="topic-name">Swearing</p>
-    <% if user_signed_in? %>
-      <i class="far fa-edit edit"></i>
-    <% end %>
-    <i class="far fa-times-circle delete-cross"></i>
-    <i class="fas fa-arrows-alt-v drag"></i>
-  </div>
+  <ul class="topic-list list-unstyled">
+    <li class="draglist-box">
+      <p class="rank">1</p>
+      <%= image_tag 'swearing.png', class: 'picto swearing' %>
+      <p class="topic-name">Swearing</p>
+      <i class="far fa-times-circle delete-cross"></i>
+      <i class="fas fa-arrows-alt-v drag"></i>
+    </li>
 
-  <div class="draglist-box">
-    <p class="rank">2</p>
-    <%= image_tag 'politic.png', class: 'picto politic' %>
-    <p class="topic-name">Politic</p>
-    <% if user_signed_in? %>
-      <i class="far fa-edit edit"></i>
-    <% end %>
-    <i class="far fa-times-circle delete-cross"></i>
-    <i class="fas fa-arrows-alt-v drag"></i>
-  </div>
+    <li class="draglist-box">
+      <p class="rank">2</p>
+      <%= image_tag 'politic.png', class: 'picto politic' %>
+      <p class="topic-name">Politic</p>
+      <i class="far fa-times-circle delete-cross"></i>
+      <i class="fas fa-arrows-alt-v drag"></i>
+    </li>
 
-  <div class="draglist-box">
-    <p class="rank">3</p>
-    <%= image_tag 'sex.png', class: 'picto sex' %>
-    <p class="topic-name">Sexualy explicit</p>
-    <% if user_signed_in? %>
-      <i class="far fa-edit edit"></i>
-    <% end %>
-    <i class="far fa-times-circle delete-cross"></i>
-    <i class="fas fa-arrows-alt-v drag"></i>
-  </div>
+    <li class="draglist-box">
+      <p class="rank">3</p>
+      <%= image_tag 'sex.png', class: 'picto sex' %>
+      <p class="topic-name">Sexualy explicit</p>
+      <i class="far fa-times-circle delete-cross"></i>
+      <i class="fas fa-arrows-alt-v drag"></i>
+    </li>
 
-  <div class="draglist-box">
-    <p class="rank">4</p>
-    <%= image_tag 'drugs.png', class: 'picto drugs' %>
-    <p class="topic-name">Alcool and drugs</p>
-    <% if user_signed_in? %>
-      <i class="far fa-edit edit"></i>
-    <% end %>
-    <i class="far fa-times-circle delete-cross"></i>
-    <i class="fas fa-arrows-alt-v drag"></i>
-  </div>
+    <li class="draglist-box">
+      <p class="rank">4</p>
+      <%= image_tag 'drugs.png', class: 'picto drugs' %>
+      <p class="topic-name">Alcool and drugs</p>
+      <i class="far fa-times-circle delete-cross"></i>
+      <i class="fas fa-arrows-alt-v drag"></i>
+    </li>
 
-  <div class="draglist-box">
-    <p class="rank">5</p>
-    <%= image_tag 'religion.png', class: 'picto religion' %>
-    <p class="topic-name">Religion</p>
-    <% if user_signed_in? %>
-      <i class="far fa-edit edit"></i>
-    <% end %>
-    <i class="far fa-times-circle delete-cross"></i>
-    <i class="fas fa-arrows-alt-v drag"></i>
-  </div>
+    <li class="draglist-box">
+      <p class="rank">5</p>
+      <%= image_tag 'religion.png', class: 'picto religion' %>
+      <p class="topic-name">Religion</p>
+      <i class="far fa-times-circle delete-cross"></i>
+      <i class="fas fa-arrows-alt-v drag"></i>
+    </li>
 
-  <div class="draglist-box">
-    <p class="rank">6</p>
-    <%= image_tag 'party.png', class: 'picto party' %>
-    <p class="topic-name">Party</p>
-    <% if user_signed_in? %>
-      <i class="far fa-edit edit"></i>
-    <% end %>
-    <i class="far fa-times-circle delete-cross"></i>
-    <i class="fas fa-arrows-alt-v drag"></i>
-  </div>
+    <li class="draglist-box">
+      <p class="rank">6</p>
+      <%= image_tag 'party.png', class: 'picto party' %>
+      <p class="topic-name">Party</p>
+      <i class="far fa-times-circle delete-cross"></i>
+      <i class="fas fa-arrows-alt-v drag"></i>
+    </li>
 
-  <div class="draglist-box">
-    <p class="rank">7</p>
-    <%= image_tag 'personal.png', class: 'picto personal' %>
-    <p class="topic-name">Personal topic</p>
-    <i class="far fa-edit edit"></i>
-    <i class="far fa-times-circle delete-cross"></i>
-    <i class="fas fa-arrows-alt-v drag"></i>
-  </div>
+    <li class="draglist-box">
+      <p class="rank">7</p>
+      <%= image_tag 'personal.png', class: 'picto personal' %>
+      <p class="topic-name">Personal topic</p>
+      <% if user_signed_in? %>
+        <i class="far fa-edit edit"></i>
+      <% end %>
+      <i class="far fa-times-circle delete-cross"></i>
+      <i class="fas fa-arrows-alt-v drag"></i>
+    </li>
+  </ul>
 </div>

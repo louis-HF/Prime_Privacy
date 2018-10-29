@@ -36,6 +36,12 @@ $border-radius-small: 2px;
 $btn-font-weight: 100 !default;
 $btn-primary-color: $blue !default;
 
+// Dropdowns
+$dropdown-bg: $black;
+$dropdown-divider-bg: white !default;
+$dropdown-link-hover-color: white !default;
+$dropdown-link-hover-bg: $light-gray !default;
+$dropdown-link-active-bg: $gray-dark !default;
 
 // Patch to make simple_form compatible with bootstrap 3
 .invalid-feedback {

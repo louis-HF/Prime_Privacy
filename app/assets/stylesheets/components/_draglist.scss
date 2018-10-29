@@ -1,6 +1,6 @@
 .draglist-container {
   height: 100%;
-  width: 100%;
+  width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,7 +8,6 @@
 
 .draglist-box {
   height: 80px;
-  width: 50%;
   align-items: center;
   color: white;
   display: flex;
@@ -66,4 +65,21 @@
 i {
   font-size: 18px;
   vertical-align: middle;
+}
+
+.topic-list {
+  width: 50%;
+  list-style-type: none;
+}
+
+.topic-list li:first-child:hover {
+  border-top: 0.2px solid white;
+}
+
+.topic-list li:last-child {
+  border: none;
+}
+
+.topic-list li:last-child:hover {
+  border-bottom: 0.2px solid white;
 }

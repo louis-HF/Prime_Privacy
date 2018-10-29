@@ -19,7 +19,45 @@
 <div class="components">
   <h1>Components</h1>
   <h2> This is a navbar </h2>
-  <%= render 'shared/navbar' %>
+  <div class="navbar-prime">
+    <div class="navbar-prime-left hidden-xs hidden-sm">
+      <%= link_to "Prime Privacy", "/", class: "navbar-prime-title" %>
+    </div>
+
+    <%= link_to root_path, class: "navbar-prime-logo" do %>
+      <%= image_tag "logo.png" %>
+    <% end %>
+
+    <div class="navbar-prime-right">
+
+      <% if user_signed_in? %>
+        <div class="navbar-prime-item">
+          <div class="dropdown">
+            <%= image_tag "https://cdn0.iconfinder.com/data/icons/user-pictures/100/matureman1-512.png", class: "avatar dropdown-toggle", id: "navbar-prime-menu", "data-toggle" => "dropdown" %>
+            <ul class="dropdown-menu dropdown-menu-right navbar-prime-dropdown-menu">
+              <li>
+                <%= link_to "#" do %>
+                  <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to "#" do %>
+                  <i class="fa fa-cog"></i>  <%= t(".settings", default: "Settings") %>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to destroy_user_session_path, method: :delete do %>
+                  <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+                <% end %>
+              </li>
+            </ul>
+          </div>
+        </div>
+      <% else %>
+        <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-prime-item navbar-prime-link" %>
+      <% end %>
+    </div>
+  </div>
 
   <h2> This is a filter bar </h2>
   <%= render 'shared/filterbar' %>
@@ -28,6 +66,7 @@
   <%= render 'shared/draglist' %>
 
   <h2> This is a button </h2>
+  <br>
   <%= render 'shared/button' %>
 
   <h2> This is a social network bar </h2>
