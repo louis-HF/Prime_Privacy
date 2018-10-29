@@ -1,13 +1,10 @@
 .card {
-  height: 175px;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
-  background-size: cover !important;
-  background-position: center;
-  color: white;
-  position: relative;
-  border-radius: 3px;}
+ position: relative;
+ color: white;
+ height: 175px;
+}
 
-.card:hover {
+.post:hover {
   box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.3);
 }
 
@@ -46,7 +43,10 @@
 }
 
 .post{
-  h1{
+  height: 175px;
+  overflow: hidden;
+  border-radius: 3px;
+  h2{
     background-color: #4260B4;
     background-size: 50px 50px;
     color: white;
@@ -61,7 +61,6 @@
     margin-bottom: 0px;
     color: black;
     text-shadow: none;
-    height: 125px;
     font-size: medium;
   }
 }
@@ -70,13 +69,33 @@
   display: flex;
   padding: 1vh 1vw;
   align-items: center;
+   justify-content: space-around;
   height: 135px;
   overflow-y: scroll;
   background-color:  #E9EBEE;
 }
 
-.card-sensitive {
+.sensitive-card {
   height: 25px;
   width: 25px;
+  position: absolute;
+  bottom: -14px;
+  right: -14px;
+}
+
+.image{
+  height: 175px;
+  width: 100%;
+  background-size: cover !important;
+  background-position: center;
+  border-radius: 3px;
+}
+.image:hover {
+  box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.3);
+}
+
+.fa-thumbs-up{
+  color: black;
+  font-size: 40px
 }
 

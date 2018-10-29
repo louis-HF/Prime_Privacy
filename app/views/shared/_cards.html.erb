@@ -1,17 +1,18 @@
 <div class="container" id="container-cards">
   <div class="row">
     <div class="col-xs-12 col-sm-4 col-md-3">
-      <div class="card" style="background-image: url('https://images.unsplash.com/photo-1493078640264-28e9ec0ae9ae?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1679b9338ca51be3405097747df3d6cd&auto=format&fit=crop&w=1050&q=80s');" >
+      <div class="card">
         <div class="checkbox">
           <form action="/components">
              <input type="checkbox" value="selected" id="selection-number?">
              <label for="selection-number?">Select</label>
-           </form>
+          </form>
         </div>
+        <div class="image" style="background-image: url('https://images.unsplash.com/photo-1493078640264-28e9ec0ae9ae?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1679b9338ca51be3405097747df3d6cd&auto=format&fit=crop&w=1050&q=80s');" ></div>
       </div>
     </div>
     <div class="col-xs-12 col-sm-4 col-md-3">
-      <div class="card" style="background-color: #E9EBEE;" >
+      <div class="card" >
         <div class="checkbox">
           <form action="/components">
            <input type="checkbox" value="selected" id="selection-2">
@@ -19,51 +20,43 @@
           </form>
         </div>
         <div class="post">
-          <h1> Post</h1>
+          <h2> Post</h2>
           <div class="post-content">
             <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.u caractères de votre document, que ce soit un curriculum vitae, une brochure, une lettre de candidature, une thèse, un doctorat, un travail de recherchesss,</p>
           </div>
-          <%=image_tag "warning.png", class:"sensitive-card" %>
+          <%=image_tag "warning.svg", class:"sensitive-card" %>
         </div>
       </div>
     </div>
 
     <div class="col-xs-12 col-sm-4 col-md-3">
-      <div class="card" style="background-image: url('https://images.unsplash.com/photo-1493078640264-28e9ec0ae9ae?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1679b9338ca51be3405097747df3d6cd&auto=format&fit=crop&w=1050&q=80s');" >
+      <div class="card" >
         <div class="checkbox">
           <form action="/components">
-           <input type="checkbox" value="selected" id="selection-number?">
-           <label for="selection-number?">Select</label>
+           <input type="checkbox" value="selected" id="selection-3">
+           <label for="selection-3">Select</label>
           </form>
         </div>
+        <div class="image" style="background-image: url('https://images.unsplash.com/photo-1493078640264-28e9ec0ae9ae?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1679b9338ca51be3405097747df3d6cd&auto=format&fit=crop&w=1050&q=80s');" ></div>
+        <%=image_tag "warning.svg", class:"sensitive-card" %>
       </div>
     </div>
-
     <div class="col-xs-12 col-sm-4 col-md-3">
-      <div class="card" style="background-color: green;" >
-        <div class="checkbox">
-          <form action="/components">
-             <input type="checkbox" value="selected" id="selection-number3">
-             <label for="selection-number3">Select</label>
-          </form>
+      <div class="card" >
+          <div class="checkbox">
+            <form action="/components">
+             <input type="checkbox" value="selected" id="selection-4">
+             <label for="selection-4">Select</label>
+            </form>
+          </div>
           <div class="post">
-
-            <h1> Post</h1>
+            <h2> Post</h2>
             <div class="post-content">
-              <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.u caractères de votre document, que ce soit un curriculum vitae, une brochure, une lettre de candidature, une thèse, un doctorat, un travail de recherchesss,</p>
+              <i class="far fa-thumbs-up"></i>
+              <p>La dechetterie</p>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="col-xs-12 col-sm-4 col-md-3">
-      <div class="card" style="background-color: green;" >
-        <div class="checkbox">
-          <form action="/components">
-             <input type="checkbox" value="selected" id="selection-number3">
-             <label for="selection-number3">Select</label>
-           </form>
-        </div>
-    </div>
   </div>
 </div>
