@@ -6,8 +6,9 @@
   color: $blue;
   background-color: $black;
   border: 2px solid $blue;
-  margin: 2px;
+  margin: 10px;
   transition: 0.4s;
+  display: block;
   box-shadow: 2px 4px 3px rgba(0, 0, 0, 0.4);
 }
 
@@ -40,3 +41,22 @@
   background-color: white;
 }
 
+.btn-black-and-blue-thin {
+  text-decoration: none;
+  padding: 10px 35px;
+  border-radius: 5px;
+  font-weight: bold;
+  color: $blue;
+  background-color: $black;
+  border: 2px solid $blue;
+  margin: 2px;
+  transition: 0.4s;
+  box-shadow: 2px 4px 3px rgba(0, 0, 0, 0.4);
+}
+
+.btn-black-and-blue-thin:hover {
+  text-decoration: none;
+  transition: 0.4s;
+  color: white;
+  border: 2px solid white;
+}
