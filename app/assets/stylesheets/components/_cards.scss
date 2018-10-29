@@ -5,52 +5,78 @@
   background-position: center;
   color: white;
   position: relative;
-  background-image: url('https://images.unsplash.com/photo-1493078640264-28e9ec0ae9ae?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1679b9338ca51be3405097747df3d6cd&auto=format&fit=crop&w=1050&q=80s');
-  border-radius: 3px;
-}
-.card-tick {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  width: 40px;
-  border-radius: 5px;
-  width:20px;
-  height:20px;
-  text-decoration:none;
-  color:white;
-  text-align:center;
-  font-weight:bold;
-  background-color:white;
-  padding:5px;
+  border-radius: 3px;}
+
+.card:hover {
+  box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.3);
 }
 
-.card-description {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-}
-.card-description h2 {
-  font-size: 24px;
-}
-.card-description p {
-  font-size: 14px;
-  opacity: 0.7;
-  font-weight: lighter;
-}
-.card-link {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  z-index: 2;
-  background: black;
-  opacity: 0;
-}
-.card-link:hover {
-  opacity: 0.1;
-}
 .row{
   margin-top: 20px;
   margin-bottom: 300px;
 }
+
+
+#container-cards {
+  input[type=checkbox]{
+    display:none ;
+  }
+
+  input[type=checkbox] + label{
+    background-image: asset-url("square-regular.svg");
+    background-repeat: no-repeat;
+    background-position: 95% 49%;
+    padding-right: 35px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 3px;
+    padding-left: 3px;
+    background-size: 20px 20px;
+    color: black;
+    text-shadow: none;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+
+  }
+
+  input[type=checkbox]:checked + label {
+    background-image: asset-url("check-square-regular.svg");
+
+  }
+}
+
+.post{
+  h1{
+    background-color: #4260B4;
+    background-size: 50px 50px;
+    color: white;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 20px;
+    height: 40px;
+    padding-top: 11px;
+    padding-left: 10px;
+  }
+  p {
+    margin-bottom: 0px;
+    color: black;
+    text-shadow: none;
+    height: 125px;
+    font-size: medium;
+  }
+}
+
+.post-content{
+  display: flex;
+  padding: 1vh 1vw;
+  align-items: center;
+  height: 135px;
+  overflow-y: scroll;
+  background-color:  #E9EBEE;
+}
+
+.card-sensitive {
+  height: 25px;
+  width: 25px;
+}
+
