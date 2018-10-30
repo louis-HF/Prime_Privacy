@@ -1,68 +1,73 @@
 
 
 <div class="row">
-  <div class="hidden-xs hidden-sm icons-md">
-    <div class="facebook-icon social-network-logo">
-      <%= image_tag 'facebook-logo.png', class: 'logo' %>
-      <% if !current_user.facebook_token.nil? %>
-      <%= image_tag "success.png", class: 'validate'%>
-      <% else %>
-      <%= image_tag "error.png", class: 'validate' %>
-      <% end %>
-    </div>
-    <div class="twitter-icon social-network-logo">
-      <%= image_tag 'twitter-logo.png', class: 'logo'%>
-      <% if !current_user.twitter_token.nil? %>
-      <%= image_tag "success.png", class: 'validate'%>
-      <% else %>
-      <%= image_tag "error.png", class: 'validate' %>
-      <% end %>
-    </div>
-    <div class="instagram-icon social-network-logo">
-      <%= image_tag 'instagram-logo.png', class: 'logo'%>
-      <%= image_tag "error.png", class: 'validate' %>
-    </div>
-    <div class="linkedin-icon social-network-logo">
-      <%= image_tag 'linkedin-logo.png', class: 'logo'%>
-      <%= image_tag "error.png", class: 'validate' %>
-    </div>
-    <div class="google-plus-icon social-network-logo">
-      <%= image_tag 'google-plus-logo.png', class: 'logo'%>
-      <%= image_tag "error.png", class: 'validate' %>
-    </div>
-  </div>
-
-
-  <div class="hidden-md hidden-lg">
-    <div class="facebook-icon social-network-logo">
-      <%= image_tag 'facebook-logo.png', class: 'logo-small' %>
-      <% if !current_user.facebook_token.nil? %>
-      <%= image_tag "success.png", class: 'validate-small'%>
-      <% else %>
-      <%= image_tag "error.png", class: 'validate-small' %>
-      <% end %>
-    </div>
-    <div class="twitter-icon social-network-logo">
-      <%= image_tag 'twitter-logo.png', class: 'logo-small'%>
-      <% if !current_user.twitter_token.nil? %>
-      <%= image_tag "success.png", class: 'validate-small'%>
-      <% else %>
-      <%= image_tag "error.png", class: 'validate-small' %>
-      <% end %>
-    </div>
-    <div class="instagram-icon social-network-logo">
-      <%= image_tag 'instagram-logo.png', class: 'logo-small'%>
-      <%= image_tag "error.png", class: 'validate-small' %>
-    </div>
-    <div class="linkedin-icon social-network-logo">
-      <%= image_tag 'linkedin-logo.png', class: 'logo-small'%>
-      <%= image_tag "error.png", class: 'validate-small' %>
-    </div>
-    <div class="google-plus-icon social-network-logo">
-      <%= image_tag 'google-plus-logo.png', class: 'logo-small'%>
-      <%= image_tag "error.png", class: 'validate-small' %>
+  <div class="banner-icons">
+    <% if current_user.facebook_token.nil? && current_user.twitter_token.nil? %>
+      <h3 margin>First, let's connect the account(s) you want to clean: </h3>
+    <% end %>
+    <div class="hidden-xs icons">
+      <div class="facebook-icon social-network-logo">
+        <%= image_tag 'facebook-logo.png', class: 'logo' %>
+        <% if !current_user.facebook_token.nil? %>
+        <%= image_tag "success.png", class: 'validate'%>
+        <% else %>
+        <a href="#" ><%= image_tag "add.png", class: 'validate' %></a>
+        <% end %>
+      </div>
+      <div class="twitter-icon social-network-logo">
+        <%= image_tag 'twitter-logo.png', class: 'logo'%>
+        <% if !current_user.twitter_token.nil? %>
+        <%= image_tag "success.png", class: 'validate'%>
+        <% else %>
+        <a href="#" ><%= image_tag "add.png", class: 'validate' %></a>
+        <% end %>
+      </div>
+      <div class="instagram-icon social-network-logo">
+        <%= image_tag 'instagram-logo.png', class: 'logo'%>
+        <a href="#" ><%= image_tag "add.png", class: 'validate' %></a>
+      </div>
+      <div class="linkedin-icon social-network-logo">
+        <%= image_tag 'linkedin-logo.png', class: 'logo'%>
+        <a href="#" ><%= image_tag "add.png", class: 'validate' %></a>
+      </div>
+      <div class="google-plus-icon social-network-logo">
+        <%= image_tag 'google-plus-logo.png', class: 'logo'%>
+        <a href="#" ><%= image_tag "add.png", class: 'validate' %></a>
+      </div>
     </div>
 
+
+    <div class="hidden-sm hidden-md hidden-lg icons">
+      <div class="facebook-icon social-network-logo">
+        <%= image_tag 'facebook-logo.png', class: 'logo-small' %>
+        <% if !current_user.facebook_token.nil? %>
+        <%= image_tag "success.png", class: 'validate-small'%>
+        <% else %>
+        <a href="#" ><%= image_tag "add.png", class: 'validate-small' %></a>
+        <% end %>
+      </div>
+      <div class="twitter-icon social-network-logo">
+        <%= image_tag 'twitter-logo.png', class: 'logo-small'%>
+        <% if !current_user.twitter_token.nil? %>
+        <%= image_tag "success.png", class: 'validate-small'%>
+        <% else %>
+        <a href="#" ><%= image_tag "add.png", class: 'validate-small' %></a>
+        <% end %>
+      </div>
+      <div class="instagram-icon social-network-logo">
+        <%= image_tag 'instagram-logo.png', class: 'logo-small'%>
+        <a href="#" ><%= image_tag "add.png", class: 'validate-small' %></a>
+      </div>
+      <div class="linkedin-icon social-network-logo">
+        <%= image_tag 'linkedin-logo.png', class: 'logo-small'%>
+        <a href="#" ><%= image_tag "add.png", class: 'validate-small' %></a>
+      </div>
+      <div class="google-plus-icon social-network-logo">
+        <%= image_tag 'google-plus-logo.png', class: 'logo-small'%>
+        <a href="#" ><%= image_tag "add.png", class: 'validate-small' %></a>
+      </div>
+
+    </div>
   </div>
 </div>
 

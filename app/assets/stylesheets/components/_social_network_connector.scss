@@ -11,9 +11,35 @@
   position: absolute;
   bottom: 0px;
   right: 0px;
+  background-color: white;
+  border-radius: 50%
 }
 
-.icons-md {
+.icons {
   display: flex;
   justify-content: space-around;
+}
+
+.logo-small {
+  width: 70px;
+  height: 70px;
+}
+
+
+.validate-small {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  background-color: white;
+  border-radius: 50%
+}
+
+
+.banner-icons {
+  background-color: white;
+  border-radius: 5px;
+  margin: 20px;
+  padding: 10px;
 }
