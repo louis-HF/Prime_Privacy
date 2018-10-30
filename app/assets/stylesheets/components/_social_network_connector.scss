@@ -1,7 +1,3 @@
-.social-network-connector {
-  display: flex;
-  justify-content: space-around;
-}
 
 .social-network-logo {
   margin: 10px;
@@ -15,4 +11,9 @@
   position: absolute;
   bottom: 0px;
   right: 0px;
+}
+
+.icons-md {
+  display: flex;
+  justify-content: space-around;
 }

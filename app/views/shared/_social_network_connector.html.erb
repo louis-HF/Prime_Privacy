@@ -1,30 +1,69 @@
-<div class="social-network-connector">
-  <div class="facebook-icon social-network-logo">
-    <%= image_tag 'facebook-logo.png', class: 'logo' %>
-    <% if !current_user.facebook_token.nil? %>
-    <%= image_tag "success.png", class: 'validate'%>
-    <% else %>
-    <%= image_tag "error.png", class: 'validate' %>
-    <% end %>
+
+
+<div class="row">
+  <div class="hidden-xs hidden-sm icons-md">
+    <div class="facebook-icon social-network-logo">
+      <%= image_tag 'facebook-logo.png', class: 'logo' %>
+      <% if !current_user.facebook_token.nil? %>
+      <%= image_tag "success.png", class: 'validate'%>
+      <% else %>
+      <%= image_tag "error.png", class: 'validate' %>
+      <% end %>
+    </div>
+    <div class="twitter-icon social-network-logo">
+      <%= image_tag 'twitter-logo.png', class: 'logo'%>
+      <% if !current_user.twitter_token.nil? %>
+      <%= image_tag "success.png", class: 'validate'%>
+      <% else %>
+      <%= image_tag "error.png", class: 'validate' %>
+      <% end %>
+    </div>
+    <div class="instagram-icon social-network-logo">
+      <%= image_tag 'instagram-logo.png', class: 'logo'%>
+      <%= image_tag "error.png", class: 'validate' %>
+    </div>
+    <div class="linkedin-icon social-network-logo">
+      <%= image_tag 'linkedin-logo.png', class: 'logo'%>
+      <%= image_tag "error.png", class: 'validate' %>
+    </div>
+    <div class="google-plus-icon social-network-logo">
+      <%= image_tag 'google-plus-logo.png', class: 'logo'%>
+      <%= image_tag "error.png", class: 'validate' %>
+    </div>
   </div>
-  <div class="twitter-icon social-network-logo">
-    <%= image_tag 'twitter-logo.png', class: 'logo'%>
-    <% if !current_user.twitter_token.nil? %>
-    <%= image_tag "success.png", class: 'validate'%>
-    <% else %>
-    <%= image_tag "error.png", class: 'validate' %>
-    <% end %>
-  </div>
-  <div class="instagram-icon social-network-logo">
-    <%= image_tag 'instagram-logo.png', class: 'logo'%>
-    <%= image_tag "error.png", class: 'validate' %>
-  </div>
-  <div class="linkedin-icon social-network-logo">
-    <%= image_tag 'linkedin-logo.png', class: 'logo'%>
-    <%= image_tag "error.png", class: 'validate' %>
-  </div>
-  <div class="google-plus-icon social-network-logo">
-    <%= image_tag 'google-plus-logo.png', class: 'logo'%>
-    <%= image_tag "error.png", class: 'validate' %>
+
+
+  <div class="hidden-md hidden-lg">
+    <div class="facebook-icon social-network-logo">
+      <%= image_tag 'facebook-logo.png', class: 'logo' %>
+      <% if !current_user.facebook_token.nil? %>
+      <%= image_tag "success.png", class: 'validate'%>
+      <% else %>
+      <%= image_tag "error.png", class: 'validate' %>
+      <% end %>
+    </div>
+    <div class="twitter-icon social-network-logo">
+      <%= image_tag 'twitter-logo.png', class: 'logo'%>
+      <% if !current_user.twitter_token.nil? %>
+      <%= image_tag "success.png", class: 'validate'%>
+      <% else %>
+      <%= image_tag "error.png", class: 'validate' %>
+      <% end %>
+    </div>
+    <div class="instagram-icon social-network-logo">
+      <%= image_tag 'instagram-logo.png', class: 'logo'%>
+      <%= image_tag "error.png", class: 'validate' %>
+    </div>
+    <div class="linkedin-icon social-network-logo">
+      <%= image_tag 'linkedin-logo.png', class: 'logo'%>
+      <%= image_tag "error.png", class: 'validate' %>
+    </div>
+    <div class="google-plus-icon social-network-logo">
+      <%= image_tag 'google-plus-logo.png', class: 'logo'%>
+      <%= image_tag "error.png", class: 'validate' %>
+    </div>
+
   </div>
 </div>
+
+
