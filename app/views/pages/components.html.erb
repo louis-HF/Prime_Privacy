@@ -1,11 +1,88 @@
-<h1> This is a Navbar </h1>
-<%= render 'shared/navbar' %>
-<h1> This is a banner </h1>
-<%= render 'shared/banner' %>
-<h1> Those are cards </h1>
-<%= render 'shared/cards' %>
-<h1> This is a button </h1>
-<%= render 'shared/button' %>
-<h1> This is a social network bar </h1>
-<%= render 'shared/social_network_connector' %>
+<div class="styleguide">
+  <h1>Styleguide</h1>
+  <h1>This is a h1</h1>
+  <h2>This is a h2</h2>
+  <h3>This is a h3</h3>
+  <h4>This is a h4</h4>
+
+  <p>This is a paragraphe</p>
+
+  <h2>This is our logo</h2>
+  <div class="bg-black" >
+    <%= link_to root_path, class: "navbar-prime-logo" do %>
+      <%= image_tag "logo.png" %>
+    <% end %>
+    <font color="white">... on a black background</font>
+  </div>
+</div>
+
+<div class="components">
+  <h1>Components</h1>
+  <h2> This is a navbar </h2>
+  <div class="navbar-prime">
+    <div class="navbar-prime-left hidden-xs">
+      <%= link_to "Prime Privacy", "/", class: "navbar-prime-title" %>
+    </div>
+
+    <%= link_to root_path, class: "navbar-prime-logo page-center" do %>
+      <%= image_tag "logo.png" %>
+    <% end %>
+
+    <div class="navbar-prime-right">
+
+      <% if user_signed_in? %>
+        <div class="navbar-prime-item">
+          <div class="dropdown">
+            <%= image_tag "https://cdn0.iconfinder.com/data/icons/user-pictures/100/matureman1-512.png", class: "avatar dropdown-toggle", id: "navbar-prime-menu", "data-toggle" => "dropdown" %>
+            <ul class="dropdown-menu dropdown-menu-right navbar-prime-dropdown-menu">
+              <li>
+                <%= link_to "#" do %>
+                  <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to "#" do %>
+                  <i class="fa fa-cog"></i>  <%= t(".settings", default: "Settings") %>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to destroy_user_session_path, method: :delete do %>
+                  <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+                <% end %>
+              </li>
+            </ul>
+          </div>
+        </div>
+      <% else %>
+        <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-prime-item navbar-prime-link" %>
+      <% end %>
+    </div>
+  </div>
+
+  <h2> This is a filter bar </h2>
+  <%= render 'shared/filterbar' %>
+
+  <h2> This is a draglist box </h2>
+  <%= render 'shared/draglist' %>
+
+  <h2> This is an imput box </h2>
+  <%= render 'shared/inputbox' %>
+
+  <h2> This is a button </h2>
+  <br>
+  <%= render 'shared/button' %>
+
+  <h2> This is a social network bar </h2>
+  <%= render 'shared/social_network_connector' %>
+  <h2> This is a banner </h2>
+  <%= render 'shared/banner' %>
+  <h2> Those are cards </h2>
+  <%= render 'shared/cards' %>
+
+  <h2> This is a background texture </h2>
+  <div class="bg-texture"></div>
+</div>
+
+
+
 

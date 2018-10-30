@@ -1,4 +1,5 @@
 #temporary seeds
+
 user = User.last
 
 Content.create(user: user, external_provider: "facebook", external_id: 1, external_created_date: "2018-09-19", external_edit_date: nil, external_deleted_date: nil, file_type: "image", selected: false, coef_total: 0, scan_date: "2018-09-19", url_image: 'https://images.unsplash.com/photo-1493078640264-28e9ec0ae9ae?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1679b9338ca51be3405097747df3d6cd&auto=format&fit=crop&w=1050&q=80s', text_publication: nil)
