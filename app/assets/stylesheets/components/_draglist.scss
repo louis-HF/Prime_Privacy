@@ -1,0 +1,85 @@
+.draglist-container {
+  height: 100%;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.draglist-box {
+  height: 80px;
+  align-items: center;
+  color: white;
+  display: flex;
+  border-bottom: 0.2px solid white;
+  position: relative;
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.draglist-box:hover {
+  box-shadow: 0 10px  rgba(255, 255, 255,0.25), 0 5px rgba(255, 255, 255,0.22),  0 -10px rgba(255, 255, 255,0.25), 0 -5px rgba(255, 255, 255,0.22);
+}
+
+.draglist-box p {
+  margin-bottom: 0px;
+}
+
+.picto {
+  width: 30px;
+  height: 30px;
+  margin-left: 60px;
+  margin-right: 40px;
+  color: white;
+}
+
+.rank {
+  background-color: white;
+  border-radius: 50%;
+  color: $black;
+  height: 30px;
+  width: 30px;
+  font-weight: 500;
+  text-align: center;
+  padding-top: 5px;
+  position: absolute;
+  left: 10px;
+}
+
+.drag {
+  background-repeat: no-repeat;
+  position: absolute;
+  right: 20px;
+  font-size: 24px;
+}
+
+.edit{
+  position: absolute;
+  right: 80px;
+}
+
+.delete-cross {
+  position: absolute;
+  right: 60px;
+}
+
+i {
+  font-size: 18px;
+  vertical-align: middle;
+}
+
+.topic-list {
+  width: 50%;
+  list-style-type: none;
+}
+
+.topic-list li:first-child:hover {
+  border-top: 0.2px solid white;
+}
+
+.topic-list li:last-child {
+  border: none;
+}
+
+.topic-list li:last-child:hover {
+  border-bottom: 0.2px solid white;
+}

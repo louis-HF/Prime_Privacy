@@ -1,4 +1,4 @@
-<div class="navbar-prime">
+<div class="navbar-prime navbar-fixed-top">
   <!-- Left Navigation -->
   <div class="navbar-prime-left hidden-xs hidden-sm">
     <%= link_to "Prime Privacy", "/", class: "navbar-prime-title" %>
@@ -10,12 +10,11 @@
   <% end %>
 
   <!-- Right Navigation -->
-  <div class="navbar-prime-right hidden-xs hidden-sm">
+  <div class="navbar-prime-right">
 
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "Sign in", "#", class: "navbar-prime-item navbar-prime-link" %>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-prime-item">
@@ -23,18 +22,18 @@
           <%= image_tag "https://cdn0.iconfinder.com/data/icons/user-pictures/100/matureman1-512.png", class: "avatar dropdown-toggle", id: "navbar-prime-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-prime-dropdown-menu">
             <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+              <%= link_to userdashboard_path do %>
+                <i class="fa fa-user"></i> <%= t(".profile", default: "Dashboard") %>
               <% end %>
             </li>
             <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-cog"></i>  <%= t(".settings", default: "Settings") %>
+              <%= link_to edit_user_registration_path do %>
+                <i class="fa fa-cog"></i>  <%= t(".settings", default: "Edit account") %>
               <% end %>
             </li>
             <li>
               <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+                <i class="fas fa-sign-out-alt"></i> <%= t(".sign_out", default: "Log out") %>
               <% end %>
             </li>
           </ul>
@@ -44,18 +43,6 @@
       <!-- Login link (when logged out) -->
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-prime-item navbar-prime-link" %>
     <% end %>
-  </div>
-
-  <!-- Dropdown list appearing on mobile only -->
-  <div class="navbar-prime-item hidden-md hidden-lg">
-    <div class="dropdown">
-      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
-      <ul class="dropdown-menu dropdown-menu-right navbar-prime-dropdown-menu">
-        <li><a href="#">Some mobile link</a></li>
-        <li><a href="#">Other one</a></li>
-        <li><a href="#">Other one</a></li>
-      </ul>
-    </div>
   </div>
 </div>
 
