@@ -1,4 +1,82 @@
-<p> here is the content </p>
+<div class="container" id="container-cards">
+
+  <h2> Facebook Images </h2>
+  <div class="row">
+    <% @facebook_images.each do |publication| %>
+      <div class="col-xs-12 col-sm-4 col-md-3">
+        <div class="card">
+          <div class="checkbox">
+            <form action="/components">
+               <input type="checkbox" value="selected" id="selection - #{<%= publication.id %>}">
+               <label for="selection - #{<%= publication.id %>}">Select</label>
+            </form>
+          </div>
+          <div class="image" style="background-image: url(<%=publication.url_image%>);" ></div>
+          <% if publication.coef_total > 0 %>
+          <%=image_tag "warning.svg", class:"sensitive-card" %>
+          <%end%>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <h2> Facebook Posts </h2>
+  <div class="row">
+    <% @facebook_posts.each do |publication| %>
+      <div class="col-xs-12 col-sm-4 col-md-3">
+        <div class="card">
+          <div class="checkbox">
+            <form action="/components">
+               <input type="checkbox" value="selected" id="selection - #{<%= publication.id %>}">
+               <label for="selection - #{<%= publication.id %>}">Select</label>
+            </form>
+          </div>
+          <div class="post">
+            <h2> Post</h2>
+            <div class="post-content">
+              <p><%= publication.text_publication %></p>
+            </div>
+          </div>
+          <% if publication.coef_total > 0 %>
+          <%=image_tag "warning.svg", class:"sensitive-card" %>
+          <%end%>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <h2> Facebook Likes </h2>
+  <div class="row">
+    <% @facebook_likes.each do |publication| %>
+      <div class="col-xs-12 col-sm-4 col-md-3">
+        <div class="card" >
+            <div class="checkbox">
+              <form action="/components">
+               <input type="checkbox" value="selected" id="selection-4">
+               <label for="selection-4">Select</label>
+              </form>
+            </div>
+            <div class="post">
+              <h2> Post</h2>
+              <div class="like-content">
+                <i class="far fa-thumbs-up"></i>
+                <p><%= publication.text_publication %></p>
+              </div>
+              <% if publication.coef_total > 0 %>
+              <%=image_tag "warning.svg", class:"sensitive-card" %>
+              <%end%>
+            </div>
+          </div>
+      </div>
+    <% end %>
+  </div>
+
+</div>
+
+
+
+
+
 
 <!-- Button trigger modal -->
 <button type="button" class="btn-black-and-blue" data-toggle="modal" data-target="#exampleModal">

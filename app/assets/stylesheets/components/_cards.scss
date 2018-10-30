@@ -52,22 +52,35 @@
     padding-top: 11px;
     padding-left: 10px;
   }
+}
+
+.post-content{
+  height: 135px;
+  overflow-y: scroll;
+  background-color:  #E9EBEE;
+  p {
+    margin-bottom: 0px;
+    color: black;
+    text-shadow: none;
+    font-size: medium;
+    padding: 5px 5px;
+  }
+}
+
+.like-content{
+  display: flex;
+  padding: 1vh 1vw;
+  align-items: center;
+  justify-content: space-around;
+  height: 135px;
+  overflow-y: scroll;
+  background-color:  #E9EBEE;
   p {
     margin-bottom: 0px;
     color: black;
     text-shadow: none;
     font-size: medium;
   }
-}
-
-.post-content{
-  display: flex;
-  padding: 1vh 1vw;
-  align-items: center;
-   justify-content: space-around;
-  height: 135px;
-  overflow-y: scroll;
-  background-color:  #E9EBEE;
 }
 
 .sensitive-card {
