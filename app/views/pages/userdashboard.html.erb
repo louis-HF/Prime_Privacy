@@ -1,9 +1,44 @@
 <div class="container">
   <%= render 'shared/social_network_connector' %>
-  <div class="row text-center marginud">
+  <div class="row text-center large-margin">
     <%= link_to "Hide your data", loadingpage_path, class: "btn-black-and-blue"%>
   </div>
-  <div class="banneruserdashboard">
-
-  </div>
+  <% if !Userstatistique.where(user: current_user).empty? %>
+    <div class="banneruserdashboard">
+      <div class="row">
+        <div class="timestats">
+          <% if !current_user.facebook_token.nil? && !current_user.twitter_token.nil? %>
+            <div class="col-xs-12 col-sm-6"><%= render 'shared/fbstats' %></div>
+            <div class="col-xs-12 col-sm-6"><%= render 'shared/twstats' %></div>
+          <% elsif !current_user.facebook_token.nil? && current_user.twitter_token.nil? %>
+            <div class="col-xs-12 col-sm-6 col-sm-offset-3"><%= render 'shared/fbstats' %></div>
+          <% elsif current_user.facebook_token.nil? && !current_user.twitter_token.nil? %>
+            <div class="col-xs-12 col-sm-6 col-sm-offset-3"><%= render 'shared/twstats' %></div>
+          <%end%>
+        </div>
+      </div>
+      <div class="row">
+        <div class="past-hidings">
+          <h3>Past changes:</h3>
+          <% Userstatistique.where(user: current_user).each do |stat| %>
+            <div class="statlign">
+                <% if stat.tw_photo_public == 0 && stat.tw_post_public == 0 && stat.tw_likes_public == 0 %>
+                  <i class="logo fab fa-facebook-square"></i>
+                <% elsif stat.fb_photo_public == 0 && stat.fb_post_public == 0 && stat.fb_likes_public == 0 %>
+                  <i class="logo fab fa-twitter-square"></i>
+                <%else%>
+                  <p class="logo"><i class="fab fa-facebook-square"></i> <i class="fab fa-twitter-square"></i></p>
+                <%end%>
+              <div class="datelog">
+                <%= stat.date.to_time.strftime('%B %e, %Y') %>
+              </div>
+              <p class="publicnumber hidden-xs"><%= stat.fb_photo_public + stat.fb_post_public + stat.fb_likes_public + stat.tw_post_public + stat.tw_likes_public + stat.tw_photo_public%> public elements</p>
+              <p class="sensitivenumber hidden-xs"><%= stat.fb_photo_public_sensitive + stat.fb_post_public_sensitive + stat.fb_likes_public_sensitive + stat.tw_post_public_sensitive + stat.tw_likes_public_sensitive + stat.tw_photo_public_sensitive %> sensitive elements</p>
+              <div class="seedashb"> <%= link_to "see dashboard", datadashboard_path, class: "btn-white-and-blue"%></div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <%end%>
 </div>

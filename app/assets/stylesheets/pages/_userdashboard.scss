@@ -1,8 +1,53 @@
 .banneruserdashboard {
   background-color: white;
   border-radius: 5px;
+  padding: 15px;
 }
 
-.marginud {
-  margin: 20px;
+.large-margin {
+  margin: 30px;
+  margin-bottom: 50px;
+}
+
+.statlign {
+  display: flex;
+  position: relative;
+  margin-top: 35px;
+  align-items: center;
+}
+
+.datelog {
+  position: absolute;
+  left: 40px;
+}
+
+.past-hidings {
+  padding: 15px;
+}
+
+.publicnumber {
+  position: absolute;
+  left: 190px;
+}
+
+.sensitivenumber {
+  position: absolute;
+  left: 330px;
+}
+
+.seedashb {
+  position: absolute;
+  right: 0px;
+}
+
+.fa-facebook-square {
+  color: #3B5998;
+}
+
+.fa-twitter-square {
+  color: #55ACEE;
+}
+
+.logo {
+  margin-bottom: 0px;
 }
