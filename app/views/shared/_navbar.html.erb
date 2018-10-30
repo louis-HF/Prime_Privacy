@@ -22,13 +22,13 @@
           <%= image_tag "https://cdn0.iconfinder.com/data/icons/user-pictures/100/matureman1-512.png", class: "avatar dropdown-toggle", id: "navbar-prime-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-prime-dropdown-menu">
             <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+              <%= link_to userdashboard_path do %>
+                <i class="fa fa-user"></i> <%= t(".profile", default: "Dashboard") %>
               <% end %>
             </li>
             <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-cog"></i>  <%= t(".settings", default: "Settings") %>
+              <%= link_to edit_user_registration_path do %>
+                <i class="fa fa-cog"></i>  <%= t(".settings", default: "Edit account") %>
               <% end %>
             </li>
             <li>
