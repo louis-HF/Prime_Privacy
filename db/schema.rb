@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_25_160215) do
+ActiveRecord::Schema.define(version: 2018_10_30_110835) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,13 +30,15 @@ ActiveRecord::Schema.define(version: 2018_10_25_160215) do
     t.date "external_created_date"
     t.date "external_edit_date"
     t.date "external_deleted_date"
-    t.string "type"
+    t.string "file_type"
     t.boolean "selected"
     t.integer "coef_total"
     t.bigint "user_id"
     t.date "scan_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "text_publication"
+    t.string "url_image"
     t.index ["user_id"], name: "index_contents_on_user_id"
   end
 
