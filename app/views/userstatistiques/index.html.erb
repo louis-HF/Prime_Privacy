@@ -3,7 +3,7 @@
   <div class="row text-center large-margin">
     <%= link_to "Hide your data", loadingpage_path, class: "btn-black-and-blue"%>
   </div>
-  <% if !Userstatistique.where(user: current_user).empty? %>
+  <% if !@userstatistiques.empty? %>
     <div class="banneruserdashboard">
       <div class="row">
         <div class="timestats">
@@ -20,7 +20,7 @@
       <div class="row">
         <div class="past-hidings">
           <h3>Past changes:</h3>
-          <% Userstatistique.where(user: current_user).each do |stat| %>
+          <% @userstatistiques.each do |stat| %>
             <div class="statlign">
                 <% if stat.tw_photo_public == 0 && stat.tw_post_public == 0 && stat.tw_likes_public == 0 %>
                   <i class="logo-soc fab fa-facebook-square"></i>
