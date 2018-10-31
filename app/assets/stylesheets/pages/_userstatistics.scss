@@ -1,6 +1,4 @@
-.banneruserdashboard {
-  background-color: white;
-  border-radius: 5px;
+.pc-twist {
   padding: 15px;
 }
 
@@ -55,15 +53,8 @@
 
 .cards-icon {
   box-shadow: 2px 4px 3px rgba(0, 0, 0, 0.4);
-}
-
-.banner-data {
-  background-color: white;
-  margin-top: 10px;
-}
-
-.datapubandsens {
-  margin: 15px;
+  height: 150px;
+  margin-top: 15px;
 }
 
 .bold {
@@ -79,4 +70,25 @@
   background-color: $light-gray;
   height: 3px;
   margin: 15px;
+}
+
+.marginleft {
+  margin-left: 15px;
+}
+
+.datapubandsens {
+  margin: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.datatext {
+    p {
+      margin: 0;
+    }
+}
+
+.smallermargin {
+  margin: 0;
 }

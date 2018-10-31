@@ -1,10 +1,10 @@
 <div class="container">
   <%= render 'shared/social_network_connector' %>
-  <div class="row text-center large-margin">
+  <div class="row text-center">
     <%= link_to "Hide your data", loadingpage_path, class: "btn-black-and-blue"%>
   </div>
   <% if !@userstatistics.empty? %>
-    <div class="banneruserdashboard">
+    <div class="prime-container pc-twist">
       <div class="row">
         <div class="timestats">
           <% if !current_user.facebook_token.nil? && !current_user.twitter_token.nil? %>
@@ -22,9 +22,9 @@
           <h3>Past changes:</h3>
           <% @userstatistics.each do |stat| %>
             <div class="statlign">
-                <% if total_tw_public == 0 %>
+                <% if stat.total_tw_public == 0 %>
                   <i class="logo-soc fab fa-facebook-square"></i>
-                <% elsif total_fb_public == 0 %>
+                <% elsif stat.total_fb_public == 0 %>
                   <i class="logo-soc fab fa-twitter-square"></i>
                 <%else%>
                   <p class="logo-soc"><i class="fab fa-facebook-square"></i> <i class="fab fa-twitter-square"></i></p>
