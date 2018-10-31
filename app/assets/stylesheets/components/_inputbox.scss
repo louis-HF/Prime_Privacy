@@ -6,12 +6,7 @@
 .topic-form {
   display: flex;
   justify-content: center;
-  padding-bottom: 30px;
-}
-
-.topic-form-title {
-  text-align: center;
-  padding: 10px;
+  padding-bottom: 80px;
 }
 
 .input-box-topic {
@@ -19,7 +14,8 @@
   border: white 1px solid;
   border-radius: 3px;
   transition: box-shadow 0.3s;
-  width: 60vw;
+  width: 50vw;
+  margin: 0 15px;
 }
 
 .input-box-topic:focus {
