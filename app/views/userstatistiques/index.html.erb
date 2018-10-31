@@ -11,9 +11,9 @@
             <div class="col-xs-12 col-sm-6"><%= render 'shared/fbstats' %></div>
             <div class="col-xs-12 col-sm-6"><%= render 'shared/twstats' %></div>
           <% elsif !current_user.facebook_token.nil? && current_user.twitter_token.nil? %>
-            <div class="col-xs-12 col-sm-6 col-sm-offset-3"><%= render 'shared/fbstats' %></div>
+            <div class="col-xs-12"><%= render 'shared/fbstats' %></div>
           <% elsif current_user.facebook_token.nil? && !current_user.twitter_token.nil? %>
-            <div class="col-xs-12 col-sm-6 col-sm-offset-3"><%= render 'shared/twstats' %></div>
+            <div class="col-xs-12"><%= render 'shared/twstats' %></div>
           <%end%>
         </div>
       </div>
@@ -32,8 +32,8 @@
               <div class="datelog">
                 <%= stat.date.to_time.strftime('%B %e, %Y') %>
               </div>
-              <p class="publicnumber hidden-xs"><%= stat.fb_photo_public + stat.fb_post_public + stat.fb_likes_public + stat.tw_post_public + stat.tw_likes_public + stat.tw_photo_public%> public elements</p>
-              <p class="sensitivenumber hidden-xs"><%= stat.fb_photo_public_sensitive + stat.fb_post_public_sensitive + stat.fb_likes_public_sensitive + stat.tw_post_public_sensitive + stat.tw_likes_public_sensitive + stat.tw_photo_public_sensitive %> sensitive elements</p>
+              <p class="publicnumber hidden-xs"><%= stat.total_fb_public + stat.total_tw_public%> public elements</p>
+              <p class="sensitivenumber hidden-xs"><%= stat.total_fb_public_sensitive + stat.total_tw_public_sensitive %> sensitive elements</p>
               <div class="seedashb"> <%= link_to "see dashboard", userstatistique_path(stat), class: "btn-white-and-blue"%></div>
             </div>
           <% end %>
