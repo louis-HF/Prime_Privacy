@@ -1,2 +1,22 @@
-<p>Class your preferences</p>
-<%= link_to "Hide my secrets", loadingpage_path ,class:"btn-black-and-blue" %>
+<div class="prime-container">
+  <div class="topic-management-title center">
+    <h1>Set up your sensitivity filters</h1>
+    <h4>Choose the most sensitive topics & add your own sensitive topics</h4>
+  </div>
+
+  <div class="draglist bg-black font-white">
+    <div class="draglist">
+      <h1 class="topic-header center">Order the priority of my sensitivity filters </h1>
+      <%= render 'shared/draglist' %>
+    </div>
+
+    <div class="add-new-topic">
+      <h1 class="topic-header center">Add a sensitivity topic</h1>
+      <%= render 'shared/inputbox' %>
+    </div>
+  </div>
+
+  <div class="topic-management-confirmation-zone bg-texture">
+    <%= link_to "Hide my secrets", loadingpage_path ,class:"btn-black-and-blue topic-validation-button" %>
+  </div>
+</div>
