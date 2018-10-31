@@ -22,9 +22,9 @@
           <h3>Past changes:</h3>
           <% @userstatistics.each do |stat| %>
             <div class="statlign">
-                <% if stat.tw_photo_public == 0 && stat.tw_post_public == 0 && stat.tw_likes_public == 0 %>
+                <% if total_tw_public == 0 %>
                   <i class="logo-soc fab fa-facebook-square"></i>
-                <% elsif stat.fb_photo_public == 0 && stat.fb_post_public == 0 && stat.fb_likes_public == 0 %>
+                <% elsif total_fb_public == 0 %>
                   <i class="logo-soc fab fa-twitter-square"></i>
                 <%else%>
                   <p class="logo-soc"><i class="fab fa-facebook-square"></i> <i class="fab fa-twitter-square"></i></p>

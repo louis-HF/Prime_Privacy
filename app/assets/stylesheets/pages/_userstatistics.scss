@@ -62,18 +62,21 @@
   margin-top: 10px;
 }
 
-.alltype {
-  position: relative;
+.datapubandsens {
+  margin: 15px;
 }
 
-.alltype1 {
-  position: absolute;
-  left: 15px;
-  top: 15px;
+.bold {
+  font-weight: bold;
 }
 
-.alltype2 {
-  position: absolute;
-  left: 30px;
-  top: 30px;
+.red {
+  color: $red;
+}
+
+.line {
+  display: block;
+  background-color: $light-gray;
+  height: 3px;
+  margin: 15px;
 }
