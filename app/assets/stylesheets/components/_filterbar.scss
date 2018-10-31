@@ -7,10 +7,16 @@
   font-weight: 100;
 }
 
+.filterbar-prime a:hover, a:focus {
+  transition: color 0.3s;
+  transition: background-color 0.3s ease-in-out;
+}
+
 // Rajouter du code pour que l'animation de hover reste quand on navigue la dropdown
 .nav > li > a:hover {
   background-color: $gray-dark;
   background-image: none;
+  color: $blue;
 
   .prime-tab:before {
     top: 0px;
