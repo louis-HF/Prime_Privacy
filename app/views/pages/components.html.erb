@@ -12,7 +12,7 @@
     <%= link_to root_path, class: "navbar-prime-logo" do %>
       <%= image_tag "logo.png" %>
     <% end %>
-    <h4 color="white">... on a black background</h3>
+    <font color="white">... on a black background</font>
   </div>
 </div>
 
@@ -20,11 +20,11 @@
   <h1>Components</h1>
   <h2> This is a navbar </h2>
   <div class="navbar-prime">
-    <div class="navbar-prime-left hidden-xs hidden-sm">
+    <div class="navbar-prime-left hidden-xs">
       <%= link_to "Prime Privacy", "/", class: "navbar-prime-title" %>
     </div>
 
-    <%= link_to root_path, class: "navbar-prime-logo" do %>
+    <%= link_to root_path, class: "navbar-prime-logo page-center" do %>
       <%= image_tag "logo.png" %>
     <% end %>
 
@@ -65,6 +65,9 @@
   <h2> This is a draglist box </h2>
   <%= render 'shared/draglist' %>
 
+  <h2> This is an imput box </h2>
+  <%= render 'shared/inputbox' %>
+
   <h2> This is a button </h2>
   <br>
   <%= render 'shared/button' %>
@@ -75,7 +78,7 @@
   <%= render 'shared/banner' %>
   <h2> Those are cards </h2>
   <%= render 'shared/cards' %>
-  
+
   <h2> This is a background texture </h2>
   <div class="bg-texture"></div>
 </div>

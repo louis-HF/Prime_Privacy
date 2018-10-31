@@ -49,6 +49,10 @@ body {
   transform: scale(1.2);
 }
 
+.page-top {
+  top: 5px;
+}
+
 /* User Avatar */
 .navbar-prime .avatar {
   height: 35px;
@@ -85,7 +89,7 @@ body {
 .navbar-prime-dropdown-menu {
   margin-top: 15px;
   border-color: white;
-  border-radius: 5px;
+  border-radius: 3px;
 }
 .navbar-prime-dropdown-menu li > a {
   transition: color 0.3s ease;
@@ -110,4 +114,13 @@ body {
   transform: rotate(45deg);
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
+}
+
+@media (min-width:768px) {
+  .page-center {
+    position: absolute;
+    left: 50%;
+    margin-left: -50px !important;
+    display: block;
+}
 }

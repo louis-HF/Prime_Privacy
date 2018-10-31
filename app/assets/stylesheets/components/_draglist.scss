@@ -55,21 +55,31 @@
 .edit{
   position: absolute;
   right: 80px;
+  top: 31px;
+  text-decoration: none;
+  color: white;
 }
 
 .delete-cross {
   position: absolute;
   right: 60px;
+  top: 31px;
+  color: white;
 }
 
-i {
+.draglist-box i {
   font-size: 18px;
   vertical-align: middle;
 }
 
+.topic-name {
+  transition: left 0.5s;
+}
+
 .topic-list {
-  width: 50%;
+  width: 70%;
   list-style-type: none;
+  transition: width 0.5s;
 }
 
 .topic-list li:first-child:hover {
@@ -82,4 +92,22 @@ i {
 
 .topic-list li:last-child:hover {
   border-bottom: 0.2px solid white;
+}
+
+// Conditional behaviour
+@media (max-width:992px) {
+  .topic-list {
+    width: 80%
+  }
+}
+
+@media (max-width:768px) {
+  .topic-list {
+    width: 100%
+  }
+
+  .topic-name {
+    position: absolute;
+    left: 60px;
+  }
 }

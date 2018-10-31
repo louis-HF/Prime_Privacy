@@ -1,0 +1,35 @@
+.add-new-topics {
+  color: white;
+  font-weight: 100;
+}
+
+.topic-form {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 30px;
+}
+
+.topic-form-title {
+  text-align: center;
+  padding: 10px;
+}
+
+.input-box-topic {
+  background-color: transparent;
+  border: white 1px solid;
+  border-radius: 3px;
+  transition: box-shadow 0.3s;
+  width: 60vw;
+}
+
+.input-box-topic:focus {
+  outline: none !important;
+  box-shadow: 0 0 8px;
+}
+
+.submit-btn-topic {
+  border-radius: 3px;
+  border: none;
+  background-color: white;
+  color: $black;
+}
