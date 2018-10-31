@@ -10,5 +10,5 @@ Rails.application.routes.draw do
   resources :topics, only: [ :create, :update, :destroy]
   resources :keywords, only: [ :create, :update, :destroy]
   resources :contents, only: [ :index, :update]
-  resources :userstatistiques, only: [ :index, :show]
+  resources :userstatistics, only: [ :index, :show]
 end

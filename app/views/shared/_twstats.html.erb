@@ -1,5 +1,5 @@
 <h4>Your Twitter public content over time</h4>
 <%= area_chart [
-  {name: "Twitter public content SENSITIVE", data: @userstatistiques.group_by_month(:date, series:false).sum(:total_tw_public_sensitive)},
-  {name: "Twitter public content", data: @userstatistiques.group_by_month(:date, series:false).sum(:total_tw_public)}
+  {name: "Twitter public content SENSITIVE", data: @userstatistics.group_by_month(:date, series:false).sum(:total_tw_public_sensitive)},
+  {name: "Twitter public content", data: @userstatistics.group_by_month(:date, series:false).sum(:total_tw_public)}
 ], colors: ["#E7746F", "#55ACEE"], legend: "bottom"  %>

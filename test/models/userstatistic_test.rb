@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class TopicstatistiqueTest < ActiveSupport::TestCase
+class UserstatisticTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

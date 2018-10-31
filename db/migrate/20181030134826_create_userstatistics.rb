@@ -1,6 +1,6 @@
-class CreateUserstatistiques < ActiveRecord::Migration[5.2]
+class CreateUserstatistics < ActiveRecord::Migration[5.2]
   def change
-    create_table :userstatistiques do |t|
+    create_table :userstatistics do |t|
       t.references :user, foreign_key: true
       t.date :date
       t.integer :fb_photo_public

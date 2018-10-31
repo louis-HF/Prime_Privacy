@@ -68,14 +68,14 @@ ActiveRecord::Schema.define(version: 2018_10_31_103304) do
     t.index ["user_id"], name: "index_topics_on_user_id"
   end
 
-  create_table "topicstatistiques", force: :cascade do |t|
-    t.bigint "userstatistique_id"
+  create_table "topicstatistics", force: :cascade do |t|
+    t.bigint "userstatistic_id"
     t.bigint "topic_id"
     t.integer "numberofinstances"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["topic_id"], name: "index_topicstatistiques_on_topic_id"
-    t.index ["userstatistique_id"], name: "index_topicstatistiques_on_userstatistique_id"
+    t.index ["topic_id"], name: "index_topicstatistics_on_topic_id"
+    t.index ["userstatistic_id"], name: "index_topicstatistics_on_userstatistic_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -93,7 +93,7 @@ ActiveRecord::Schema.define(version: 2018_10_31_103304) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "userstatistiques", force: :cascade do |t|
+  create_table "userstatistics", force: :cascade do |t|
     t.bigint "user_id"
     t.date "date"
     t.integer "fb_photo_public"
@@ -114,7 +114,7 @@ ActiveRecord::Schema.define(version: 2018_10_31_103304) do
     t.integer "total_fb_public_sensitive"
     t.integer "total_tw_public"
     t.integer "total_tw_public_sensitive"
-    t.index ["user_id"], name: "index_userstatistiques_on_user_id"
+    t.index ["user_id"], name: "index_userstatistics_on_user_id"
   end
 
   add_foreign_key "content_keywords", "contents"
@@ -124,7 +124,7 @@ ActiveRecord::Schema.define(version: 2018_10_31_103304) do
   add_foreign_key "preferences", "topics"
   add_foreign_key "preferences", "users"
   add_foreign_key "topics", "users"
-  add_foreign_key "topicstatistiques", "topics"
-  add_foreign_key "topicstatistiques", "userstatistiques"
-  add_foreign_key "userstatistiques", "users"
+  add_foreign_key "topicstatistics", "topics"
+  add_foreign_key "topicstatistics", "userstatistics"
+  add_foreign_key "userstatistics", "users"
 end

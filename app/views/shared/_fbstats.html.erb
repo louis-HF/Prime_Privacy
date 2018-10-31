@@ -1,6 +1,6 @@
 
 <h4>Your Facebook public content over time</h4>
 <%= area_chart [
-  {name: "Facebook public content SENSITIVE", data: @userstatistiques.group_by_month(:date, series:false).sum(:total_fb_public_sensitive)},
-  {name: "Facebook public content", data: @userstatistiques.group_by_month(:date, series:false).sum(:total_fb_public)}
+  {name: "Facebook public content SENSITIVE", data: @userstatistics.group_by_month(:date, series:false).sum(:total_fb_public_sensitive)},
+  {name: "Facebook public content", data: @userstatistics.group_by_month(:date, series:false).sum(:total_fb_public)}
 ], colors: ["#E7746F", "#3B5998"], legend: "bottom"  %>

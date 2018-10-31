@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class UserstatistiquesControllerTest < ActionDispatch::IntegrationTest
+class TopicstatisticTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
