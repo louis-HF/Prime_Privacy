@@ -1,4 +1,16 @@
-<p> here is the content </p>
+<div class="container" id="container-cards">
+  <h2> Facebook Images </h2>
+  <%= render 'shared/card', publications: @facebook_images%>
+  <h2> Facebook Posts </h2>
+  <%= render 'shared/card', publications: @facebook_posts%>
+  <h2> Facebook Likes </h2>
+  <%= render 'shared/card', publications: @facebook_likes%>
+</div>
+
+
+
+
+
 
 <!-- Button trigger modal -->
 <button type="button" class="btn-black-and-blue" data-toggle="modal" data-target="#exampleModal">
