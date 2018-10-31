@@ -60,6 +60,7 @@
   background-color:  #E9EBEE;
   p {
     margin-bottom: 0px;
+    font-weight: 400;
     color: black;
     text-shadow: none;
     font-size: medium;
@@ -80,6 +81,7 @@
   background-color:  #E9EBEE;
   p {
     margin-bottom: 0px;
+    font-weight: 400;
     color: black;
     text-shadow: none;
     font-size: medium;
@@ -100,6 +102,9 @@
   background-size: cover !important;
   background-position: center;
   border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .image:hover {
   box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.3);
@@ -110,3 +115,51 @@
   font-size: 40px
 }
 
+.card-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  background: #050D11;
+  opacity: 0;
+}
+
+
+.card-description{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  border-radius: 3px;
+  pointer-events: none;
+
+  h2 {
+    font-size: 50px;
+    font-weight: 200;
+    color: #58DAFC;
+    padding: 0px 10px;
+  }
+
+  h2:hover {
+    border-bottom: 1px solid #58DAFC;
+  }
+}
+
+#test{
+  text-decoration: none;
+}
+
+
+#link-post{
+  opacity: 0.8;
+  border-radius: 3px;
+}
+
+.card-description:hover {
+  box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.3);
+}

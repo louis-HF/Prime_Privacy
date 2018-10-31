@@ -1,0 +1,29 @@
+
+<div class="col-xs-12 col-sm-4 col-md-3">
+  <div class="card link-box">
+    <div class="checkbox">
+    </div>
+    <% if publication.file_type == "image" %>
+      <div class="image" style="background: linear-gradient(rgba(5, 13, 17, 0.9), rgba(5, 13, 17, 0.9)), url(<%=publication.url_image%>);" >
+        <div class="card-description">
+          <%= link_to '', "contents?file_type=#{publication.file_type}", class:"card-link"%>
+          <h2>See All</h2>
+        </div>
+      </div>
+    <% else %>
+      <div class="post">
+        <%= link_to '', "contents?file_type=#{publication.file_type}", class:"card-link", id:"link-post"%>
+        <h2><%=publication.file_type.capitalize %></h2>
+        <div class="<%=publication.file_type%>-content">
+          <i class="far fa-thumbs-up"></i>
+          <p><%= publication.text_publication %></p>
+        </div>
+      </div>
+    <%end%>
+    <div class="card-description">
+      <h2>See All</h2>
+    </div>
+  </div>
+</div>
+
+
