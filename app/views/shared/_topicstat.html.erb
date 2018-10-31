@@ -1,0 +1,6 @@
+<% hash = {} %>
+<% topicstat = Topicstatistic.where(userstatistic: @userstatistic) %>
+<% topicstat.each do |topicstat| %>
+<% hash[Topic.find(topicstat[:topic_id])[:name]] = topicstat[:numberofinstances] %>
+<%end%>
+<%= column_chart((hash.sort_by { |topic, instances| instances }).reverse, colors: ["ffcd3c"]) %>

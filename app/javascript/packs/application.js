@@ -1,3 +1,10 @@
 import "bootstrap";
 import { loadDynamicBannerText } from '../components/inputbox';
-loadDynamicBannerText();
+// todo condition
+//loadDynamicBannerText();
+
+import Chartkick from "chartkick";
+window.Chartkick = Chartkick;
+
+import Chart from "chart.js";
+Chartkick.addAdapter(Chart);
