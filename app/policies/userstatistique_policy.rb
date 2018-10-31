@@ -5,7 +5,11 @@ class UserstatistiquePolicy < ApplicationPolicy
     end
   end
 
-  def index
+  def index?
+    return true
+  end
+
+  def show?
     return true
   end
 end

@@ -5,5 +5,6 @@ class UserstatistiquesController < ApplicationController
 
   def show
     @userstatistique = Userstatistique.find(params[:id])
+    authorize @userstatistique
   end
 end

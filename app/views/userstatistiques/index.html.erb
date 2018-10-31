@@ -34,7 +34,7 @@
               </div>
               <p class="publicnumber hidden-xs"><%= stat.fb_photo_public + stat.fb_post_public + stat.fb_likes_public + stat.tw_post_public + stat.tw_likes_public + stat.tw_photo_public%> public elements</p>
               <p class="sensitivenumber hidden-xs"><%= stat.fb_photo_public_sensitive + stat.fb_post_public_sensitive + stat.fb_likes_public_sensitive + stat.tw_post_public_sensitive + stat.tw_likes_public_sensitive + stat.tw_photo_public_sensitive %> sensitive elements</p>
-              <div class="seedashb"> <%= link_to "see dashboard", datadashboard_path, class: "btn-white-and-blue"%></div>
+              <div class="seedashb"> <%= link_to "see dashboard", userstatistique_path(stat), class: "btn-white-and-blue"%></div>
             </div>
           <% end %>
         </div>

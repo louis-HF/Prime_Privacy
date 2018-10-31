@@ -4,8 +4,6 @@ Rails.application.routes.draw do
 
   get 'components' => 'pages#components'
   get 'loadingpage' => 'pages#loadingpage'
-  get 'datadashboard' => 'pages#datadashboard'
-  get 'userdashboard' => 'pages#userdashboard'
 
   resources :preferences, only: [ :update, :index]
 

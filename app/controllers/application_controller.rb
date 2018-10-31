@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
   private
 
   def after_sign_in_path_for(user)
-    userdashboard_path
+    userstatistiques_path
   end
 
   def skip_pundit?
