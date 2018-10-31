@@ -8,7 +8,7 @@
   box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.3);
 }
 
-
+// checkbox
 #container-cards {
   input[type=checkbox]{
     display:none ;
@@ -18,10 +18,9 @@
     background-image: asset-url("square-regular.svg");
     background-repeat: no-repeat;
     background-position: 95% 49%;
-    padding-right: 35px;
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 3px;
-    padding-left: 3px;
+    padding: 1px 35px 1px 3px;
     background-size: 20px 20px;
     color: black;
     text-shadow: none;
@@ -37,11 +36,13 @@
   }
 }
 
+// post
+
 .post{
   height: 175px;
   overflow: hidden;
   border-radius: 3px;
-  h2{
+  h2 {
     background-color: #4260B4;
     background-size: 50px 50px;
     color: white;
@@ -71,6 +72,7 @@
   }
 }
 
+//  like
 .like-content{
   display: flex;
   padding: 1vh 1vw;
@@ -88,6 +90,11 @@
   }
 }
 
+.fa-thumbs-up{
+  color: black;
+  font-size: 40px
+}
+
 .sensitive-card {
   height: 25px;
   width: 25px;
@@ -96,6 +103,7 @@
   right: -14px;
 }
 
+// image
 .image{
   height: 175px;
   width: 100%;
@@ -110,10 +118,8 @@
   box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.3);
 }
 
-.fa-thumbs-up{
-  color: black;
-  font-size: 40px
-}
+
+// Link card
 
 .card-link {
   position: absolute;
@@ -121,10 +127,9 @@
   bottom: 0;
   right: 0;
   width: 100%;
-  background: #050D11;
+  background: linear-gradient(rgba(5, 13, 17, 0), rgba(5, 13, 17, 1))#050D11;
   opacity: 0;
 }
-
 
 .card-description{
   display:flex;
@@ -139,7 +144,7 @@
   pointer-events: none;
 
   h2 {
-    font-size: 50px;
+    font-size: 35px;
     font-weight: 200;
     color: #58DAFC;
     padding: 0px 10px;
@@ -150,16 +155,16 @@
   }
 }
 
-#test{
-  text-decoration: none;
-}
-
-
-#link-post{
+.link-post{
   opacity: 0.8;
   border-radius: 3px;
 }
 
 .card-description:hover {
   box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.3);
+}
+
+// display
+.col-xs-12.col-sm-6.col-md-4 {
+  padding-top: 10px;
 }

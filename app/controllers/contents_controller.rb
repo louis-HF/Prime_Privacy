@@ -8,9 +8,9 @@ class ContentsController < ApplicationController
     if params[:file_type]
       @content = spot("facebook", params[:file_type])
     else
-      @facebook_images = spot("facebook", "image", 4)
-      @facebook_posts = spot("facebook", "post", 4)
-      @facebook_likes = spot("facebook","like", 4)
+      @facebook_images = spot("facebook", "image", 6)
+      @facebook_posts = spot("facebook", "post", 6)
+      @facebook_likes = spot("facebook","like", 6)
     end
   end
 
