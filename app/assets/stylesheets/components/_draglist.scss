@@ -18,6 +18,7 @@
 
 .draglist-box:hover {
   box-shadow: 0 10px  rgba(255, 255, 255,0.25), 0 5px rgba(255, 255, 255,0.22),  0 -10px rgba(255, 255, 255,0.25), 0 -5px rgba(255, 255, 255,0.22);
+  cursor: move;
 }
 
 .draglist-box p {

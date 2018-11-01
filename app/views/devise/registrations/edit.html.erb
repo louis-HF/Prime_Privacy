@@ -25,6 +25,16 @@
       </div>
       <div class="row">
         <div class="col-xs-12 col-sm-6">
+          <%= f.label :first_name %><br />
+          <%= f.text_field :first_name%>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+          <%= f.label :last_name %><br />
+          <%= f.text_field :last_name %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-6">
           <%= f.input :password,
                       label: "New password",
                       hint: "leave it blank if you don't want to change it",

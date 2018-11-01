@@ -1,0 +1,94 @@
+.pc-twist {
+  padding: 15px;
+}
+
+.large-margin {
+  margin: 30px;
+  margin-bottom: 50px;
+}
+
+.statlign {
+  display: flex;
+  position: relative;
+  margin-top: 35px;
+  align-items: center;
+}
+
+.datelog {
+  position: absolute;
+  left: 40px;
+}
+
+.past-hidings {
+  padding: 15px;
+}
+
+.publicnumber {
+  position: absolute;
+  left: 190px;
+}
+
+.sensitivenumber {
+  position: absolute;
+  left: 330px;
+}
+
+.seedashb {
+  position: absolute;
+  right: 0px;
+}
+
+.fa-facebook-square {
+  color: #3B5998;
+}
+
+.fa-twitter-square {
+  color: #55ACEE;
+}
+
+.logo-soc {
+  margin-bottom: 0px;
+}
+
+
+.cards-icon {
+  box-shadow: 2px 4px 3px rgba(0, 0, 0, 0.4);
+  height: 150px;
+  margin-top: 15px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.red {
+  color: $red;
+}
+
+.line {
+  display: block;
+  background-color: $light-gray;
+  height: 3px;
+  margin: 15px;
+}
+
+.marginleft {
+  margin-left: 15px;
+}
+
+.datapubandsens {
+  margin: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.datatext {
+    p {
+      margin: 0;
+    }
+}
+
+.smallermargin {
+  margin: 0;
+}

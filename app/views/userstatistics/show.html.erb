@@ -1,0 +1,95 @@
+<div class="container">
+  <div class="prime-container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-4 text-center">
+        <%= image_tag "photo-flat.png", class: "cards-icon" %>
+        <div class="datapubandsens">
+          <div class="datatext text-center">
+            <div class="datapublic">
+              <% photos_public = @userstatistic.fb_photo_public + @userstatistic.tw_photo_public %>
+              <% photos_sensitive = @userstatistic.fb_photo_public_sensitive + @userstatistic.tw_photo_public_sensitive %>
+              <p class="bold"><%= photos_public %> public <%= photos_public == 1 ? "photo" : "photos" %></p>
+            </div>
+            <div class="amongwhich">
+              <p>among which</p>
+            </div>
+            <div class="dataprivate">
+              <p class="bold red"><%= photos_sensitive %> <%= photos_sensitive == 1 ? "is" : "are"%> sensitive</p>
+            </div>
+          </div>
+          <div class="datagraph">
+            <%= pie_chart({"non-sensitive" => photos_public - photos_sensitive, "sensitive" => photos_sensitive}, legend: false, colors: ["#F5F5F5", "#E7746F"], messages: {empty: "Congrats, no public data"}, height: "100px", width: "120px") %>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-4 text-center">
+        <%= image_tag "post-flat.png", class: "cards-icon" %>
+        <div class="datapubandsens">
+          <div class="datatext text-center">
+            <div class="datapublic">
+              <% posts_public = @userstatistic.fb_post_public + @userstatistic.tw_post_public %>
+              <% posts_sensitive = @userstatistic.fb_post_public_sensitive + @userstatistic.tw_post_public_sensitive %>
+              <p class="bold"><%= posts_public %> public <%= posts_public == 1 ? "post" : "posts" %></p>
+            </div>
+            <div class="amongwhich">
+              <p>among which</p>
+            </div>
+            <div class="dataprivate">
+              <p class="bold red"><%= posts_sensitive %> <%= posts_sensitive == 1 ? "is" : "are"%> sensitive</p>
+            </div>
+          </div>
+          <div class="datagraph">
+            <%= pie_chart({"non-sensitive" => posts_public - posts_sensitive, "sensitive" => posts_sensitive}, legend: false, colors: ["#F5F5F5", "#E7746F"], messages: {empty: "Congrats, no public data"}, height: "100px", width: "120px") %>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-4 text-center">
+        <%= image_tag "page-flat.png", class: "cards-icon" %>
+        <div class="datapubandsens">
+          <div class="datatext text-center">
+            <div class="datapublic">
+              <% likes_public = @userstatistic.fb_likes_public + @userstatistic.tw_likes_public %>
+              <% likes_sensitive = @userstatistic.fb_likes_public_sensitive + @userstatistic.tw_likes_public_sensitive %>
+              <p class="bold"><%= likes_public %> public <%= likes_public == 1 ? "subscription" : "subscriptions" %></p>
+            </div>
+            <div class="amongwhich">
+              <p>among which</p>
+            </div>
+            <div class="dataprivate">
+              <p class="bold red"><%= likes_sensitive %> <%= likes_sensitive == 1 ? "is" : "are"%> sensitive</p>
+            </div>
+          </div>
+          <div class="datagraph">
+            <%= pie_chart({"non sensitive" => likes_public - likes_sensitive, "sensitive" => likes_sensitive}, legend: false, colors: ["#F5F5F5", "#E7746F"], messages: {empty: "Congrats, no public data"}, height: "100px", width: "120px") %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="line"></div>
+    <% if @userstatistic.total_fb_public != 0 && @userstatistic.total_tw_public != 0 %>
+      <div class="row">
+        <div class="col-xs-12 col-sm-6">
+          <p class="text-center smallermargin">Most of your public content is on</p> <p class="bold text-center smallermargin"><%= @userstatistic.total_fb_public > @userstatistic.total_tw_public ? "Facebook" : "Twitter"%> </p>
+          <div class="pie">
+            <%= pie_chart({"Facebook" => @userstatistic.total_fb_public, "Twitter" => @userstatistic.total_tw_public}, legend: false, height: "170px", colors: ["#3B5998", "#55ACEE"]) %>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+          <p class="text-center smallermargin">Most of your sensitive content is on </p> <p class=" smallermargin bold text-center"><%= @userstatistic.total_fb_public_sensitive > @userstatistic.total_tw_public_sensitive ? "Facebook" : "Twitter"%> </p>
+          <div class="pie">
+            <%= pie_chart({"Facebook" => @userstatistic.total_fb_public_sensitive, "Twitter" => @userstatistic.total_tw_public_sensitive}, legend: false, height: "170px", colors: ["#3B5998", "#55ACEE"]) %>
+          </div>
+        </div>
+      </div>
+      <div class="line"></div>
+    <% end %>
+    <div class="row">
+      <div class="col-xs-12">
+        <h4 class="marginleft">Most common sensitive topics: </h4>
+        <%= render 'shared/topicstat' %>
+      </div>
+    </div>
+  </div>
+</div>
+
+

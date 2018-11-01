@@ -1,0 +1,44 @@
+
+<div class="container">
+  <h2>Sign up</h2>
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12">
+        <%= f.input :email,
+          required: true,
+          autofocus: true,
+          placeholder: "louis@something.com",
+          label: 'Your email',
+          input_html: { autocomplete: "email"}%>
+        </div>
+    </div>
+    <% if @user.password_required? %>
+      <div class="row">
+        <div class="col-xs-12 col-sm-6">
+          <%= f.input :password,
+            required: true,
+            placeholder: "******",
+            hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+            input_html: { autocomplete: "new-password" } %>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+          <%= f.input :password_confirmation,
+            required: true,
+            placeholder: "******",
+            input_html: { autocomplete: "new-password" } %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+    <div class="form-actions text-center">
+      <%= f.button :submit, "Sign up", class: "btn-black-and-blue-thin" %>
+    </div>
+  <% end %>
+  <%= link_to "Already have an account?", new_session_path(resource_name) %>
+
+</div>
+
