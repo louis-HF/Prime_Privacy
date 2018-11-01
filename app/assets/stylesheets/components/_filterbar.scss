@@ -61,6 +61,7 @@ a.dropdown-toggle {
   display: flex;
   justify-content: center;
   font-weight: regular;
+  flex-wrap: wrap;
   color: white;
   height: 50px;
   background-color: $black;

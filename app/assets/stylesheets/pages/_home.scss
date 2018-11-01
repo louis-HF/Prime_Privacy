@@ -1,1 +1,110 @@
-// Specific CSS for your home-page
+.general-tool-presentation {
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 60px;
+  height: 200px;
+  transition: padding-top 0.3s;
+}
+
+.call-to-action-zone-homepage {
+  padding: 100px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tool-features {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 0;
+}
+
+.feature {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  width: 33%;
+}
+
+.feature-description {
+  text-align: center;
+}
+
+.feature-title {
+  color: $blue;
+  text-align: center;
+}
+
+.feature-logo {
+  height: 80px;
+  transition: height 0.3s;
+}
+
+.over-banner {
+  position: absolute;
+  top: 59.5%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.homepage-content {
+  display: flex;
+  flex-orientation: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.topic-management-confirmation-zone {
+  padding: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width:992px) {
+  .general-tool-presentation {
+    padding-top: 40px;
+    height: 200px;
+  }
+}
+
+@media (max-width:768px) {
+  .over-banner {
+    top: 67.5%;
+  }
+  .tool-features {
+    flex-direction: column;
+  }
+  .feature {
+    flex-direction: row;
+    width: 100%;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .feature-column-responsive {
+    display: flex;
+    flex-direction: column;
+    padding-left: 120px;
+  }
+  .feature-logo {
+    height: 90px;
+    position: absolute;
+    left: 5%;
+  }
+  .feature-description {
+    text-align: left;
+  }
+  .feature-title {
+    text-align: left;
+  }
+}
+
+@media (max-width : 450px) {
+  .general-tool-presentation {
+    padding-top: 20px;
+    height: 200px;
+  }
+}

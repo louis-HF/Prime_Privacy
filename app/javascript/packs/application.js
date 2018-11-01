@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
       event.preventDefault()
       var new_topic = document.getElementById('topic-name').value;
       // Rajouter un create avec le controller pour que ça marche et recharger la page
-      var new_topic_box = '<li class="draglist-box"> <p class="rank">7</p> <%= image_tag "personal.png", class: "picto personal hidden-xs" %> <p class="topic-name"> ${new_topic} </p> <% if user_signed_in? %> <a href=""> <i class="far fa-edit edit"></i> </a> <% end %> <a href=""> <i class="far fa-times-circle delete-cross"></i> </a> <i class="fas fa-arrows-alt-v drag"></i> </li>';
+      var new_topic_box = '<li class="draglist-box"> <p class="rank">8</p> <%= image_tag "personal.png", class: "picto personal hidden-xs" %> <p class="topic-name"> ${new_topic} </p> <% if user_signed_in? %> <a href=""> <i class="far fa-edit edit"></i> </a> <% end %> <a href=""> <i class="far fa-times-circle delete-cross"></i> </a> <i class="fas fa-arrows-alt-v drag"></i> </li>';
       document.getElementById('draglist').innerHTML += new_topic_box;
   });
 // Pour le rang implémenter un each sur sensitivity filter et mettre un index sur le rang

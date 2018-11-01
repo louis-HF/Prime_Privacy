@@ -2,32 +2,29 @@
   color: white;
   text-align: center;
   height: 100vh;
-  /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
   display: flex;
   align-items: flex-start;
   justify-content: center;
   background-image: asset-url('banner_background.png');
   }
+
 .banner h1 {
-  font-size: 50px;
+  font-size: 64px;
   font-weight: light;
-  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
-}
-.banner p {
-  font-size: 25px;
-  font-weight: lighter;
-  color: rgb(255, 255, 255);
-  opacity: 0.6;
-  margin-bottom: 30px;
 }
 
 .banner-logo{
-  height: auto ;
-  width: 10vw;
+  width: 150px;
+  transition: transform 0.5s ease;
+}
+
+.banner-logo:hover {
+  transform: scale(1.2);
 }
 
 .banner-content{
-  position: relative;
-  padding-top: 150px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 15vh 0;
 }

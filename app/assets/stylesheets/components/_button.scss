@@ -9,6 +9,7 @@
   margin: 10px;
   transition: 0.4s;
   box-shadow: 2px 4px 3px rgba(0, 0, 0, 0.4);
+  text-align: center;
 }
 
 .btn-block {
@@ -84,3 +85,9 @@
   border: 2px solid white;
 }
 
+.already-have-account-btn {
+  background-color: rgba(1,6,12,0.4);
+  border-radius: 3px;
+  padding: 5px;
+  margin: 3px;
+}

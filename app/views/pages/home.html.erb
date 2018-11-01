@@ -1,22 +1,45 @@
-<div class="container">
+<div id="homepage">
+  <%= render 'shared/banner' %>
+  <div class="homepage-content">
+    <div class="prime-container over-banner">
+      <div class="general-tool-presentation center">
+        <h1>An all-in-one tool to take control of your online image</h1>
+      </div>
 
-  <% if user_signed_in? %>
-  <div class="row text-center">
-    <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
-    <%= link_to "Go to your dashboard", userstatistics_path, class: "btn-black-and-blue btn-block" %>
+      <div class="tool-features bg-black font-white">
+        <div class="feature">
+          <%= image_tag "plus.png", class: "feature-logo" %>
+          <div class="feature-column-responsive">
+            <h2 class="feature-title">One tool</h2>
+            <p class="feature-description">Add all your social netwok accounts to enable extensive control over your online image</p>
+          </div>
+        </div>
+
+        <div class="feature">
+          <%= image_tag "chip.png", class: "feature-logo" %>
+          <div class="feature-column-responsive">
+            <h2 class="feature-title">Intelligent sorting</h2>
+            <p class="feature-description">Quickly browse through your content to identify sensitive data with the help of our dedicated sensitivity algorythme</p>
+          </div>
+        </div>
+
+        <div class="feature">
+          <%= image_tag "history.png", class: "feature-logo" %>
+          <div class="feature-column-responsive">
+            <h2 class="feature-title">Deep management</h2>
+            <p class="feature-description">Save the state of all your data to be able to revert any change you make</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="call-to-action-zone-homepage bg-texture">
+        <% if user_signed_in? %>
+          <%= link_to "Go to your dashboard", userstatistics_path, class: "btn-black-and-blue" %>
+        <% else %>
+          <%= link_to "Take control of my data", new_user_registration_path, class: "btn-black-and-blue" %>
+          <%= link_to "Already have an account?", new_user_session_path, class: "already-have-account-btn" %>
+        <% end %>
+      </div>
     </div>
   </div>
-  <% else %>
-  <div class="row text-center">
-    <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
-    <%= link_to "Take control of my data", new_user_registration_path, class: "btn-black-and-blue btn-block" %>
-    </div>
-  </div>
-  <div class="row text-center">
-    <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
-      <%= link_to "Already have an account?", new_user_session_path %>
-    </div>
-  </div>
-  <% end %>
 </div>
-
