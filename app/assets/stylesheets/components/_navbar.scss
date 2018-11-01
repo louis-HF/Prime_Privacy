@@ -1,5 +1,7 @@
 /* Main navbar */
-body {
+
+// le not eleve partout marche pas apparement
+body:not(#homepage) #main-header::after {
   padding-top: 60px;
 }
 
@@ -122,5 +124,5 @@ body {
     left: 50%;
     margin-left: -50px !important;
     display: block;
-}
+  }
 }
