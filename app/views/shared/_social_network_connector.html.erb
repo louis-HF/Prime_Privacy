@@ -2,21 +2,23 @@
 
 <div class="row">
   <div class="prime-container">
-    <% if current_user.facebook_token.nil? && current_user.twitter_token.nil? %>
+    <% if current_user.facebook.nil?  && current_user.twitter.nil? %>
       <h3 margin>First, let's connect the account(s) you want to clean: </h3>
     <% end %>
     <div class="hidden-xs icons">
       <div class="facebook-icon social-network-logo">
         <%= image_tag 'facebook-logo.png', class: 'logo' %>
-        <% if !current_user.facebook_token.nil? %>
-        <%= image_tag "success.png", class: 'validate'%>
+        <% if !current_user.facebook.nil? %>
+          <%= image_tag "success.png", class: 'validate'%>
         <% else %>
-        <a href="#" ><%= image_tag "add.png", class: 'validate' %></a>
+          <%= link_to user_facebook_omniauth_authorize_path do%>
+            <%= image_tag "add.png", class: 'validate' %>
+          <% end %>
         <% end %>
       </div>
       <div class="twitter-icon social-network-logo">
         <%= image_tag 'twitter-logo.png', class: 'logo'%>
-        <% if !current_user.twitter_token.nil? %>
+        <% if !current_user.twitter.nil? %>
         <%= image_tag "success.png", class: 'validate'%>
         <% else %>
         <a href="#" ><%= image_tag "add.png", class: 'validate' %></a>
@@ -40,15 +42,17 @@
     <div class="hidden-sm hidden-md hidden-lg icons">
       <div class="facebook-icon social-network-logo">
         <%= image_tag 'facebook-logo.png', class: 'logo-small' %>
-        <% if !current_user.facebook_token.nil? %>
+        <% if !current_user.facebook.nil?  %>
         <%= image_tag "success.png", class: 'validate-small'%>
         <% else %>
-        <a href="#" ><%= image_tag "add.png", class: 'validate-small' %></a>
+          <%= link_to user_facebook_omniauth_authorize_path do%>
+            <%= image_tag "add.png", class: 'validate-small' %>
+          <% end %>
         <% end %>
       </div>
       <div class="twitter-icon social-network-logo">
         <%= image_tag 'twitter-logo.png', class: 'logo-small'%>
-        <% if !current_user.twitter_token.nil? %>
+        <% if !current_user.twitter.nil? %>
         <%= image_tag "success.png", class: 'validate-small'%>
         <% else %>
         <a href="#" ><%= image_tag "add.png", class: 'validate-small' %></a>
