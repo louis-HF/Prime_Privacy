@@ -1,6 +1,11 @@
 source 'https://rubygems.org'
 ruby '2.4.4'
 
+gem 'omniauth-twitter'
+gem 'therubyracer'
+gem 'omniauth'
+gem 'omniauth-facebook'
+
 gem 'groupdate'
 gem 'chartkick'
 gem 'pundit'
@@ -30,5 +35,5 @@ group :development, :test do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'dotenv-rails'
+  gem 'dotenv-rails', groups: [:development, :test]
 end

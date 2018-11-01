@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => {:registrations => 'registrations', :omniauth_callbacks =>  "callbacks"}
+  post '/auth/:provider/callback' => 'authentications#create'
   root to: 'pages#home'
 
   get 'components' => 'pages#components'
