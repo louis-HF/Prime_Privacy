@@ -27,6 +27,7 @@
     position: absolute;
     right: 10px;
     top: 10px;
+    font-weight: 400;
 
   }
 
@@ -166,5 +167,9 @@
 
 // display
 .col-xs-12.col-sm-6.col-md-4 {
-  padding-top: 10px;
+  padding-top: 20px;
+}
+
+.category{
+  margin-top: 8vh;
 }
