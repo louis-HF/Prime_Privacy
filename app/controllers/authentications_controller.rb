@@ -31,4 +31,5 @@ class AuthenticationsController < ApplicationController
    @authentication.destroy
    flash[:notice] = "Successfully destroyed authentication."
    redirect_to authentications_url
-end
+  end
+end 
