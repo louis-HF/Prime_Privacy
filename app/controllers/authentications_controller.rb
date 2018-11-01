@@ -1,9 +1,9 @@
 class AuthenticationsController < ApplicationController
   def index
    @authentications = policy_scope(Authentications) if current_user
- end
+  end
 
- def create
+  def create
    omniauth = request.env["omniauth.auth"]
    authentication = Authentication.find_by_provider_and_uid(omniauth['provider'], omniauth['uid'])
    if authentication
@@ -33,3 +33,5 @@ class AuthenticationsController < ApplicationController
    redirect_to authentications_url
   end
 end
+
+

@@ -12,8 +12,7 @@
   transition: background-color 0.3s ease-in-out;
 }
 
-// Rajouter du code pour que l'animation de hover reste quand on navigue la dropdown
-.nav > li > a:hover {
+.nav > li > a:hover, .nav > li > a:focus {
   background-color: $gray-dark;
   background-image: none;
   color: $blue;
@@ -29,7 +28,6 @@
   background-color: $gray-dark;
   background-image: none;
 }
-//
 
 a.dropdown-toggle {
   margin-right: 0 !important;
