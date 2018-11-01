@@ -1,5 +1,12 @@
 import "bootstrap";
-import { loadDynamicBannerText } from '../components/inputbox';
+
+// todo condition
+import Chartkick from "chartkick";
+window.Chartkick = Chartkick;
+
+import Chart from "chart.js";
+Chartkick.addAdapter(Chart);
+
 // loadDynamicBannerText();
 import Sortable from 'sortablejs'
 
@@ -55,3 +62,6 @@ document.getElementById("confirm-topic-btn").addEventListener("click", function(
     var new_topic_box = '<li class="draglist-box"> <p class="rank">7</p> <%= image_tag "personal.png", class: "picto personal hidden-xs" %> <p class="topic-name"> ${new_topic} </p> <% if user_signed_in? %> <a href=""> <i class="far fa-edit edit"></i> </a> <% end %> <a href=""> <i class="far fa-times-circle delete-cross"></i> </a> <i class="fas fa-arrows-alt-v drag"></i> </li>';
     document.getElementById('draglist').innerHTML += new_topic_box;
 });
+
+
+

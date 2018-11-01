@@ -1,10 +1,36 @@
 <div class="container" id="container-cards">
-  <h2> Facebook Images </h2>
-  <%= render 'shared/card', publications: @facebook_images%>
-  <h2> Facebook Posts </h2>
-  <%= render 'shared/card', publications: @facebook_posts%>
-  <h2> Facebook Likes </h2>
-  <%= render 'shared/card', publications: @facebook_likes%>
+  <% if params[:file_type] %>
+    <h2> Facebook <%=params[:file_type].capitalize%>s </h2>
+    <%= render 'shared/card', publications: @content %>
+  <% else %>
+    <h2> Facebook Images </h2>
+    <div class="row">
+      <% if @facebook_images.size == 6 %>
+      <%= render 'shared/card', publications: @facebook_images.first(@facebook_images.size - 1)%>
+      <%= render 'shared/cardlink', publication: @facebook_images.last %>
+      <% else %>
+        <%= render 'shared/card', publications: @facebook_images %>
+      <% end %>
+    </div>
+    <h2> Facebook Posts </h2>
+    <div class="row">
+      <% if @facebook_posts.size == 6 %>
+        <%= render 'shared/card', publications: @facebook_posts.first(@facebook_posts.size - 1)%>
+        <%= render 'shared/cardlink', publication: @facebook_posts.last %>
+      <% else %>
+        <%= render 'shared/card', publications: @facebook_posts.first(@facebook_posts.size) %>
+      <% end %>
+    </div>
+    <h2> Facebook Likes </h2>
+    <div class="row">
+      <% if @facebook_likes.size == 6 %>
+        <%= render 'shared/card', publications: @facebook_likes.first(@facebook_likes.size - 1)%>
+        <%= render 'shared/cardlink', publication: @facebook_likes.last%>
+      <%else%>
+        <%= render 'shared/card', publications: @facebook_likes.first(@facebook_likes.size)%>
+      <% end %>
+    </div>
+  <% end %>
 </div>
 
 
@@ -32,7 +58,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn-white-and-blue" data-dismiss="modal">Close</button>
-        <%= link_to "Go to your user dashboard", userdashboard_path, class: "btn-white-and-blue" %>
+        <%= link_to "Go to your user dashboard", userstatistics_path, class: "btn-white-and-blue" %>
       </div>
     </div>
   </div>

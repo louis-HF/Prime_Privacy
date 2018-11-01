@@ -54,6 +54,7 @@ GEM
       sass (>= 3.3.4)
     builder (3.2.3)
     byebug (10.0.2)
+    chartkick (3.0.1)
     coderay (1.1.2)
     concurrent-ruby (1.0.5)
     crass (1.0.4)
@@ -74,6 +75,8 @@ GEM
       sassc (>= 1.11)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    groupdate (4.0.2)
+      activesupport (>= 4.2)
     i18n (1.1.1)
       concurrent-ruby (~> 1.0)
     jbuilder (2.7.0)
@@ -207,9 +210,11 @@ DEPENDENCIES
   autoprefixer-rails
   bootsnap
   bootstrap-sass (~> 3.3)
+  chartkick
   devise
   dotenv-rails
   font-awesome-sass (~> 5.0.9)
+  groupdate
   jbuilder (~> 2.0)
   listen (~> 3.0.5)
   pg (~> 0.21)
@@ -231,4 +236,4 @@ RUBY VERSION
    ruby 2.4.4p296
 
 BUNDLED WITH
-   1.16.4
+   1.17.1
