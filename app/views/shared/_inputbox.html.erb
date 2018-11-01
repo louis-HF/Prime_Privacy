@@ -1,6 +1,25 @@
 <div class="topics-container add-new-topics bg-black">
-  <form class="topic-form" action="">
-    <input class="input-box-topic" type="text" name="topic-name">
-    <input class="submit-btn-topic" type="submit" value="Add">
-  </form>
+  <div id="mainform-topic">
+    <form class="topic-form" action="">
+      <input id="topic-name" class="input-box topic-input" type="text" name="topic-name" value="Topic name">
+      <input id="add-topic-btn" class="submit-btn-topic" type="submit" value="Add" onclick="openSubform()">
+    </form>
+  </div>
+
+  <div id="subform-topic" hidden>
+    <form class="words-form" action="">
+      <h2 value="topic-name"></h2>
+      <div id="words-wrapper">
+        <input class="input-box word-input" type="text" name="topic-name" value="Word" >
+        <input class="input-box word-input" type="text" name="topic-name" value="Word" >
+        <input class="input-box word-input" type="text" name="topic-name" value="Word" >
+        <input class="input-box word-input" type="text" name="topic-name" value="Word" >
+        <input class="input-box word-input" type="text" name="topic-name" value="Word" >
+      </div>
+      <div id="words-form-btns">
+        <input id="add-another-word" type="submit" value="⨁ Add another word">
+        <input id="confirm-topic-btn" class="submit-btn-topic" type="submit" value="Confirm addition">
+      </div>
+    </form>
+  </div>
 </div>

@@ -1,26 +1,40 @@
 .add-new-topics {
   color: white;
   font-weight: 100;
+  font-size: 18px;
 }
 
 .topic-form {
   display: flex;
   justify-content: center;
+  padding-bottom: 60px;
+}
+
+.words-form {
   padding-bottom: 80px;
 }
 
-.input-box-topic {
+.input-box {
   background-color: transparent;
   border: white 1px solid;
   border-radius: 3px;
   transition: box-shadow 0.3s;
-  width: 50vw;
-  margin: 0 15px;
+  margin: 0 10px;
 }
 
-.input-box-topic:focus {
+.input-box:focus {
   outline: none !important;
   box-shadow: 0 0 8px;
+}
+
+.topic-input {
+  width: 50vw;
+}
+
+.word-input {
+  margin: 0 15px;
+  width: 40%;
+  margin: 5px 0;
 }
 
 .submit-btn-topic {
@@ -28,4 +42,41 @@
   border: none;
   background-color: white;
   color: $black;
+}
+
+.submit-btn-topic {
+  border-radius: 3px;
+  border: none;
+  background-color: white;
+  color: $black;
+}
+
+#confirm-topic-btn {
+  margin-top: 60px;
+}
+
+#words-wrapper {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+}
+
+#words-form-btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#add-another-word {
+  background-color: transparent;
+  border: white 1px solid;
+  border-radius: 3px;
+  transition: box-shadow 0.3s;
+  margin: 0 10px;
+}
+
+#add-another-word:hover, #add-another-word:focus {
+  outline: none !important;
+  box-shadow: 0 0 8px;
 }
