@@ -5,7 +5,7 @@ class ContentPolicy < ApplicationPolicy
     end
   end
 
-  def index
-    return true
+  def update?
+    true
   end
 end

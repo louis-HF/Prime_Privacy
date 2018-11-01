@@ -1,6 +1,4 @@
 class ContentsController < ApplicationController
-  def update
-  end
 
   def index
     @contents = policy_scope(Content)
@@ -14,6 +12,21 @@ class ContentsController < ApplicationController
     end
   end
 
+  def update
+    @content = Content.find(params[:id])
+    authorize @content
+
+
+    if @content.update(selected: params_detail[:selected] == "0")
+      respond_to do |format|
+        format.js
+      end
+    else
+
+    end
+  end
+
+
   def spot(provider, file_type, number = nil)
     if number == nil
       @contents = policy_scope(Content)
@@ -25,5 +38,11 @@ class ContentsController < ApplicationController
                     .order(coef_total: :desc)
                     .limit(number.to_i)
     end
+  end
+
+  private
+
+  def params_detail
+    params.require(:content).permit(:selected)
   end
 end

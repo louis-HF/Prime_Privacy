@@ -1,9 +1,12 @@
+<%= render 'shared/filterbar'%>
+
+
 <div class="container" id="container-cards">
   <% if params[:file_type] %>
-    <h2> Facebook <%=params[:file_type].capitalize%>s </h2>
+    <h2 class="category"> Facebook <%=params[:file_type].capitalize%>s </h2>
     <%= render 'shared/card', publications: @content %>
   <% else %>
-    <h2> Facebook Images </h2>
+    <h2 class="category"> Facebook Images </h2>
     <div class="row">
       <% if @facebook_images.size == 6 %>
       <%= render 'shared/card', publications: @facebook_images.first(@facebook_images.size - 1)%>
@@ -12,7 +15,7 @@
         <%= render 'shared/card', publications: @facebook_images %>
       <% end %>
     </div>
-    <h2> Facebook Posts </h2>
+    <h2 class="category"> Facebook Posts </h2>
     <div class="row">
       <% if @facebook_posts.size == 6 %>
         <%= render 'shared/card', publications: @facebook_posts.first(@facebook_posts.size - 1)%>
@@ -21,7 +24,7 @@
         <%= render 'shared/card', publications: @facebook_posts.first(@facebook_posts.size) %>
       <% end %>
     </div>
-    <h2> Facebook Likes </h2>
+    <h2 class="category"> Facebook Likes </h2>
     <div class="row">
       <% if @facebook_likes.size == 6 %>
         <%= render 'shared/card', publications: @facebook_likes.first(@facebook_likes.size - 1)%>

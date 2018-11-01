@@ -59,3 +59,4 @@ document.addEventListener("DOMContentLoaded", function(event) {
   });
 // Pour le rang implémenter un each sur sensitivity filter et mettre un index sur le rang
 });
+
