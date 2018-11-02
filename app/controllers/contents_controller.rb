@@ -1,15 +1,13 @@
 class ContentsController < ApplicationController
 
   def index
-    @contents = policy_scope(Content)
-    # type: image like post
-    if params[:file_type]
-      @content = spot("facebook", params[:file_type])
-    else
-      @facebook_images = spot("facebook", "image", 6)
-      @facebook_posts = spot("facebook", "post", 6)
-      @facebook_likes = spot("facebook","like", 6)
-    end
+    conditions = {}
+    conditions[:external_provider] = params[:external_provider] if params[:external_provider].present?
+    conditions[:file_type] = params[:file_type] if params[:file_type].present?
+
+    @contents = policy_scope(Content.where(conditions).order(coef_total: :desc))
+    @contents_file_type =["image", "post", "like"]
+
   end
 
   def update

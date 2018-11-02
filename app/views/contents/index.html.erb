@@ -1,41 +1,29 @@
 <%= render 'shared/filterbar'%>
 
-
 <div class="container" id="container-cards">
-  <% if params[:file_type] %>
-    <h2 class="category"> Facebook <%=params[:file_type].capitalize%>s </h2>
-    <%= render 'shared/card', publications: @content %>
-  <% else %>
-    <h2 class="category"> Facebook Images </h2>
-    <div class="row">
-      <% if @facebook_images.size == 6 %>
-      <%= render 'shared/card', publications: @facebook_images.first(@facebook_images.size - 1)%>
-      <%= render 'shared/cardlink', publication: @facebook_images.last %>
+
+  <!-- trier d'abord par provider  trier par media  -->
+  <% if current_user.facebook.nil? == false %>
+      <% if params[:file_type] %>
+        <h2 class="category"> Facebook <%=params[:file_type]%>s </h2>
+          <div class="row">
+            <%@contents.where(file_type: params[:file_type], external_provider: "facebook").each do |publication| %>
+              <%= render 'shared/card', publication: publication %>
+            <% end %>
       <% else %>
-        <%= render 'shared/card', publications: @facebook_images %>
-      <% end %>
-    </div>
-    <h2 class="category"> Facebook Posts </h2>
-    <div class="row">
-      <% if @facebook_posts.size == 6 %>
-        <%= render 'shared/card', publications: @facebook_posts.first(@facebook_posts.size - 1)%>
-        <%= render 'shared/cardlink', publication: @facebook_posts.last %>
-      <% else %>
-        <%= render 'shared/card', publications: @facebook_posts.first(@facebook_posts.size) %>
-      <% end %>
-    </div>
-    <h2 class="category"> Facebook Likes </h2>
-    <div class="row">
-      <% if @facebook_likes.size == 6 %>
-        <%= render 'shared/card', publications: @facebook_likes.first(@facebook_likes.size - 1)%>
-        <%= render 'shared/cardlink', publication: @facebook_likes.last%>
-      <%else%>
-        <%= render 'shared/card', publications: @facebook_likes.first(@facebook_likes.size)%>
-      <% end %>
-    </div>
+        <%@contents_file_type.each do |type| %>
+          <h2 class="category"> Facebook <%= type %>s </h2>
+            <div class="row">
+              <%@contents.where(file_type: type).limit(5).each do |publication| %>
+                <%= render 'shared/card', publication: publication %>
+              <% end %>
+              <%= render 'shared/cardlink', publication: @contents.where(file_type: type).limit(6).last %>
+            </div>
+        <% end %>
+      <%end%>
+  <%else%>
   <% end %>
 </div>
-
 
 
 
