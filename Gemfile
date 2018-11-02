@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby '2.4.4'
 
 gem 'omniauth-twitter'
-gem 'therubyracer'
+gem 'mini_racer'
 gem 'omniauth'
 gem 'omniauth-facebook'
 
