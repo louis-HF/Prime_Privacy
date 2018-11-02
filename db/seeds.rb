@@ -28,12 +28,12 @@ Content.create(user: user, external_provider: "facebook", external_id: 3, extern
 Content.create(user: user, external_provider: "facebook", external_id: 3, external_created_date: "2018-10-19", external_edit_date: nil, external_deleted_date: nil, file_type: "like", selected: false, coef_total: 0, scan_date: "2018-09-19",url_image: nil, text_publication: "La Raclette")
 Content.create(user: user, external_provider: "facebook", external_id: 3, external_created_date: "2018-10-19", external_edit_date: nil, external_deleted_date: nil, file_type: "like", selected: false, coef_total: 0, scan_date: "2018-09-19",url_image: nil, text_publication: "Kebab <3")
 
-Topicstatistic.create(userstatistics: Userstatistic.last, topic: Topic.where(name: "Swearing"), numberofinstances: 18)
-Topicstatistic.create(userstatistics: Userstatistic.last, topic: Topic.where(name: "Politic"), numberofinstances: 12)
-Topicstatistic.create(userstatistics: Userstatistic.last, topic: Topic.where(name: "Sexualy explicit"), numberofinstances: 11)
-Topicstatistic.create(userstatistics: Userstatistic.last, topic: Topic.where(name: "Alcool and drugs"), numberofinstances: 3)
-Topicstatistic.create(userstatistics: Userstatistic.last, topic: Topic.where(name: "Religion"), numberofinstances: 1)
-Topicstatistic.create(userstatistics: Userstatistic.last, topic: Topic.where(name: "Party"), numberofinstances: 28)
+Topicstatistic.create(userstatistic: Userstatistic.last, topic: Topic.find(1), numberofinstances: 18)
+Topicstatistic.create(userstatistic: Userstatistic.last, topic: Topic.find(2), numberofinstances: 12)
+Topicstatistic.create(userstatistic: Userstatistic.last, topic: Topic.find(3), numberofinstances: 11)
+Topicstatistic.create(userstatistic: Userstatistic.last, topic: Topic.find(4), numberofinstances: 3)
+Topicstatistic.create(userstatistic: Userstatistic.last, topic: Topic.find(5), numberofinstances: 1)
+Topicstatistic.create(userstatistic: Userstatistic.last, topic: Topic.find(6), numberofinstances: 28)
 
 
 #long-term seeds !!!! DON'T DELETE
