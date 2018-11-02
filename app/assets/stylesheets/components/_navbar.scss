@@ -1,9 +1,7 @@
 /* Main navbar */
 
 // le not eleve partout marche pas apparement
-body:not(#homepage) #main-header::after {
-  padding-top: 60px;
-}
+
 
 .navbar-prime {
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
