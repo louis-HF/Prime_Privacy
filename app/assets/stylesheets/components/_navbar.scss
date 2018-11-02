@@ -1,7 +1,7 @@
 /* Main navbar */
 
 // le not eleve partout marche pas apparement
-body:not(#homepage) #main-header::after {
+body {
   padding-top: 60px;
 }
 
