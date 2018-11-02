@@ -1,7 +1,5 @@
 /* Main navbar */
-
-// le not eleve partout marche pas apparement
-body:not(#homepage) #main-header::after {
+.page-offset-navbar {
   padding-top: 60px;
 }
 
