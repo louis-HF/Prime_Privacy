@@ -12,7 +12,8 @@
     <%= javascript_pack_tag 'application' %>
   </head>
   <body>
-    <% unless current_page?(root_path) %>
+    <% unless current_page?(root_path) || current_page?(loadingpage_path) %>
+      <%= render 'shared/page_offset' %>
       <%= render 'shared/navbar' %>
     <% end %>
     <%= render 'shared/flashes' %>
