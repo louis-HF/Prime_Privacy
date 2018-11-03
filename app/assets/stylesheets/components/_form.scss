@@ -1,3 +1,63 @@
 .links-bottom {
   margin-top: 15px;
 }
+
+.form-inputs {
+  margin: 0 10px
+}
+
+.form-actions {
+  padding-bottom: 10px;
+}
+
+.formFooter {
+  text-decoration: none;
+  background-color: #f6f6f6;
+  border-top: 1px solid #dce8f1;
+  padding: 25px;
+  text-align: center;
+  -webkit-border-radius: 0 0 5px 5px;
+}
+
+.underlineHover:after {
+  text-decoration: none;
+  display: block;
+  left: 0;
+  bottom: -10px;
+  width: 0;
+  height: 2px;
+  background-color: #56baed;
+  content: "";
+  transition: width 0.2s;
+}
+
+.underlineHover:hover {
+  color: #0d0d0d;
+}
+
+.underlineHover:hover:after{
+  width: 100%;
+}
+
+.form-control {
+  background-color: #f6f6f6;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 0 auto;
+  width: 85%;
+  border: 2px solid #f6f6f6;
+  transition: all 0.5s ease-in-out;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+}
+
+.form-control:focus {
+  background-color: white;
+  border: 2px solid $blue;
+}
+
+.form-control:placeholder {
+  color: #cccccc;
+}

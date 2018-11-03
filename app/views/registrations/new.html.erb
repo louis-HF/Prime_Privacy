@@ -1,5 +1,5 @@
 
-<div class="container">
+<div class="login-signup-container">
   <h2>Sign up</h2>
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= f.error_notification %>
@@ -38,7 +38,8 @@
       <%= f.button :submit, "Sign up", class: "btn-black-and-blue-thin" %>
     </div>
   <% end %>
-  <%= link_to "Already have an account?", new_session_path(resource_name) %>
-
+  <div class="formFooter">
+    <%= link_to "Already have an account?", new_session_path(resource_name) %>
+  </div>
 </div>
 
