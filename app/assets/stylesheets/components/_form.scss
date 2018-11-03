@@ -19,24 +19,17 @@
   -webkit-border-radius: 0 0 5px 5px;
 }
 
-.underlineHover:after {
-  text-decoration: none;
+.footer-link {
+  transition: all 0.3s ease-in-out;
+}
+
+.footer-link:after {
   display: block;
-  left: 0;
-  bottom: -10px;
-  width: 0;
-  height: 2px;
-  background-color: #56baed;
   content: "";
-  transition: width 0.2s;
 }
 
-.underlineHover:hover {
-  color: #0d0d0d;
-}
-
-.underlineHover:hover:after{
-  width: 100%;
+.footer-link:hover {
+  color: $black;
 }
 
 .form-control {
