@@ -7,7 +7,7 @@ class ContentsController < ApplicationController
 
     @contents = policy_scope(Content.where(conditions).order(coef_total: :desc))
     @contents_file_type =["image", "post", "like"]
-
+    @contents_provider =["facebook", "twitter"]
   end
 
   def update

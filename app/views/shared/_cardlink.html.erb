@@ -10,7 +10,7 @@
       </div>
     <% else %>
       <div class="post">
-        <%= link_to '', "contents?file_type=#{publication.file_type}", class:"card-link link-post"%>
+        <%= link_to '', "?file_type=#{publication.file_type}", class:"card-link link-post"%>
         <h2><%=publication.file_type.capitalize %></h2>
         <div class="<%=publication.file_type%>-content">
           <i class="far fa-thumbs-up"></i>

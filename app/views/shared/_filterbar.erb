@@ -7,7 +7,7 @@
         </div>
       </a>
       <ul class="dropdown-menu filterbar-prime-dropdown-menu">
-          <li class="dropdown-item"><%= link_to 'Facebook','#', class:"linkto"%></li>
+          <li class="dropdown-item"><%= link_to 'Facebook',"?external_provider=facebook", class:"linkto"%></li>
           <li class="dropdown-item" href="#">Twitter</li>
           <div class="dropdown-divider"></div>
           <li class="dropdown-item" href="#">Add another account</li>
@@ -21,9 +21,9 @@
         </div>
       </a>
       <ul class="dropdown-menu filterbar-prime-dropdown-menu">
-        <li class="dropdown-item">Images</li>
-        <li class="dropdown-item" href="#">Posts</li>
-        <li class="dropdown-item" href="#">Liked page</li>
+        <li class="dropdown-item"><%= link_to 'Images', params[:external_provider] ? "?external_provider=#{params[:external_provider]}&file_type=image" : "?file_type=image" , class:"linkto"%></li>
+        <li class="dropdown-item" href="#"><%= link_to 'Posts', params[:external_provider] ? "?#{params[:external_provider]}&file_type=post" : "?file_type=post" , class:"linkto"%></li>
+        <li class="dropdown-item" href="#"><%= link_to 'Likes', params[:external_provider] ? "?#{params[:external_provider]}&file_type=like" : "?file_type=like" , class:"linkto"%></li>
       </ul>
     </li>
 
