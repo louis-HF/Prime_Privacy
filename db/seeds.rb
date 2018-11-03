@@ -1,7 +1,13 @@
 #temporary seeds
 
-user = User.last
+user = User.where(email: "test@test.com")
 
+Topic.create(name:"Swearing")
+Topic.create(name:"Politic")
+Topic.create(name:"Sexualy explicit")
+Topic.create(name:"Alcool and drugs")
+Topic.create(name:"Religion")
+Topic.create(name:"Party")
 
 
 Userstatistic.create(user:user, date:"2018-02-02", fb_photo_public:4, fb_photo_public_sensitive:1, fb_post_public:5, fb_post_public_sensitive:2, fb_likes_public:2, fb_likes_public_sensitive:1, tw_photo_public:15, tw_photo_public_sensitive:3, tw_post_public:0, tw_post_public_sensitive:0, tw_likes_public:0, tw_likes_public_sensitive:0, total_fb_public:10, total_fb_public_sensitive:3, total_tw_public:12, total_tw_public_sensitive:4)
@@ -21,6 +27,15 @@ Content.create(user: user, external_provider: "facebook", external_id: 10, exter
 Content.create(user: user, external_provider: "facebook", external_id: 3, external_created_date: "2018-10-19", external_edit_date: nil, external_deleted_date: nil, file_type: "like", selected: false, coef_total: 0, scan_date: "2018-09-19",url_image: nil, text_publication: "Chorizo")
 Content.create(user: user, external_provider: "facebook", external_id: 3, external_created_date: "2018-10-19", external_edit_date: nil, external_deleted_date: nil, file_type: "like", selected: false, coef_total: 0, scan_date: "2018-09-19",url_image: nil, text_publication: "La Raclette")
 Content.create(user: user, external_provider: "facebook", external_id: 3, external_created_date: "2018-10-19", external_edit_date: nil, external_deleted_date: nil, file_type: "like", selected: false, coef_total: 0, scan_date: "2018-09-19",url_image: nil, text_publication: "Kebab <3")
+
+Topicstatistic.create(userstatistic: Userstatistic.last, topic: Topic.find(1), numberofinstances: 18)
+Topicstatistic.create(userstatistic: Userstatistic.last, topic: Topic.find(2), numberofinstances: 12)
+Topicstatistic.create(userstatistic: Userstatistic.last, topic: Topic.find(3), numberofinstances: 11)
+Topicstatistic.create(userstatistic: Userstatistic.last, topic: Topic.find(4), numberofinstances: 3)
+Topicstatistic.create(userstatistic: Userstatistic.last, topic: Topic.find(5), numberofinstances: 1)
+Topicstatistic.create(userstatistic: Userstatistic.last, topic: Topic.find(6), numberofinstances: 28)
+
+
 #long-term seeds !!!! DON'T DELETE
 #DONT DELETE
 #DONT DELETE
@@ -39,10 +54,4 @@ Content.create(user: user, external_provider: "facebook", external_id: 3, extern
 #DONT DELETE
 #DONT DELETE
 
-Topic.create(name:"Swearing")
-Topic.create(name:"Politic")
-Topic.create(name:"Sexualy explicit")
-Topic.create(name:"Alcool and drugs")
-Topic.create(name:"Religion")
-Topic.create(name:"Party")
 
