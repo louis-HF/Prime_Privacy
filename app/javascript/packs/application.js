@@ -69,3 +69,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
 // Pour le rang implémenter un each sur sensitivity filter et mettre un index sur le rang
 });
 
+
+// Devise alert automatic remove
+window.setTimeout(function() {
+    $(".alert-dismissible").fadeTo(500, 0).slideUp(500, function(){
+        $(this).remove();
+    });
+}, 3000);
