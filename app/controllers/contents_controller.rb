@@ -7,7 +7,14 @@ class ContentsController < ApplicationController
 
     @contents = policy_scope(Content.where(conditions).order(coef_total: :desc))
     @contents_file_type =["image", "post", "like"]
+
+    if params[:external_provider]
+    @contents_provider = [params[:external_provider]]
+    else
     @contents_provider =["facebook", "twitter"]
+    end
+
+    @selection = policy_scope(Content.where(selected: true))
   end
 
   def update

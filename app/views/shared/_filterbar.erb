@@ -1,5 +1,10 @@
 <div class="filterbar-prime">
   <ul class="nav nav-tabs prime-tabs">
+    <li role="presentation">
+      <div class="prime-tab">
+          <%= link_to 'Back to contents', contents_path%>
+        </div>
+     </li>
     <li role="presentation" class="dropdown">
       <a class="dropdown-toggle prime-tab" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
         <div class="prime-tab">
@@ -8,7 +13,7 @@
       </a>
       <ul class="dropdown-menu filterbar-prime-dropdown-menu">
           <li class="dropdown-item"><%= link_to 'Facebook',"?external_provider=facebook", class:"linkto"%></li>
-          <li class="dropdown-item" href="#">Twitter</li>
+          <li class="dropdown-item" href="#"><%= link_to 'Twitter',"?external_provider=twitter", class:"linkto"%></li>
           <div class="dropdown-divider"></div>
           <li class="dropdown-item" href="#">Add another account</li>
       </ul>
@@ -22,8 +27,8 @@
       </a>
       <ul class="dropdown-menu filterbar-prime-dropdown-menu">
         <li class="dropdown-item"><%= link_to 'Images', params[:external_provider] ? "?external_provider=#{params[:external_provider]}&file_type=image" : "?file_type=image" , class:"linkto"%></li>
-        <li class="dropdown-item" href="#"><%= link_to 'Posts', params[:external_provider] ? "?#{params[:external_provider]}&file_type=post" : "?file_type=post" , class:"linkto"%></li>
-        <li class="dropdown-item" href="#"><%= link_to 'Likes', params[:external_provider] ? "?#{params[:external_provider]}&file_type=like" : "?file_type=like" , class:"linkto"%></li>
+        <li class="dropdown-item"><%= link_to 'Posts', params[:external_provider] ? "?external_provider=#{params[:external_provider]}&file_type=post" : "?file_type=post" , class:"linkto"%></li>
+        <li class="dropdown-item" href="#"><%= link_to 'Likes', params[:external_provider] ? "?external_provider=#{params[:external_provider]}&file_type=like" : "?file_type=like" , class:"linkto"%></li>
       </ul>
     </li>
 
@@ -39,6 +44,7 @@
         <li class="dropdown-item" href="#">Last modified date</li>
       </ul>
     </li>
+    <li> <%= link_to 'Make your *number* elements private',"?selected=true", class:"checkout-button prime-tab"%> </li>
   </ul>
-  <a href="#" class="checkout-button">Make your *number* elements private</a>
+
 </div>

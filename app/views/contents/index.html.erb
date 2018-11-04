@@ -3,22 +3,33 @@
 <div class="container" id="container-cards">
 
   <!-- trier d'abord par provider  trier par media  -->
+  <% if params[:selected]%>
+    <div class="row">
+      <% @selection.each do |publication| %>
+        <%= render 'shared/card', publication: publication %>
+       <% end %>
+    </div>
 
-  <% if params[:file_type] %>
-    <h2 class="category"> Facebook <%=params[:file_type]%>s </h2>
-      <div class="row">
-        <%@contents.where(file_type: params[:file_type], external_provider: "facebook").each do |publication| %>
-          <%= render 'shared/card', publication: publication %>
-        <% end %>
-  <% else %>
-    <%@contents_file_type.each do |type| %>
-      <h2 class="category"> Facebook <%= type %>s </h2>
+  <% elsif params[:file_type] %>
+    <% @contents_provider.each do |external_prov| %>
+      <h2 class="category"> <%= external_prov.capitalize %> <%=params[:file_type].capitalize%>s </h2>
         <div class="row">
-          <%@contents.where(file_type: type).limit(5).each do |publication| %>
+          <%@contents.where(file_type: params[:file_type], external_provider: external_prov).each do |publication| %>
             <%= render 'shared/card', publication: publication %>
           <% end %>
-          <%= render 'shared/cardlink', publication: @contents.where(file_type: type).limit(6).last %>
         </div>
+    <% end %>
+  <% else %>
+    <% @contents_provider.each do |external_prov| %>
+      <%@contents_file_type.each do |type| %>
+        <h2 class="category"> <%= external_prov.capitalize %> <%= type.capitalize %>s </h2>
+          <div class="row">
+            <%@contents.where(file_type: type, external_provider: external_prov).limit(5).each do |publication| %>
+              <%= render 'shared/card', publication: publication %>
+            <% end %>
+            <%= render 'shared/cardlink', publication: @contents.where(file_type: type, external_provider: external_prov).limit(6).last, external_prov: external_prov %>
+          </div>
+      <% end %>
     <% end %>
   <%end%>
 
