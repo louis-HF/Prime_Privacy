@@ -21,7 +21,9 @@
         <% if !current_user.twitter.nil? %>
         <%= image_tag "success.png", class: 'validate'%>
         <% else %>
-        <a href="#" ><%= image_tag "add.png", class: 'validate' %></a>
+          <%= link_to user_twitter_omniauth_authorize_path do%>
+            <%= image_tag "add.png", class: 'validate' %></a>
+          <% end %>
         <% end %>
       </div>
       <div class="instagram-icon social-network-logo">
