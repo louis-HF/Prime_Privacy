@@ -42,8 +42,8 @@
   width: 85%;
   border: 2px solid #f6f6f6;
   transition: all 0.5s ease-in-out;
-  -webkit-border-radius: 5px 5px 5px 5px;
-  border-radius: 5px 5px 5px 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
 }
 
 .form-control:focus {
@@ -53,4 +53,8 @@
 
 .form-control:placeholder {
   color: #cccccc;
+}
+
+.form-check-label {
+  margin: 0 5px;
 }
