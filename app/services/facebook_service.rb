@@ -81,7 +81,8 @@ class FacebookService
             selected: false,
             coef_total: 0,
             text_publication: content["message"],
-            url_image: nil
+            url_image: nil,
+            scan_date: Date.today
             )
     end
   end
@@ -98,7 +99,8 @@ class FacebookService
               selected: false,
               coef_total: 0,
               text_publication: content["message"],
-              url_image:content["full_picture"]
+              url_image:content["full_picture"],
+              scan_date: Date.today
               )
     end
   end
@@ -128,7 +130,8 @@ class FacebookService
             selected: false,
             coef_total: 0,
             text_publication: content["name"],
-            url_image: image
+            url_image: image,
+            scan_date: Date.today
             )
     end
   end
@@ -148,7 +151,8 @@ class FacebookService
             coef_total: 0,
             text_publication: content["name"],
             url_image: nil,
-            description: "#{bio} #{description} #{content}"
+            description: "#{bio} #{description} #{content}",
+            scan_date: Date.today
             )
   end
 

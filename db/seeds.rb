@@ -61,8 +61,8 @@
 #DONT DELETE
 #DONT DELETE
 #DONT DELETE
-topics= ["Swearing", "Politics", "Sexualy explicit", "Alcohol and drugs", "Religion", "Party"]
-glossaries = ["swearing", "politics", "sexualy_explicit", "alcohol_and_drugs", "religion", "party"]
+topics= ["Swearing", "Sexualy explicit",  "Alcohol and drugs", "Party", "Politics", "Religion"]
+glossaries = ["swearing", "sexualy_explicit", "alcohol_and_drugs", "party", "politics", "religion"]
 
 topics.each_with_index do |topic, index|
   Topic.create(name: topic)
