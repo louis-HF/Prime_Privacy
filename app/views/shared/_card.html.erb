@@ -1,34 +1,30 @@
-  <% publications.each do |publication| %>
     <div class="col-xs-12 col-sm-6 col-md-4">
       <div class="card">
-        <!-- <div class="checkbox" id="check_<%= publication.id %>"> -->
-          <!-- <form action="/update" method="patch">
-             <input type="checkbox" value="selected" id="selection-<%= publication.id %>">
-             <label for="selection-<%= publication.id %>">Select</label>
-          </form> -->
+        <% if publication.nil? %>
+          <%= Missing content %>
+        <% else %>
           <%= form_for publication, remote: true do |f| %>
             <input type="hidden" value="<%= form_authenticity_token() %>" name="authenticity_token"/>
             <%= f.check_box :selected, id: "selection-#{publication.id}" %>
             <label for="selection-<%= publication.id %>">Select</label>
           <% end %>
-        <% if publication.file_type == "image" %>
-          <div class="image" style="background-image: url(<%=publication.url_image%>);" ></div>
-        <% else %>
-          <div class="post">
-            <h2><%=publication.file_type.capitalize %></h2>
-
-            <div class="<%=publication.file_type%>-content">
-              <i class="far fa-thumbs-up"></i>
-              <p><%= publication.text_publication %></p>
+          <% if publication.file_type == "image" %>
+            <div class="image" style="background-image: url(<%=publication.url_image%>);" ></div>
+          <% else %>
+            <div class="post">
+              <h2><%=publication.file_type.capitalize %></h2>
+              <div class="<%=publication.file_type%>-content">
+                <i class="far fa-thumbs-up"></i>
+                <p><%= publication.text_publication %></p>
+              </div>
             </div>
-          </div>
-        <%end%>
+          <%end%>
+         <% end %>
         <% if publication.coef_total > 0 %>
         <%=image_tag "warning.svg", class:"sensitive-card" %>
         <%end%>
       </div>
     </div>
-  <% end %>
 
 
 
