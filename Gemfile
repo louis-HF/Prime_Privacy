@@ -7,6 +7,8 @@ gem 'mini_racer'
 gem 'omniauth'
 gem 'omniauth-facebook'
 
+gem 'google-cloud-vision'
+
 gem 'groupdate'
 gem 'chartkick'
 gem 'pundit'
