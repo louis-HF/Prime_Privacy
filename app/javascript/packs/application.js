@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   // Draglist
   const draglist = document.getElementById("draglist")
   if (draglist) {
-    Sortable.create(draglist, {animation: 120, sort: true, touchStartThreshold: 3, scrollSpeed: 5,
+    Sortable.create(draglist, {animation: 120, sort: true, touchStartThreshold: 2, scrollSpeed: 5,
       onEnd: function (evt) {
       var itemEl = evt.item;  // dragged HTMLElement
       console.log(evt.to);    // target list
