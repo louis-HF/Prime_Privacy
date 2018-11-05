@@ -1,7 +1,7 @@
-<div class="container">
+<div class="container userstatistics-page">
   <%= render 'shared/social_network_connector' %>
   <div class="row text-center">
-    <%= link_to "Hide your data", loadingpage_path, class: "btn-black-and-blue"%>
+    <%= link_to "Hide your data", loadingpage_path, class: "btn-black-and-blue", id: "trigger-loading"%>
   </div>
   <% if !@userstatistics.empty? %>
     <div class="prime-container pc-twist">

@@ -6,7 +6,7 @@ class CallbacksController < Devise::OmniauthCallbacksController
       flash[:notice] = "Signed in successfully."
       sign_in_and_redirect(:user, authentication.user)
     elsif current_user
-      current_user.authentications.create!(:provider => omniauth['provider'], :uid => omniauth['uid'])
+      current_user.authentications.create!(:provider => omniauth['provider'], :uid => omniauth['uid'], :accesstoken => omniauth['credentials']['token'])
       flash[:notice] = "Authentication successful."
       redirect_to userstatistics_url
     else
@@ -22,4 +22,5 @@ class CallbacksController < Devise::OmniauthCallbacksController
     end
   end
   alias_method :facebook, :all
+  alias_method :twitter, :all
 end
