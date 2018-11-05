@@ -1,11 +1,6 @@
-  <% publications.each do |publication| %>
     <div class="col-xs-12 col-sm-6 col-md-4">
       <div class="card">
-        <!-- <div class="checkbox" id="check_<%= publication.id %>"> -->
-          <!-- <form action="/update" method="patch">
-             <input type="checkbox" value="selected" id="selection-<%= publication.id %>">
-             <label for="selection-<%= publication.id %>">Select</label>
-          </form> -->
+
           <%= form_for publication, remote: true do |f| %>
             <input type="hidden" value="<%= form_authenticity_token() %>" name="authenticity_token"/>
             <%= f.check_box :selected, id: "selection-#{publication.id}" %>
@@ -28,7 +23,6 @@
         <%end%>
       </div>
     </div>
-  <% end %>
 
 
 
