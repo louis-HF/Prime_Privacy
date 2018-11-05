@@ -65,6 +65,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
       document.getElementById('draglist').innerHTML += new_topic_box;
   });
 // Pour le rang implémenter un each sur sensitivity filter et mettre un index sur le rang
+
+
 });
 
 
@@ -74,3 +76,6 @@ window.setTimeout(function() {
         $(this).remove();
     });
 }, 3000);
+
+
+

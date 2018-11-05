@@ -2,11 +2,10 @@ class PreferencesController < ApplicationController
 
   def index
     @preferences = policy_scope(Preference)
+    @preferences = Preference.order(:rank).all
   end
 
   def update
-    @preference = Preference.find(params[:id])
-    @preference.update(prefence_params)
   end
 
   private
