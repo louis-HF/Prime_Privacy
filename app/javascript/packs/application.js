@@ -1,6 +1,6 @@
 import "bootstrap";
 
-// todo condition
+// Todo condition
 import Chartkick from "chartkick";
 window.Chartkick = Chartkick;
 
@@ -15,8 +15,15 @@ document.addEventListener("DOMContentLoaded", function(event) {
   // Draglist
   const draglist = document.getElementById("draglist")
   if (draglist) {
-    console.log('il y a une draglist')
-    Sortable.create(draglist, {animation: 120, sort: true, touchStartThreshold: 3, scrollSpeed: 5});
+    Sortable.create(draglist, {animation: 120, sort: true, touchStartThreshold: 2, scrollSpeed: 5,
+      onEnd: function (evt) {
+      var itemEl = evt.item;  // dragged HTMLElement
+      console.log(evt.to);    // target list
+      (evt.from);  // previous list
+      (evt.oldIndex);  // element's old index within old parent
+      (evt.newIndex);  // element's new index within new parent
+      },
+    });
   }
 
   // Prevent ghost drag
@@ -60,3 +67,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
 // Pour le rang implémenter un each sur sensitivity filter et mettre un index sur le rang
 });
 
+
+// Devise alert automatic remove
+window.setTimeout(function() {
+    $(".alert-dismissible").fadeTo(500, 0).slideUp(500, function(){
+        $(this).remove();
+    });
+}, 3000);

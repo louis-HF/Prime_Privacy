@@ -2,17 +2,13 @@
 
 user = User.where(email: "test@test.com")
 
-Topic.create(name:"Swearing")
-Topic.create(name:"Politic")
-Topic.create(name:"Sexualy explicit")
-Topic.create(name:"Alcool and drugs")
-Topic.create(name:"Religion")
-Topic.create(name:"Party")
-
-
+# Statistics seeds
 Userstatistic.create(user:user, date:"2018-02-02", fb_photo_public:4, fb_photo_public_sensitive:1, fb_post_public:5, fb_post_public_sensitive:2, fb_likes_public:2, fb_likes_public_sensitive:1, tw_photo_public:15, tw_photo_public_sensitive:3, tw_post_public:0, tw_post_public_sensitive:0, tw_likes_public:0, tw_likes_public_sensitive:0, total_fb_public:10, total_fb_public_sensitive:3, total_tw_public:12, total_tw_public_sensitive:4)
 Userstatistic.create(user:user, date:"2018-04-04", fb_photo_public:4, fb_photo_public_sensitive:1, fb_post_public:5, fb_post_public_sensitive:2, fb_likes_public:2, fb_likes_public_sensitive:1, tw_photo_public:15, tw_photo_public_sensitive:3, tw_post_public:0, tw_post_public_sensitive:0, tw_likes_public:0, tw_likes_public_sensitive:0, total_fb_public:8, total_fb_public_sensitive:1, total_tw_public:9, total_tw_public_sensitive:2)
 Userstatistic.create(user:user, date:"2018-09-09", fb_photo_public:4, fb_photo_public_sensitive:1, fb_post_public:5, fb_post_public_sensitive:2, fb_likes_public:2, fb_likes_public_sensitive:1, tw_photo_public:15, tw_photo_public_sensitive:3, tw_post_public:0, tw_post_public_sensitive:0, tw_likes_public:0, tw_likes_public_sensitive:0, total_fb_public:7, total_fb_public_sensitive:0, total_tw_public:10, total_tw_public_sensitive:3)
+
+
+# Content seeds
 
 
 Content.create(user: user, external_provider: "twitter", external_id: 1, external_created_date: "2018-10-19", external_edit_date: nil, external_deleted_date: nil, file_type: "image", selected: false, coef_total: 0, scan_date: "2018-09-19", url_image: 'https://images.unsplash.com/photo-1493078640264-28e9ec0ae9ae?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1679b9338ca51be3405097747df3d6cd&auto=format&fit=crop&w=1050&q=80s', text_publication: nil)
@@ -28,6 +24,7 @@ Content.create(user: user, external_provider: "twitter", external_id: 10, extern
 Content.create(user: user, external_provider: "twitter", external_id: 3, external_created_date: "2018-10-19", external_edit_date: nil, external_deleted_date: nil, file_type: "like", selected: false, coef_total: 0, scan_date: "2018-09-19",url_image: nil, text_publication: "Chorizo")
 Content.create(user: user, external_provider: "twitter", external_id: 3, external_created_date: "2018-10-19", external_edit_date: nil, external_deleted_date: nil, file_type: "like", selected: false, coef_total: 0, scan_date: "2018-09-19",url_image: nil, text_publication: "La Raclette")
 Content.create(user: user, external_provider: "twitter", external_id: 3, external_created_date: "2018-10-19", external_edit_date: nil, external_deleted_date: nil, file_type: "like", selected: false, coef_total: 0, scan_date: "2018-09-19",url_image: nil, text_publication: "Kebab <3")
+
 
 Content.create(user: user, external_provider: "facebook", external_id: 1, external_created_date: "2018-10-19", external_edit_date: nil, external_deleted_date: nil, file_type: "image", selected: false, coef_total: 0, scan_date: "2018-09-19", url_image: 'https://images.unsplash.com/photo-1493078640264-28e9ec0ae9ae?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1679b9338ca51be3405097747df3d6cd&auto=format&fit=crop&w=1050&q=80s', text_publication: nil)
 Content.create(user: user, external_provider: "facebook", external_id: 2, external_created_date: "2018-10-19", external_edit_date: nil, external_deleted_date: nil, file_type: "post", selected: false, coef_total: 0, scan_date: "2018-09-19", url_image: nil, text_publication: "Lorem ipsum dolor sit amet, bentley adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.u caractères de votre document, que ce soit un curriculum vitae, une brochure, une lettre de candidature, une thèse, un doctorat, un travail de recherchesss," )
@@ -70,3 +67,20 @@ Topicstatistic.create(userstatistic: Userstatistic.last, topic: Topic.find(6), n
 #DONT DELETE
 
 
+# Topic seeds
+Topic.create(name:"Swearing")
+Topic.create(name:"Politic")
+Topic.create(name:"Sexualy explicit")
+Topic.create(name:"Alcool and drugs")
+Topic.create(name:"Religion")
+Topic.create(name:"Party")
+
+
+
+# Preference seeds
+Preference.create(rank: 1, topic: Topic.where(name: "Swearing").first, user: user)
+Preference.create(rank: 2, topic: Topic.where(name: "Sexualy explicit").first, user: user)
+Preference.create(rank: 3, topic: Topic.where(name: "Alcool and drugs").first, user: user)
+Preference.create(rank: 4, topic: Topic.where(name: "Party").first, user: user)
+Preference.create(rank: 5, topic: Topic.where(name: "Politic").first, user: user)
+Preference.create(rank: 6, topic: Topic.where(name: "Religion").first, user: user)

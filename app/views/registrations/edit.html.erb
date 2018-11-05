@@ -1,4 +1,4 @@
-<div class="container">
+<div class="login-signup-container">
   <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -43,15 +43,12 @@
     </div>
 
     <div class="form-actions text-center">
-      <%= f.button :submit, "Update", class: "btn-black-and-blue-thin" %>
+      <%= f.button :submit, "Update", class: "blue-submit-btn" %>
     </div>
   <% end %>
-  <div class= "row links-bottom">
-    <div class="col-xs-12 col-sm-6 text-center">
-      <%= link_to "Back", :back %>
-    </div>
-    <div class="col-xs-12 col-sm-6 text-center">
-      <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
-    </div>
+  <div class="formFooter">
+    <%= link_to "Back", :back, class: "footer-link" %>
+    <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "footer-link"%>
   </div>
+</div>
 

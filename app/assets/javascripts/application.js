@@ -1,5 +1,9 @@
 //= require rails-ujs
 //= require_tree .
+//= require jquery
+//= require jquery_ujs
+//= require jquery-ui/widgets/sortable
+//= require rails_sortable
 
   document.addEventListener("DOMContentLoaded", function(event) {
     console.log(Rails)
