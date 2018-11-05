@@ -87,7 +87,8 @@ class FacebookService
   end
 
   def facebook_images_feed(content)
-    Content.create(
+    if !content["full_picture"].include?("hphotos-xpal")
+      Content.create(
               user: @current_user,
               external_provider: "facebook",
               external_id: content["id"],
@@ -99,7 +100,9 @@ class FacebookService
               text_publication: content["message"],
               url_image:content["full_picture"]
               )
+    end
   end
+
 
   def facebook_images(content)
     image_url = "https://graph.facebook.com/v3.2/#{content["id"]}?fields=images,album&access_token=#{@current_user.facebook.accesstoken}"

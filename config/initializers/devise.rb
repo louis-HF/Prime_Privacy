@@ -241,4 +241,5 @@ Devise.setup do |config|
   #   include Turbolinks::Controller
   # end
   config.omniauth :facebook, ENV['FACEBOOK_API'], ENV['FACEBOOK_SECRET_API']
+  config.omniauth :twitter, ENV['TWITTER_API'], ENV['TWITTER_SECRET_API']
 end
