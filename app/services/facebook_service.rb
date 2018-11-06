@@ -12,6 +12,7 @@ class FacebookService
     facebook_subscriptions
     facebook_photos
     WordTester.new(@current_user).find_keywords
+    StatisticService.new(@current_user).compute_userstat
   end
 
   def facebook_feed
