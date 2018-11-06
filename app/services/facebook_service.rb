@@ -15,7 +15,7 @@ class FacebookService
   end
 
   def facebook_feed
-    url = "https://graph.facebook.com/v3.2/#{@current_user.facebook.uid}/feed?fields=object_id%2Cfull_picture%2Cpicture%2Cid%2Ccreated_time%2Ctype%2Cupdated_time%2Cmessage%2Cprivacy&access_token=#{@current_user.facebook.accesstoken}"
+    url = "https://graph.facebook.com/v3.2/#{@current_user.facebook.uid}/feed?fields=object_id%2Cfull_picture%2Cpicture%2Cid%2Ccreated_time%2Ctype%2Cupdated_time%2Clink%2Cmessage%2Cprivacy&access_token=#{@current_user.facebook.accesstoken}"
     content_serialized = open(url).read
     content_opened = JSON.parse(content_serialized)
     while !url.nil?
@@ -38,7 +38,7 @@ class FacebookService
   end
 
   def facebook_subscriptions
-    url = "https://graph.facebook.com/v3.2/#{@current_user.facebook.uid}/likes?fields=description%2Cname%2Cbio%2Ccreated_time%2Cid%2Cabout&access_token=#{@current_user.facebook.accesstoken}"
+    url = "https://graph.facebook.com/v3.2/#{@current_user.facebook.uid}/likes?fields=description%2Clink%2Cname%2Cbio%2Ccreated_time%2Cid%2Cabout&access_token=#{@current_user.facebook.accesstoken}"
     content_serialized = open(url).read
     content_opened = JSON.parse(content_serialized)
     while !url.nil?
@@ -54,7 +54,7 @@ class FacebookService
   end
 
   def facebook_photos
-    url = "https://graph.facebook.com/v3.2/#{@current_user.facebook.uid}/photos/tagged?fields=id%2Ccreated_time%2Cname&access_token=#{@current_user.facebook.accesstoken}"
+    url = "https://graph.facebook.com/v3.2/#{@current_user.facebook.uid}/photos/tagged?fields=id%2Ccreated_time%2Clink%2Cname&access_token=#{@current_user.facebook.accesstoken}"
     content_serialized = open(url).read
     content_opened = JSON.parse(content_serialized)
     while !url.nil?
@@ -83,7 +83,8 @@ class FacebookService
             coef_total: 0,
             text_publication: content["message"],
             url_image: nil,
-            scan_date: Date.today
+            scan_date: Date.today,
+            publication_url: content["link"]
             )
     end
   end
@@ -101,7 +102,8 @@ class FacebookService
               coef_total: 0,
               text_publication: content["message"],
               url_image:content["full_picture"],
-              scan_date: Date.today
+              scan_date: Date.today,
+              publication_url: content["link"]
               )
     end
   end
@@ -132,7 +134,8 @@ class FacebookService
             coef_total: 0,
             text_publication: content["name"],
             url_image: image,
-            scan_date: Date.today
+            scan_date: Date.today,
+            publication_url: content["link"]
             )
     end
   end
@@ -153,7 +156,8 @@ class FacebookService
             text_publication: content["name"],
             url_image: nil,
             description: "#{bio} #{description} #{content}",
-            scan_date: Date.today
+            scan_date: Date.today,
+            publication_url: content["link"]
             )
   end
 
