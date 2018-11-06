@@ -8,6 +8,8 @@ gem 'mini_racer'
 gem 'omniauth'
 gem 'omniauth-facebook'
 
+gem 'google-cloud-vision'
+
 gem 'groupdate'
 gem 'chartkick'
 gem 'pundit'
@@ -18,6 +20,7 @@ gem 'pg', '~> 0.21'
 gem 'puma'
 gem 'rails', '5.2.1'
 gem 'redis'
+gem 'rest-client'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'
@@ -26,6 +29,11 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+
+# Sortable draglist
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem 'rails_sortable'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

@@ -1,49 +1,77 @@
 <%= render 'shared/filterbar'%>
 
-<div class="container" id="container-cards">
+<div class=" prime-container">
 
-  <!-- trier d'abord par provider  trier par media  -->
-  <% if params[:selected]%>
-    <div class="row">
-      <% @selection.each do |publication| %>
-        <%= render 'shared/card', publication: publication %>
-       <% end %>
-    </div>
+    <% if params[:selected] %>
+      <div class="explanation">
+        <h2>Informations</h2>
+        <ul>
+          <li> Click on the publication to access the post on your social network </li>
+          <li> You can directly delete your Twitter's content thanks to the button "Hide my data"</li>
+          <li> It is so easy </li>
+        </ul>
+      </div>
+    <% elsif params[:file_type] || params[:external_provider] %>
 
-  <% elsif params[:file_type] %>
-    <% @contents_provider.each do |external_prov| %>
-      <h2 class="category"> <%= external_prov.capitalize %> <%=params[:file_type].capitalize%>s </h2>
-        <div class="row">
-          <%@contents.where(file_type: params[:file_type], external_provider: external_prov).each do |publication| %>
-            <%= render 'shared/card', publication: publication %>
-          <% end %>
-        </div>
+    <% else %>
+      <div class="explanation">
+         <h2>Informations</h2>
+        <ul>
+          <li> Sensitive Content are highlighted thanks to red icons </li>
+          <li> You can select a publication clicking on select </li>
+          <li> You can use the navigation bar below to go where you need easily</li>
+          <li> Once you have selected what you wanted Go to "Make my elements private"</li>
+          <li> Everytime you want to comeback to this page just hit the "Back to content button"</li>
+        </ul>
+      </div>
     <% end %>
-  <% else %>
-    <% @contents_provider.each do |external_prov| %>
-      <%@contents_file_type.each do |type| %>
-        <h2 class="category"> <%= external_prov.capitalize %> <%= type.capitalize %>s </h2>
+
+  <div class="container" id="container-cards" >
+    <!-- trier d'abord par provider  trier par media  -->
+    <% if params[:selected]%>
+      <div class="row">
+        <% @selection.each do |publication| %>
+          <%= render 'shared/selectionlink', publication: publication %>
+         <% end %>
+      </div>
+      <!-- Button trigger modal -->
+      <div class="call-to-action-zone-homepage">
+        <button type="button" class="blue-submit-btn" id="hide-btn-final"data-toggle="modal" data-target="#exampleModal">
+          Hide this data
+        </button>
+      </div>
+
+    <% elsif params[:file_type] %>
+      <% @contents_provider.each do |external_prov| %>
+        <h2 class="category"> <%= external_prov.capitalize %> <%=params[:file_type].capitalize%>s </h2>
           <div class="row">
-            <%@contents.where(file_type: type, external_provider: external_prov).limit(5).each do |publication| %>
-              <%= render 'shared/card', publication: publication %>
+            <%@contents.where(file_type: params[:file_type], external_provider: external_prov).each do |publication| %>
+              <% unless publication.nil? %>
+                <%= render 'shared/card', publication: publication %>
+              <% end %>
             <% end %>
-            <%= render 'shared/cardlink', publication: @contents.where(file_type: type, external_provider: external_prov).limit(6).last, external_prov: external_prov %>
           </div>
       <% end %>
-    <% end %>
-  <%end%>
-
-
+    <% else %>
+      <% @contents_provider.each do |external_prov| %>
+        <%@contents_file_type.each do |type| %>
+          <h2 class="category"> <%= external_prov.capitalize %> <%= type.capitalize %>s </h2>
+            <div class="row">
+              <%@contents.where(file_type: type, external_provider: external_prov).limit(5).each do |publication| %>
+                <% unless publication.nil? %>
+                  <%= render 'shared/card', publication: publication %>
+                <% end %>
+              <% end %>
+              <% unless @contents.where(file_type: type, external_provider: external_prov).nil? %>
+                <%= render 'shared/cardlink', publication: @contents.where(file_type: type, external_provider: external_prov).limit(6).last, external_prov: external_prov %>
+              <% end %>
+            </div>
+        <% end %>
+      <% end %>
+    <%end%>
+  </div>
 </div>
 
-
-
-
-
-<!-- Button trigger modal -->
-<button type="button" class="btn-black-and-blue" data-toggle="modal" data-target="#exampleModal">
-  Hide this data
-</button>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

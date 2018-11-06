@@ -1,0 +1,17 @@
+.explanation{
+  width: 100%;
+  margin-top: 20px;
+  font-weight: 200;
+  background-color: #050D11;
+  color: white;
+  border-radius: 3px;
+  padding: 30px 30px;
+  ul{
+    // list-style: none;
+    margin-top: 20px;
+  }
+  li {
+    font-size: 16px;
+    padding-bottom: 5px;
+  }
+}

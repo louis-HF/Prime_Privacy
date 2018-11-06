@@ -34,10 +34,12 @@
 
       <div class="call-to-action-zone-homepage bg-texture">
         <% if user_signed_in? %>
-          <%= link_to "Go to your dashboard", userstatistics_path, class: "btn-black-and-blue" %>
+          <%= link_to "Go to your dashboard", userstatistics_path, class: "blue-submit-btn" %>
         <% else %>
-          <%= link_to "Take control of my data", new_user_registration_path, class: "btn-black-and-blue" %>
-          <%= link_to "Already have an account?", new_user_session_path, class: "already-have-account-btn" %>
+          <%= link_to "Take control of my data", new_user_registration_path, class: "blue-submit-btn" %>
+          <div id="trapezoid-already-have-account">
+            <%= link_to "Already have an account?", new_user_session_path, class: "already-have-account" %>
+          </div>
         <% end %>
       </div>
     </div>
