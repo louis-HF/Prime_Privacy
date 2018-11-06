@@ -6,16 +6,22 @@
   <% if params[:selected]%>
     <div class="row">
       <% @selection.each do |publication| %>
-        <%= render 'shared/card', publication: publication %>
+        <%= render 'shared/selectionlink', publication: publication %>
        <% end %>
     </div>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn-black-and-blue" data-toggle="modal" data-target="#exampleModal">
+      Hide this data
+    </button>
 
   <% elsif params[:file_type] %>
     <% @contents_provider.each do |external_prov| %>
       <h2 class="category"> <%= external_prov.capitalize %> <%=params[:file_type].capitalize%>s </h2>
         <div class="row">
           <%@contents.where(file_type: params[:file_type], external_provider: external_prov).each do |publication| %>
-            <%= render 'shared/card', publication: publication %>
+            <% unless publication.nil? %>
+              <%= render 'shared/card', publication: publication %>
+            <% end %>
           <% end %>
         </div>
     <% end %>
@@ -25,25 +31,19 @@
         <h2 class="category"> <%= external_prov.capitalize %> <%= type.capitalize %>s </h2>
           <div class="row">
             <%@contents.where(file_type: type, external_provider: external_prov).limit(5).each do |publication| %>
-              <%= render 'shared/card', publication: publication %>
+              <% unless publication.nil? %>
+                <%= render 'shared/card', publication: publication %>
+              <% end %>
             <% end %>
-            <%= render 'shared/cardlink', publication: @contents.where(file_type: type, external_provider: external_prov).limit(6).last, external_prov: external_prov %>
+            <% unless @contents.where(file_type: type, external_provider: external_prov).nil? %>
+              <%= render 'shared/cardlink', publication: @contents.where(file_type: type, external_provider: external_prov).limit(6).last, external_prov: external_prov %>
+            <% end %>
           </div>
       <% end %>
     <% end %>
   <%end%>
-
-
 </div>
 
-
-
-
-
-<!-- Button trigger modal -->
-<button type="button" class="blue-submit-btn" data-toggle="modal" data-target="#exampleModal">
-  Hide this data
-</button>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

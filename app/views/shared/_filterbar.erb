@@ -8,7 +8,7 @@
     <li role="presentation" class="dropdown">
       <a class="dropdown-toggle prime-tab" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
         <div class="prime-tab">
-          Social media <span class="caret"></span>
+          <%= params[:external_provider] ? params[:external_provider].capitalize : "Social Media" %> <span class="caret"></span>
         </div>
       </a>
       <ul class="dropdown-menu filterbar-prime-dropdown-menu">
@@ -22,7 +22,7 @@
     <li>
       <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
         <div class="prime-tab">
-          Category <span class="caret"></span>
+          <%= params[:file_type] ? params[:file_type].capitalize + "s" : "Category" %><span class="caret"></span>
         </div>
       </a>
       <ul class="dropdown-menu filterbar-prime-dropdown-menu">
@@ -44,7 +44,10 @@
         <li class="dropdown-item" href="#">Last modified date</li>
       </ul>
     </li>
-    <li> <%= link_to 'Make your *number* elements private',"?selected=true", class:"checkout-button prime-tab"%> </li>
-  </ul>
+    <li> <%= link_to "?selected=true", class:"checkout-button prime-tab" do %>
+      Make your <span id="compteur"> <%= @selection.size %></span> elements private
+      <% end %>
 
+      </li>
+  </ul>
 </div>
