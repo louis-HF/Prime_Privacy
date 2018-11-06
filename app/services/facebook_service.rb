@@ -8,11 +8,12 @@ class FacebookService
   end
 
   def facebook
-    facebook_feed
-    facebook_subscriptions
-    facebook_photos
-    WordTester.new(@current_user).find_keywords
-    StatisticService.new(@current_user).compute_userstat
+    # facebook_feed
+    # facebook_subscriptions
+    # facebook_photos
+    # WordTester.new(@current_user).find_keywords
+    # StatisticService.new(@current_user).compute_userstat
+    VisionService.new(@current_user).image_analysis
   end
 
   def facebook_feed
