@@ -3,7 +3,7 @@
     <% @preferences.each do |prefence| %>
     <li class="draglist-box" draggable="true">
       <p class="rank"><%= prefence.rank %></p>
-      <%= image_tag "#{prefence.topic.name}.png", class: 'picto hidden-xs' %>
+      <%= image_tag "#{prefence.topic.name.downcase}.png", class: 'picto hidden-xs' %>
       <p class="topic-name"><%= prefence.topic.name %></p>
       <a href="">
         <i class="far fa-times-circle delete-cross"></i>

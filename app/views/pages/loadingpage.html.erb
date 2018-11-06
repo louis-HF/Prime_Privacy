@@ -1,7 +1,10 @@
 <div class="loading-page">
+  <% if !Content.where(user: current_user, scan_date: Date.today).empty? %>
+  <h1 class="loading-message">Loading your session<span>.</span><span>.</span><span>.</span></h1>
+  <% else %>
   <h1 class="loading-message">Importing your little secrets<span>.</span><span>.</span><span>.</span></h1>
+  <% end %>
   <div class="Loader"></div>
 <!--   <%= link_to "Loading is finished", userstatistics_path, class: "btn-white-and-blue" %> -->
 </div>
 
-<% FacebookService.new(current_user).facebook %>

@@ -69,3 +69,5 @@
 "miller"
 "modelo"
 "shots"
+"drunk"
+"hookah"

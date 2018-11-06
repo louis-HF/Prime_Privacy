@@ -59,6 +59,7 @@ GEM
     chartkick (3.0.1)
     coderay (1.1.2)
     concurrent-ruby (1.0.5)
+    connection_pool (2.2.2)
     crass (1.0.4)
     devise (4.5.0)
       bcrypt (~> 3.0)
@@ -195,6 +196,8 @@ GEM
     pundit (2.0.0)
       activesupport (>= 3.0.0)
     rack (2.0.5)
+    rack-protection (2.0.4)
+      rack
     rack-proxy (0.6.5)
       rack
     rack-test (1.1.0)
@@ -251,6 +254,12 @@ GEM
     sassc (2.0.0)
       ffi (~> 1.9.6)
       rake
+    sidekiq (5.2.2)
+      connection_pool (~> 2.2, >= 2.2.2)
+      rack-protection (>= 1.5.0)
+      redis (>= 3.3.5, < 5)
+    sidekiq-failures (1.0.0)
+      sidekiq (>= 4.0.0)
     signet (0.11.0)
       addressable (~> 2.3)
       faraday (~> 0.9)
@@ -327,6 +336,8 @@ DEPENDENCIES
   redis
   rest-client
   sass-rails
+  sidekiq
+  sidekiq-failures (~> 1.0)
   simple_form
   spring
   spring-watcher-listen (~> 2.0.0)
