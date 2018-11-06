@@ -336,6 +336,8 @@ DEPENDENCIES
   redis
   rest-client
   sass-rails
+  sidekiq
+  sidekiq-failures (~> 1.0)
   simple_form
   spring
   spring-watcher-listen (~> 2.0.0)
