@@ -1,16 +1,16 @@
 <div class="col-xs-12 col-sm-6 col-md-4">
-  <div class="card link-box">
+  <div class="card">
     <% unless publication.nil? %>
       <% if publication.file_type == "image" %>
         <div class="image" style="background: url(<%=publication.url_image%>);" >
-          <%= link_to '',"?external_provider=#{external_prov}&file_type=#{publication.file_type}", class:"card-link link-post"%>
+          <a href="<%=publication.publication_url%>" target="_blank" class="card-link"></a>
           <div class="card-description">
-            <h2>See All</h2>
+            <h2>Go to post</h2>
           </div>
         </div>
       <% else %>
         <div class="post">
-          <%= link_to '',"?external_provider=#{external_prov}&file_type=#{publication.file_type}", class:"card-link link-post"%>
+          <a href="<%=publication.publication_url%>" target="_blank" class="card-link"></a>
           <h2><%=publication.file_type.capitalize %></h2>
           <div class="<%=publication.file_type%>-content">
             <i class="far fa-thumbs-up"></i>
@@ -19,7 +19,7 @@
         </div>
       <%end%>
       <div class="card-description">
-        <h2>See All</h2>
+        <h2>Go to post</h2>
       </div>
     <% else %>
       <h2 class="category"> You have no content!</h2>

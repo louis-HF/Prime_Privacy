@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 2018_11_06_143907) do
     t.text "text_publication"
     t.string "url_image"
     t.string "description"
+    t.string "publication_url"
     t.index ["user_id"], name: "index_contents_on_user_id"
   end
 

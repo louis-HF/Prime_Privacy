@@ -19,15 +19,13 @@ class ContentsController < ApplicationController
 
   def update
     @content = Content.find(params[:id])
+    @compteur = Content.where(selected: true).size
     authorize @content
-
-
     if @content.update(selected: params_detail[:selected] == "0")
       respond_to do |format|
         format.js
       end
     else
-
     end
   end
 

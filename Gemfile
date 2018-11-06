@@ -1,11 +1,14 @@
 source 'https://rubygems.org'
 ruby '2.4.4'
 
-
+gem 'sidekiq'
+gem 'sidekiq-failures', '~> 1.0'
 gem 'omniauth-twitter'
 gem 'mini_racer'
 gem 'omniauth'
 gem 'omniauth-facebook'
+
+gem 'google-cloud-vision'
 
 gem 'groupdate'
 gem 'chartkick'
@@ -17,6 +20,7 @@ gem 'pg', '~> 0.21'
 gem 'puma'
 gem 'rails', '5.2.1'
 gem 'redis'
+gem 'rest-client'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'

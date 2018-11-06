@@ -1,1 +1,10 @@
-party.txt
+"party"
+"dance"
+"club"
+"drinks"
+"poker"
+"celebrate"
+"red cup"
+"invitation"
+"parties"
+"puke"

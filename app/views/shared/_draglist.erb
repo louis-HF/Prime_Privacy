@@ -3,7 +3,7 @@
     <% @preferences.each_with_sortable_id do |preference, sortable_id| %>
     <li class="draglist-box" id="<%= sortable_id %>">
       <p class="rank"><%= preference.rank + 1 %></p>
-      <%= image_tag "#{preference.topic.picto}", class: 'picto hidden-xs' %>
+      <%= image_tag preference.topic.picto, class: 'picto hidden-xs' %>
       <p class="topic-name"><%= preference.topic.name %></p>
       <i class="far fa-times-circle delete-cross">
         <%= link_to 'Destroy', preference, method: :delete, data: { confirm: 'Are you sure?' } %>
