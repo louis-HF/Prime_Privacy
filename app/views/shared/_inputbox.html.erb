@@ -1,22 +1,24 @@
 <div class="topics-container add-new-topics bg-black">
   <div id="mainform-topic">
-    <form class="topic-form" action="">
-      <input id="topic-name" class="input-box topic-input" type="text" name="topic-name" value="Topic name">
+    <form action="/topics" class="topic-form" method="POST">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <input id="topic-name" name="topic[name]" class="input-box topic-input" type="text" value="Topic name">
       <input id="add-topic-btn" class="submit-btn-topic" type="submit" value="Add">
-    </form>
   </div>
 
   <div id="subform-topic" hidden>
-    <form class="words-form" action="">
-      <h2 value="topic-name"></h2>
+      <h2 id="topic-name-reminder" class="text-center"></h2>
       <div id="words-wrapper">
-        <input class="input-box word-input" type="text" name="topic-name" value="Word" >
-        <input class="input-box word-input" type="text" name="topic-name" value="Word" >
-        <input class="input-box word-input" type="text" name="topic-name" value="Word" >
+        <input class="input-box word-input" type="text" name="new-word" value="Word" >
+        <input class="input-box word-input" type="text" name="new-word" value="Word" >
+        <input class="input-box word-input" type="text" name="new-word" value="Word" >
       </div>
       <div id="words-form-btns">
         <input id="add-another-word" type="submit" value="⨁ Add another word">
-        <input id="confirm-topic-btn" class="submit-btn-topic" type="submit" value="Confirm addition">
+        <div id="btn-submission-topic">
+          <input id="cancel-btn" type="button" class="submit-btn-topic" value="Cancel" onClick="window.location.reload()">
+          <input id="confirm-topic-btn" class="submit-btn-topic" type="submit" value="Confirm addition">
+        </div>
       </div>
     </form>
   </div>

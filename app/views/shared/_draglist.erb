@@ -1,15 +1,13 @@
 <div class="draglist-container bg-black">
   <ul class="sortable topic-list list-unstyled" id="draglist">
     <% @preferences.each_with_sortable_id do |prefence, sortable_id| %>
-    <li class="draglist-box" draggable="true" id="<%= sortable_id %>">
+    <li class="draglist-box" id="<%= sortable_id %>">
       <p class="rank"><%= prefence.rank + 1 %></p>
       <%= image_tag "#{prefence.topic.name}.png", class: 'picto hidden-xs' %>
       <p class="topic-name"><%= prefence.topic.name %></p>
-      <a href="">
-        <i class="far fa-times-circle delete-cross">
-          <%= link_to 'Destroy', prefence, method: :delete, data: { confirm: 'Are you sure?' } %>
-        </i>
-      </a>
+      <i class="far fa-times-circle delete-cross">
+        <%= link_to 'Destroy', prefence, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </i>
       <i class="fas fa-arrows-alt-v drag"></i>
     </li>
     <% end %>

@@ -80,3 +80,16 @@
   outline: none !important;
   box-shadow: 0 0 8px;
 }
+
+#topic-name-reminder {
+  text-decoration: underline $blue;
+  font-weight: bold;
+}
+
+#btn-submission-topic {
+  display: inline;
+}
+
+#cancel-btn {
+  background-color: $red;
+}
