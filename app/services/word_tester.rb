@@ -13,7 +13,7 @@ class WordTester
       text = text.downcase
       coef = 0
       @keywords.each do |keyword|
-        if text.include?(keyword.name)
+        if text.include?("#{keyword.name} ") || text.include?("#{keyword.name}\n") || text.include?("#{keyword.name}.") || text.include?("#{keyword.name}!") || text.include?("#{keyword.name}?")
           ContentKeyword.create(content: content, keyword: keyword)
           coef = coef + Preference.where(user: @current_user).count + 7 - Preference.find_by(topic: Keyword.find(1).topic).rank
         end

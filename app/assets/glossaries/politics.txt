@@ -37,3 +37,4 @@
 "political"
 "politics"
 "abortion"
+"legal"
