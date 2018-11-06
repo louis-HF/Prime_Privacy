@@ -17,7 +17,7 @@ class ContentsController < ApplicationController
     @selection = policy_scope(Content.where(selected: true))
   end
 
-  def updatex
+  def update
     @content = Content.find(params[:id])
     @compteur = Content.where(selected: true).size
     authorize @content
