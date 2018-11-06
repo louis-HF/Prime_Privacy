@@ -7,12 +7,14 @@ require 'json'
 class VisionService
   def initialize(photo_url)
     @photo_url = photo_url
-    # @key = ENV['GOOGLE_VISION_API_KEY']
-    @key = 'AIzaSyCY7pP59zKlhQZFoHMi584dLIw2VRT_is8'
+    @key = ENV['GOOGLE_VISION_API_KEY']
+
   end
 
   def call
     url = 'https://vision.googleapis.com/v1/images:annotate?key=' + @key
+    keywords = ''
+
     payload = {
       requests: [
         {
@@ -30,7 +32,10 @@ class VisionService
         }
       ]
     }
-    JSON.parse(RestClient.post(url, payload.to_json, content_type: 'application/json'))["responses"][0]
+    JSON.parse(RestClient.post(url, payload.to_json, content_type: 'application/json'))["responses"][0]["localizedObjectAnnotations"].each do |element|
+      puts keywords = keywords + " " + element["name"]
+    end
+    keywords
   end
 end
 
