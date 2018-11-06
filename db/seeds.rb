@@ -2,6 +2,7 @@
 
 user = User.where(email: "test@test.com")
 
+
 Topic.create(name:"Swearing")
 Topic.create(name:"Politic")
 Topic.create(name:"Sexualy explicit")
@@ -70,3 +71,20 @@ Topicstatistic.create(userstatistic: Userstatistic.last, topic: Topic.find(6), n
 #DONT DELETE
 
 
+# Topic seeds
+Topic.create(name:"Swearing")
+Topic.create(name:"Politic")
+Topic.create(name:"Sexualy explicit")
+Topic.create(name:"Alcool and drugs")
+Topic.create(name:"Religion")
+Topic.create(name:"Party")
+
+
+
+# Preference seeds
+Preference.create(rank: 1, topic: Topic.where(name: "Swearing").first, user: user)
+Preference.create(rank: 2, topic: Topic.where(name: "Sexualy explicit").first, user: user)
+Preference.create(rank: 3, topic: Topic.where(name: "Alcool and drugs").first, user: user)
+Preference.create(rank: 4, topic: Topic.where(name: "Party").first, user: user)
+Preference.create(rank: 5, topic: Topic.where(name: "Politic").first, user: user)
+Preference.create(rank: 6, topic: Topic.where(name: "Religion").first, user: user)

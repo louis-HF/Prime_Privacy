@@ -1,65 +1,17 @@
 <div class="draglist-container bg-black">
   <ul class="topic-list list-unstyled" id="draglist">
+    <% @preferences.each do |prefence| %>
     <li class="draglist-box" draggable="true">
-      <p class="rank">1</p>
-      <%= image_tag 'swearing.png', class: 'picto swearing hidden-xs' %>
-      <p class="topic-name">Swearing</p>
+      <p class="rank"><%= prefence.rank %></p>
+      <%= image_tag "#{prefence.topic.name}.png", class: 'picto hidden-xs' %>
+      <p class="topic-name"><%= prefence.topic.name %></p>
       <a href="">
         <i class="far fa-times-circle delete-cross"></i>
       </a>
       <i class="fas fa-arrows-alt-v drag"></i>
     </li>
-
-    <li class="draglist-box">
-      <p class="rank">2</p>
-      <%= image_tag 'politic.png', class: 'picto politic hidden-xs' %>
-      <p class="topic-name">Politic</p>
-      <a href="">
-        <i class="far fa-times-circle delete-cross"></i>
-      </a>
-      <i class="fas fa-arrows-alt-v drag"></i>
-    </li>
-
-    <li class="draglist-box">
-      <p class="rank">3</p>
-      <%= image_tag 'sex.png', class: 'picto sex hidden-xs' %>
-      <p class="topic-name">Sexualy explicit</p>
-      <a href="">
-        <i class="far fa-times-circle delete-cross"></i>
-      </a>
-      <i class="fas fa-arrows-alt-v drag"></i>
-    </li>
-
-    <li class="draglist-box">
-      <p class="rank">4</p>
-      <%= image_tag 'drugs.png', class: 'picto drugs hidden-xs' %>
-      <p class="topic-name">Alcool and drugs</p>
-      <a href="">
-        <i class="far fa-times-circle delete-cross"></i>
-      </a>
-      <i class="fas fa-arrows-alt-v drag"></i>
-    </li>
-
-    <li class="draglist-box">
-      <p class="rank">5</p>
-      <%= image_tag 'religion.png', class: 'picto religion hidden-xs' %>
-      <p class="topic-name">Religion</p>
-      <a href="">
-        <i class="far fa-times-circle delete-cross"></i>
-      </a>
-      <i class="fas fa-arrows-alt-v drag"></i>
-    </li>
-
-    <li class="draglist-box">
-      <p class="rank">6</p>
-      <%= image_tag 'party.png', class: 'picto party hidden-xs' %>
-      <p class="topic-name">Party</p>
-      <a href="">
-        <i class="far fa-times-circle delete-cross"></i>
-      </a>
-      <i class="fas fa-arrows-alt-v drag"></i>
-    </li>
-
+    <% end %>
+<!--
     <li class="draglist-box">
       <p class="rank">7</p>
       <%= image_tag 'personal.png', class: 'picto personal hidden-xs' %>
@@ -73,6 +25,6 @@
         <i class="far fa-times-circle delete-cross"></i>
       </a>
       <i class="fas fa-arrows-alt-v drag"></i>
-    </li>
+    </li> -->
   </ul>
 </div>

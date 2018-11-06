@@ -28,6 +28,11 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 
+# Sortable draglist
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem 'rails_sortable'
+
 group :development do
   gem 'web-console', '>= 3.3.0'
 end
