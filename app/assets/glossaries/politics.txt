@@ -36,3 +36,4 @@
 "constitution"
 "political"
 "politics"
+"abortion"

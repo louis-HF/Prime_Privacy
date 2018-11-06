@@ -11,6 +11,7 @@ class FacebookService
     facebook_feed
     facebook_subscriptions
     facebook_photos
+    WordTester.new(@current_user).find_keywords
   end
 
   def facebook_feed
@@ -88,7 +89,7 @@ class FacebookService
   end
 
   def facebook_images_feed(content)
-    if !content["full_picture"].include?("hphotos-xpal")
+    if !content["full_picture"].include?("hphotos") && !content["full_picture"].include?("external.xx")
       Content.create(
               user: @current_user,
               external_provider: "facebook",

@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_many :contents, dependent: :destroy
   has_many :userstatistics, dependent: :destroy
   has_many :authentications, dependent: :destroy
+  has_many :keywords, through: :topics
   has_many :content_keywords, through: :contents
   has_one :facebook, -> { where provider: "facebook"}, class_name: "Authentication"
   has_one :twitter, -> { where provider: "twitter"}, class_name: "Authentication"
