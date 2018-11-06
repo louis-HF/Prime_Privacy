@@ -8,6 +8,7 @@ class TopicsController < ApplicationController
 
   def create
     @topic = current_user.topics.new(topic_params)
+    @topic.picto = "personal.png"
     @prefence = Preference.new(user: current_user)
     @prefence.topic = @topic
     @prefence.rank = Preference.where(user: current_user).maximum(:rank) + 1
@@ -30,7 +31,7 @@ class TopicsController < ApplicationController
   private
 
   def topic_params
-    params.require(:topic).permit(:name, picto: "personal.png")
+    params.require(:topic).permit(:name)
   end
 
   def set_topic

@@ -1,16 +1,18 @@
 <div id="subform-topic" hidden>
-      <h2 id="topic-name-reminder" class="text-center"></h2>
-      <div id="words-wrapper">
-        <input class="input-box word-input" type="text" name="new-word" value="Word" >
-        <input class="input-box word-input" type="text" name="new-word" value="Word" >
-        <input class="input-box word-input" type="text" name="new-word" value="Word" >
+  <form action="/keywords" method="POST">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <h2 id="topic-name-reminder" class="text-center"></h2>
+    <div id="words-wrapper">
+      <input name="keyword1[name]" class="input-box word-input" type="text" value="Word" >
+      <input name="keyword2[name]" class="input-box word-input" type="text" value="Word" >
+      <input name="keyword3[name]" class="input-box word-input" type="text" value="Word" >
+    </div>
+    <div id="words-form-btns">
+      <input id="add-another-word" type="submit" value="⨁ Add another word">
+      <div id="btn-submission-topic">
+        <input id="cancel-btn" type="button" class="submit-btn-topic" value="Cancel" onClick="window.location.reload()">
+        <input id="confirm-topic-btn" class="submit-btn-topic" type="submit" value="Confirm addition">
       </div>
-      <div id="words-form-btns">
-        <input id="add-another-word" type="submit" value="⨁ Add another word">
-        <div id="btn-submission-topic">
-          <input id="cancel-btn" type="button" class="submit-btn-topic" value="Cancel" onClick="window.location.reload()">
-          <input id="confirm-topic-btn" class="submit-btn-topic" type="submit" value="Confirm addition">
-        </div>
-      </div>
-    </form>
-  </div>
+    </div>
+  </form>
+</div>
