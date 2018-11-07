@@ -7,7 +7,6 @@
     <%= link_to "Loading is finished", userstatistic_path(stat), class: "btn-white-and-blue" %>
   <% else %>
     <h1 class="loading-message">Importing your little secrets<span>.</span><span>.</span><span>.</span></h1>
-    <% FacebookJob.new(current_user).perform(current_user.id) %>
     <% wait = true %>
     <% length = 6 + Topic.where(user: current_user).length %>
     <% while wait %>

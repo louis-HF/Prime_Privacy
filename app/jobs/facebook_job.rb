@@ -5,6 +5,6 @@ class FacebookJob < ApplicationJob
     user = User.find(user_id)
     FacebookService.new(user).facebook
     WordTester.new(user).find_keywords
-    StatisticService.new(@user).compute_userstat
+    StatisticService.new(user).compute_userstat
   end
 end
