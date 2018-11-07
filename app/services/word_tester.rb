@@ -20,6 +20,7 @@ class WordTester
       end
       content.coef_total = coef
       content.save
+      Cloudinary::Api.delete_resources_by_tag("facebook_#{@current_user.id}")
     end
   end
 
