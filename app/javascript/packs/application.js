@@ -44,24 +44,22 @@ document.addEventListener("DOMContentLoaded", function(event) {
       $("#subform-topic").toggle("hidden");
   });
 
-  let counter_word = 1
-
   // Btn behaviour
   document.getElementById("add-topic-btn").addEventListener("click", function(event){
       event.preventDefault();
       var topic_name = document.getElementById('topic-name').value;
       document.getElementById('topic-name-reminder').innerHTML += topic_name;
+      document.getElementById('keyword-explanation').innerHTML += "Please add the words linked to the topic: " + topic_name;
   });
 
   document.getElementById("add-another-word").addEventListener("click", function(event){
       event.preventDefault();
       const wordinputs = document.getElementById("words-wrapper");
       const input = document.createElement("input");
-      input.name = "keyword[" + (counter_word + 1) + "]";
+      input.name = "keyword[]";
       input.classList = "input-box word-input";
       input.type = "text";
       input.placeholder = "New word"
-      counter_word += 1;
       wordinputs.appendChild(input);
   });
 

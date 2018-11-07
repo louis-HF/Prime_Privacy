@@ -1,6 +1,6 @@
 class TopicsController < ApplicationController
   before_action :set_topic, only: [:edit, :update, :destroy]
-  before_action :set_keyword, only: [:edit, :update, :destroy]
+  before_action :set_keywords, only: [:new, :edit, :update, :destroy]
 
   def new
     @topic = current_user.topics.new
@@ -21,13 +21,20 @@ class TopicsController < ApplicationController
     @preference.rank = Preference.where(user: current_user).maximum(:rank) + 1
 
     # Keywords creation
-    @keyword = current_user.keywords.new(keyword_params)
+    @keywords = params["keyword"]
+    @keywords.each do |keyword|
+      @keyword = Keyword.new(name: keyword, topic: @topic)
+      @keyword.save
+    end
 
     authorize @topic
     @topic.save
     @preference.save
-    @keyword.save
     redirect_to preferences_path + "#Preference_#{@preference.id}"
+  end
+
+  def edit
+
   end
 
   def destroy
@@ -45,7 +52,7 @@ class TopicsController < ApplicationController
   private
 
   def topic_params
-    params.require(:topic).permit(:name)
+    params.require(:topic).permit(:name, :keyword)
   end
 
   # def keyword_params
@@ -57,8 +64,8 @@ class TopicsController < ApplicationController
     authorize @topic
   end
 
-  def set_keyword
-    @keyword = Keyword.find(params[:id])
-    authorize @keyword
+  def set_keywords
+    @keywords = Keyword.find(params[:id])
+    # authorize @keywords
   end
 end

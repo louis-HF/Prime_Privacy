@@ -6,7 +6,9 @@
 
 .topic-form {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   padding-bottom: 60px;
 }
 
@@ -93,4 +95,8 @@
 
 #cancel-btn {
   background-color: $red;
+}
+
+#subform-topic {
+  width: 60%;
 }

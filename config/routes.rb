@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get 'loadingpage' => 'pages#loadingpage'
 
   resources :preferences, only: [:index, :update, :destroy]
-  resources :topics, only: [:new, :create, :update, :destroy]
+  resources :topics, only: [:new, :create, :update, :destroy, :edit]
   resources :keywords, only: [:new, :create, :update, :destroy]
   resources :contents, only: [ :index, :update]
   resources :userstatistics, only: [ :index, :show]

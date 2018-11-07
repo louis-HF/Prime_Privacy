@@ -1,15 +1,17 @@
 <div class="topics-container add-new-topics bg-black">
-  <div id="mainform-topic">
-    <form action="/topics" class="topic-form" method="POST">
+  <form action="/topics" class="topic-form" method="POST">
+    <h1 class="topic-header center">Add a sensitivity topic</h1>
+    <div id="mainform-topic">
       <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
       <input id="topic-name" name="topic[name]" class="input-box topic-input" type="text" value="Topic name">
       <input id="add-topic-btn" class="submit-btn-topic" type="submit" value="Add">
-  </div>
+    </div>
 
-  <div id="subform-topic" hidden>
+    <div id="subform-topic" hidden>
       <h2 id="topic-name-reminder" class="text-center"></h2>
+      <h4 id="keyword-explanation" class="topiclist-explained text-center"></h4>
       <div id="words-wrapper">
-        <input name="keyword[1]" class="input-box word-input" type="text" placeholder="New word" >
+        <input name="keyword[]" class="input-box word-input" type="text" placeholder="New word" >
       </div>
       <div id="words-form-btns">
         <input id="add-another-word" type="submit" value="⨁ Add another word">
@@ -18,6 +20,6 @@
           <input id="confirm-topic-btn" class="submit-btn-topic" type="submit" value="Confirm addition">
         </div>
       </div>
-    </form>
-  </div>
+    </div>
+  </form>
 </div>
