@@ -62,6 +62,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
       input.placeholder = "New word"
       wordinputs.appendChild(input);
   });
+
+  document.getElementById("trigger-loading").addEventListener("click", function(event){
+    $("body").fadeOut(300);
+  });
 });
 
 jQuery(document).ready(function(){

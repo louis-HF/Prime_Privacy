@@ -48,12 +48,17 @@ class TopicsController < ApplicationController
       old_keyword.destroy
     end
     @new_keywords = params["keyword"]
-    @new_keywords.each do |keyword|
-      @keyword = Keyword.new(name: keyword, topic: @topic)
-      @keyword.save
+    if @new_keywords == nil
+      @topic.save
+      redirect_to preferences_path
+    else
+      @new_keywords.each do |keyword|
+        @keyword = Keyword.new(name: keyword, topic: @topic)
+        @keyword.save
+      end
+      @topic.save
+      redirect_to preferences_path
     end
-    @topic.save
-    redirect_to preferences_path
   end
 
   private
