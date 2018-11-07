@@ -92,7 +92,8 @@ class FacebookService
   end
 
   def facebook_images_feed(content)
-    if !content["full_picture"].include?("hphotos") && !content["full_picture"].include?("external.xx")
+    if !content["full_picture"].include?("photos") && !content["full_picture"].include?("external.xx")
+      Cloudinary::Uploader.upload(content["link"])
       Content.create(
               user: @current_user,
               external_provider: "facebook",
@@ -125,6 +126,7 @@ class FacebookService
       test = true
     end
     if test
+      Cloudinary::Uploader.upload(content["link"])
       Content.create(
             user: @current_user,
             external_provider: "facebook",

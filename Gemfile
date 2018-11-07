@@ -9,6 +9,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 
 gem 'google-cloud-vision'
+gem 'cloudinary'
 
 gem 'groupdate'
 gem 'chartkick'
