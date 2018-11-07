@@ -35,10 +35,14 @@ class StatisticService
   end
 
   def compute_topicstat(topic, userstatistic)
+    instances = 0
+    @current_user.content_keywords.each do |content_keyword|
+      instances += 1 if content_keyword.keyword.topic == topic
+    end
     Topicstatistic.create(
       topic: topic,
       userstatistic: userstatistic,
-      numberofinstances: ContentKeyword.where
+      numberofinstances: instances
       )
   end
 end
