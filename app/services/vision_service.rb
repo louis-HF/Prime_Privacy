@@ -5,37 +5,41 @@ require "google/cloud/vision"
 require 'json'
 
 class VisionService
-  def initialize(photo_url)
-    @photo_url = photo_url
+  def initialize(user)
     @key = ENV['GOOGLE_VISION_API_KEY']
-
+    @current_user = user
+    @contents = Content.where(user: @current_user, file_type: "image")
   end
 
-  def call
-    url = 'https://vision.googleapis.com/v1/images:annotate?key=' + @key
-    keywords = ''
+  def image_analysis
+    if !@contents.nil?
+      @contents.each do |content|
+        call(content)
+      end
+    end
+  end
 
+  def call(content)
+    url = 'https://vision.googleapis.com/v1/images:annotate?key=' + @key.to_s
+    keywords = ''
     payload = {
-      requests: [
+      "requests": [
         {
-          image: {
-            source: {
-              imageUri: @photo_url
+          "image": {
+            "source": {
+              "imageUri": "https://cloud.google.com/vision/docs/images/faulkner.jpg"
             }
           },
-          features: [
+          "features": [
             {
-              type: "OBJECT_LOCALIZATION"
+              "type": "WEB_DETECTION"
               # maxResults: 15
             }
           ]
         }
       ]
     }
-    JSON.parse(RestClient.post(url, payload.to_json, content_type: 'application/json'))["responses"][0]["localizedObjectAnnotations"].each do |element|
-      puts keywords = keywords + " " + element["name"]
-    end
-    keywords
+    p JSON.parse(RestClient.post(url, payload.to_json, content_type: 'application/json'))["responses"][0]["localizedObjectAnnotations"]
   end
 end
 
@@ -44,3 +48,11 @@ end
 # response[0]["localizedObjectAnnotations"].each do |e|
 #   puts e['name']
 # end
+
+
+# .each do |element|
+#       keywords = keywords + " " + element["name"]
+#     end
+#     # content['description'] = keywords
+#     # content.save
+#     p keywords
