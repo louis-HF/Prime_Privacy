@@ -68,6 +68,12 @@
   top: 31px;
   color: white;
   font-size: 20px;
+  transition: color 0.3s;
+}
+
+.edit-picto:hover {
+  text-decoration: none;
+  color: $blue;
 }
 
 .delete-cross {
@@ -77,6 +83,12 @@
   top: 31px;
   color: white;
   font-size: 20px;
+  transition: color 0.3s;
+}
+
+.delete-cross:hover {
+  text-decoration: none;
+  color: $blue;
 }
 
 .draglist-box i {
