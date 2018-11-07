@@ -14,7 +14,8 @@ Rails.application.routes.draw do
   resources :contents, only: [ :index, :update]
   resources :userstatistics, only: [ :index, :show]
   require "sidekiq/web"
-  authenticate :user, lambda { |u| u.admin } do
-    mount Sidekiq::Web => '/sidekiq'
-  end
+  # authenticate :user, lambda { |u| u.admin } do
+  mount Sidekiq::Web => '/sidekiq'
+
+  # end
 end
