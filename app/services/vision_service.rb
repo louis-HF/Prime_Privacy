@@ -8,7 +8,6 @@ class VisionService
   def initialize(user)
     @key = ENV['GOOGLE_VISION_API_KEY']
     @current_user = user
-    @photo_url = photo_url
     @contents = Content.where(user: @current_user, file_type: "image")
   end
 
@@ -40,10 +39,14 @@ class VisionService
         }
       ]
     }
-    JSON.parse(RestClient.post(url, payload.to_json, content_type: 'application/json'))["responses"][0]["labelAnnotations"].each do |element|
-      keywords = keywords + " " + element["description"]
+    json = JSON.parse(RestClient.post(url, payload.to_json, content_type: 'application/json'))["responses"][0]["labelAnnotations"]
+    unless json.nil?
+      json.each do |element|
+        keywords = keywords + " " + element["description"]
+      end
     end
-    keywords
+    content['description'] = keywords
+    content.save
   end
 end
 

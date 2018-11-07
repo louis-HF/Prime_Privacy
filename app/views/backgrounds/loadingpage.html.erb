@@ -1,23 +1,9 @@
 
 
 <div class="loading-page">
-  <% if !Content.where(user: current_user, scan_date: Date.today).empty? %>
-    <h1 class="loading-message">Loading your session<span>.</span><span>.</span><span>.</span></h1>
-    <% stat = Userstatistic.find_by(user: current_user, date: Date.today) %>
-    <%= link_to "Loading is finished", userstatistic_path(stat), class: "btn-white-and-blue" %>
-  <% else %>
     <h1 class="loading-message">Importing your little secrets<span>.</span><span>.</span><span>.</span></h1>
-    <% wait = true %>
-    <% length = 6 + Topic.where(user: current_user).length %>
-    <% while wait %>
-      <% stat = Userstatistic.find_by(user: current_user, date: Date.today) %>
-      <% sleep(5) %>
-      <% if !stat.nil?%>
-        <% wait = false if stat.topicstatistics.length == length %>
-      <% end %>
-    <% end %>
-    <%= link_to "Loading is finished", userstatistic_path(stat), class: "btn-white-and-blue" %>
-  <% end %>
   <div class="Loader"></div>
 <!--   <%= link_to "Loading is finished", userstatistics_path, class: "btn-white-and-blue" %> -->
 </div>
+
+
