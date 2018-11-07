@@ -57,8 +57,6 @@ GEM
     builder (3.2.3)
     byebug (10.0.2)
     chartkick (3.0.1)
-    clarification (0.3.0)
-      json
     coderay (1.1.2)
     concurrent-ruby (1.0.5)
     connection_pool (2.2.2)
@@ -130,7 +128,6 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (6.0.1)
       railties (>= 3.2.16)
-    json (2.1.0)
     jwt (2.1.0)
     libv8 (6.7.288.46.1)
     listen (3.0.8)
@@ -316,7 +313,6 @@ DEPENDENCIES
   bootsnap
   bootstrap-sass (~> 3.3)
   chartkick
-  clarification
   devise
   dotenv-rails
   font-awesome-sass (~> 5.0.9)
