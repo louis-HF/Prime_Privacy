@@ -1,5 +1,5 @@
 class BackgroundsController < ApplicationController
-  skip_after_action :verify_authorized, only: :loadingpage
+  skip_after_action :verify_authorized, only: [:loadingpage, :shouldwego]
 
   def loadingpage
     PreferenceInitializer.new(current_user).create_pref if Preference.where(user: current_user).empty?
@@ -10,6 +10,19 @@ class BackgroundsController < ApplicationController
 
   def checker
 
+  end
+
+  def shouldwego
+    length = 6 + Topic.where(user: @current_user).length
+    a = nil
+    if Userstatistic.find_by(user: @current_user, date: Date.today).nil?
+      a = nil
+    elsif Userstatistic.find_by(user: @current_user, date: Date.today).topicstatistics.length == length
+      Userstatistic.find_by(user: @current_user, date: Date.today).topicstatistics.length
+    else
+      a = nil
+    end
+    render json: a.to_json
   end
 
 end
