@@ -4,4 +4,8 @@ class PreferencePolicy < ApplicationPolicy
       scope.where(user: user)
     end
   end
+
+  def destroy?
+    record.user == user
+  end
 end

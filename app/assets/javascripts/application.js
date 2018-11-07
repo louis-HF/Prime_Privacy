@@ -15,4 +15,8 @@
       })
     })
 
+    // Sortable
+    $(function() {
+      $('.sortable').railsSortable();
+    });
   });
