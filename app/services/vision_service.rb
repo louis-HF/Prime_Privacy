@@ -8,7 +8,6 @@ class VisionService
   def initialize(photo_url)
     @photo_url = photo_url
     @key = ENV['GOOGLE_VISION_API_KEY']
-
   end
 
   def call
@@ -27,6 +26,10 @@ class VisionService
             {
               type: "OBJECT_LOCALIZATION"
               # maxResults: 15
+            },
+            {
+              type: "LABEL_DETECTION",
+              maxResults: 10
             }
           ]
         }
