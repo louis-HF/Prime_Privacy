@@ -23,16 +23,16 @@ class VisionService
     url = 'https://vision.googleapis.com/v1/images:annotate?key=' + @key.to_s
     keywords = ''
     payload = {
-      "requests":[
+      "requests": [
         {
-          "image":{
-            "source":{
-              "imageUri":"https://pbs.twimg.com/media/CAsIE7fWwAAQgUn.jpg"
+          "image": {
+            "source": {
+              "imageUri": "https://cloud.google.com/vision/docs/images/faulkner.jpg"
             }
           },
-          "features":[
+          "features": [
             {
-              "type": "OBJECT_LOCALIZATION"
+              "type": "WEB_DETECTION"
               # maxResults: 15
             }
           ]
