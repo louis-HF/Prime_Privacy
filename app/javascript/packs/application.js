@@ -44,6 +44,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
       $("#subform-topic").toggle("hidden");
   });
 
+  let counter_word = 1
+
   // Btn behaviour
   document.getElementById("add-topic-btn").addEventListener("click", function(event){
       event.preventDefault();
@@ -53,16 +55,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
   document.getElementById("add-another-word").addEventListener("click", function(event){
       event.preventDefault();
-      var word_list = '<input class="input-box word-input" type="text" name="topic-name" value="Word" >';
-      document.getElementById('words-wrapper').innerHTML += word_list;
-  });
-
-  // Input new topic in draglist
-  document.getElementById("confirm-topic-btn").addEventListener("click", function(event){
-      // var new_topic = document.getElementById('topic-name').value;
-      // // Rajouter un create avec le controller pour que ça marche et recharger la page
-      // var new_topic_box = '<li class="draglist-box"> <p class="rank">8</p> <%= image_tag "personal.png", class: "picto personal hidden-xs" %> <p class="topic-name"> ${new_topic} </p> <% if user_signed_in? %> <a href=""> <i class="far fa-edit edit"></i> </a> <% end %> <a href=""> <i class="far fa-times-circle delete-cross"></i> </a> <i class="fas fa-arrows-alt-v drag"></i> </li>';
-      // document.getElementById('draglist').innerHTML += new_topic_box;
+      const wordinputs = document.getElementById("words-wrapper");
+      const input = document.createElement("input");
+      input.name = "keyword[" + (counter_word + 1) + "]";
+      input.classList = "input-box word-input";
+      input.type = "text";
+      input.placeholder = "New word"
+      counter_word += 1;
+      wordinputs.appendChild(input);
   });
 
   // Inputs empty out when typing
@@ -111,4 +111,3 @@ window.setTimeout(function() {
         $(this).remove();
     });
 }, 3000);
-

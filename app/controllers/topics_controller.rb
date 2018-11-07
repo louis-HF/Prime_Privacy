@@ -48,9 +48,9 @@ class TopicsController < ApplicationController
     params.require(:topic).permit(:name)
   end
 
-  def keyword_params
-    params.require(:keyword1).permit(:name)
-  end
+  # def keyword_params
+  #   params.require(:keyword).permit(:name)
+  # end
 
   def set_topic
     @topic = Topic.find(params[:id])
