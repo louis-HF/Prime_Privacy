@@ -7,3 +7,15 @@
 </div>
 
 
+<% content_for :javascript do %>
+  <script>
+    setInterval(function (){
+      $.get('<%= shouldwego_path %>', function(data) {
+        console.log(data);
+        if (data) {
+          window.location = '/page/' + data
+        }
+      })
+    }, 3000)
+  </script>
+<% end %>

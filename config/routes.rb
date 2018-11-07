@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   get 'components' => 'pages#components'
   get 'loadingpage' => 'backgrounds#loadingpage', as: :loadingpage
+  get 'shouldwego' => 'backgrounds#shouldwego', as: :shouldwego
 
   resources :preferences, only: [ :update, :index]
 
