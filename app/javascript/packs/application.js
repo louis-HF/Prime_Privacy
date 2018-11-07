@@ -75,3 +75,10 @@ window.setTimeout(function() {
     });
 }, 3000);
 
+//loader
+
+
+
+
+
+
