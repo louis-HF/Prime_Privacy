@@ -4,18 +4,10 @@
     <li class="draglist-box" id="<%= sortable_id %>">
       <%= image_tag preference.topic.picto, class: 'picto' %>
       <p class="topic-name"><%= preference.topic.name %></p>
-      <div>
-        <i class="far fa-times-circle">
-           <%= link_to 'Edit', edit_topic_path(preference.topic), remote: true %>
-        </i>
-      </div>
-      <br>
-      <div>
-        <i class="far fa-times-circle delete-cross">
-           <%= link_to 'Destroy', preference, method: :delete, data: { confirm: 'Are you sure?' }, remote: true %>
-        </i>
-
-      </div>
+      <% unless preference.topic.user != current_user %>
+        <%= link_to '', edit_topic_path(preference.topic), remote: true, :class => "far fa-edit edit-picto" %>
+      <% end %>
+      <%= link_to '', preference, method: :delete, data: { confirm: 'Are you sure?' }, remote: true, :class => "far fa-times-circle delete-cross" %>
       <i class="fas fa-arrows-alt-v drag"></i>
     </li>
     <% end %>

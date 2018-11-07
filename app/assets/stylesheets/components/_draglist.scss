@@ -61,11 +61,22 @@
   color: white;
 }
 
+.edit-picto {
+  text-decoration: none;
+  position: absolute;
+  right: 85px;
+  top: 31px;
+  color: white;
+  font-size: 20px;
+}
+
 .delete-cross {
+  text-decoration: none;
   position: absolute;
   right: 60px;
   top: 31px;
   color: white;
+  font-size: 20px;
 }
 
 .draglist-box i {

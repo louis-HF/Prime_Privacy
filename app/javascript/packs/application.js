@@ -62,11 +62,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
       input.placeholder = "New word"
       wordinputs.appendChild(input);
   });
-
-  // Inputs empty out when typing
-  document.getElementById("topic-name").addEventListener("click", function(event){
-      document.getElementById('topic-name').value = '';
-  });
 });
 
 jQuery(document).ready(function(){

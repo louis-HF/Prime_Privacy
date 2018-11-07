@@ -43,9 +43,16 @@ class TopicsController < ApplicationController
 
   def update
     @topic.update(topic_params)
-    @keyword.update(keyword_params)
+    @old_keywords = @topic.keywords
+    @old_keywords.each_with_index do |old_keyword|
+      old_keyword.destroy
+    end
+    @new_keywords = params["keyword"]
+    @new_keywords.each do |keyword|
+      @keyword = Keyword.new(name: keyword, topic: @topic)
+      @keyword.save
+    end
     @topic.save
-    @keyword.save
     redirect_to preferences_path
   end
 

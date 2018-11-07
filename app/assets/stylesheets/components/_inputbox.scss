@@ -53,6 +53,18 @@
   color: $black;
 }
 
+.keyword-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: normal;
+  height: 35px;
+}
+
+.word-edit {
+  width: 100%
+}
+
 #confirm-topic-btn {
   margin-top: 60px;
 }
@@ -99,4 +111,13 @@
 
 #subform-topic {
   width: 60%;
+}
+
+#delete-a-word {
+  font-size: 36px;
+  background: none;
+  border: none;
+  padding: 3px;
+  color: $red;
+  text-decoration: none;
 }
