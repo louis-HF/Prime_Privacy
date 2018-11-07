@@ -64,42 +64,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
   });
 
   document.getElementById("trigger-loading").addEventListener("click", function(event){
+    setTimeout(function() {
+      form.submit();
+    }, 400);
     $("body").fadeOut(300);
   });
 });
 
-jQuery(document).ready(function(){
-  jQuery(".word-input").focus(function(){
-    if(jQuery(this).val() === 'Word'){
-      jQuery(this).val('');
-    }
-  });
-  jQuery(".word-input").blur(function(){
-    if(jQuery(this).val() === ''){
-      jQuery(this).val('Word');
-    }
-  });
-
-  // AJAX
-  // function refreshForm(innerHTML) {
-  //   const newKeywordForm = document.getElementById('new_keyword');
-  //   newKeywordForm.innerHTML = innerHTML;
-  // }
-
-  // function addkeyword(keywordHTML) {
-  //   const keywords = document.getElementById('keywords');
-  //   keywords.insertAdjacentHTML('beforeend', keywordHTML);
-  // }
-
-  // <% if @keyword.errors.any? %>
-  //   refreshForm('<%= j render "keywords/form", topic: @topic, keyword: @keyword %>');
-  // <% else %>
-  //   addKeyword('<%= j render "keywords/show", keyword: @keyword %>');
-  //   refreshForm('<%= j render "keywords/form", topic: @topic, keyword: Keyword.new %>');
-  // <% end %>
-  // AJAX
-
-});
 
 
 // Devise alert automatic remove
