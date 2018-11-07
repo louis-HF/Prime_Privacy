@@ -19,7 +19,15 @@
       <!-- Avatar with dropdown menu -->
       <div class="navbar-prime-item">
         <div class="dropdown">
+          <% if !current_user.facebook.nil?%>
+            <% if !current_user.facebook.photo.nil? %>
+              <%= image_tag current_user.facebook.photo, class: "avatar dropdown-toggle", id: "navbar-prime-menu", "data-toggle" => "dropdown" %>
+            <% else %>
+              <%= image_tag "https://cdn0.iconfinder.com/data/icons/user-pictures/100/matureman1-512.png", class: "avatar dropdown-toggle", id: "navbar-prime-menu", "data-toggle" => "dropdown" %>
+            <% end %>
+          <% else %>
           <%= image_tag "https://cdn0.iconfinder.com/data/icons/user-pictures/100/matureman1-512.png", class: "avatar dropdown-toggle", id: "navbar-prime-menu", "data-toggle" => "dropdown" %>
+          <% end %>
           <ul class="dropdown-menu dropdown-menu-right navbar-prime-dropdown-menu">
             <li>
               <%= link_to userstatistics_path do %>

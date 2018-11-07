@@ -2,31 +2,61 @@ require 'json'
 require 'open-uri'
 require 'rest-client'
 require "google/cloud/vision"
+require 'json'
+
+class VisionService
+  def initialize(user)
+    @key = ENV['GOOGLE_VISION_API_KEY']
+    @current_user = user
+    @contents = Content.where(user: @current_user, file_type: "image")
+  end
+
+  def image_analysis
+    if !@contents.nil?
+      @contents.each do |content|
+        call(content)
+      end
+    end
+  end
+
+  def call(content)
+    url = 'https://vision.googleapis.com/v1/images:annotate?key=' + @key
+    keywords = ''
+    payload = {
+      requests: [
+        {
+          image: {
+            source: {
+              imageUri: content.cloudinary_url
+            }
+          },
+          features: [
+            {
+              type: "LABEL_DETECTION",
+              maxResults: 15
+            }
+          ]
+        }
+      ]
+    }
+    json = JSON.parse(RestClient.post(url, payload.to_json, content_type: 'application/json'))["responses"][0]["labelAnnotations"]
+    unless json.nil?
+      json.each do |element|
+        keywords = keywords + " " + element["description"]
+      end
+    end
+    content['description'] = keywords
+    content.save
+  end
+end
+
+# response = VisionService.new("https://static.vinepair.com/wp-content/uploads/2017/07/beer-dogs-inside.jpg").call
+# response[0]["localizedObjectAnnotations"].each do |e|
+#   puts e['name']
+# end
 
 
 
-# vision = Google::Cloud::Vision.new project: project_id
-
-# image = vision.image "https://images.unsplash.com/photo-1532635241-17e820acc59f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=3eb43b897f17dfd077c53caaef4c14ed&auto=format&fit=crop&w=1003&q=80"
-# annotation = vision.annotate image, labels: true
-# puts annotation.labels.count
-# puts annotation.labels
-
-#  def detect_labels
-  # [START vision_label_detection]
-  # project_id = "Your Google Cloud project ID"
-  # image_path = "Path to local image file, eg. './image.png'"
-#  project_id = "primeprivacy-221608"
-#  image_path = "https://images.unsplash.com/photo-1532635241-17e820acc59f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=3eb43b897f17dfd077c53caaef4c14ed&auto=format&fit=crop&w=1003&q=80"
-
-  #  require "google/cloud/vision"
-
-  #vision = Google::Cloud::Vision.new project: project_id
-  #image  = vision.image image_path
-
-  #image.labels.each do |label|
-   # puts label.description
- # end
-#end
-
-#detect_labels
+    # content['description'] = keywords
+    # content.save
+    # p keywords

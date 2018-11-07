@@ -240,6 +240,6 @@ Devise.setup do |config|
   # ActiveSupport.on_load(:devise_failure_app) do
   #   include Turbolinks::Controller
   # end
-  config.omniauth :facebook, ENV['FACEBOOK_API'], ENV['FACEBOOK_SECRET_API']
+  config.omniauth :facebook, ENV['FACEBOOK_API'], ENV['FACEBOOK_SECRET_API'], scope: 'email, user_likes, user_link, user_photos, user_posts'
   config.omniauth :twitter, ENV['TWITTER_API'], ENV['TWITTER_SECRET_API']
 end

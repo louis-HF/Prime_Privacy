@@ -54,3 +54,5 @@
 "shabbat"
 "buddhist"
 "buddha"
+"synagogue"
+"temple"

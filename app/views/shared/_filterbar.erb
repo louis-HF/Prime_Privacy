@@ -1,10 +1,19 @@
-<div class="filterbar-prime">
+<div class="filterbar-prime navbar-fixed-top">
   <ul class="nav nav-tabs prime-tabs">
     <li role="presentation">
-      <div class="prime-tab">
+      <div class=" dropdown-toggle prime-tab" id="backtocontent">
           <%= link_to 'Back to contents', contents_path%>
         </div>
-     </li>
+    </li>
+    <li>
+      <a class="dropdown-toggle prime-tab" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">
+        <div class="prime-tab">
+          <%= link_to 'Back to contents', contents_path%>
+        </div>
+      </a>
+
+    </li>
+
     <li role="presentation" class="dropdown">
       <a class="dropdown-toggle prime-tab" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
         <div class="prime-tab">
@@ -32,19 +41,8 @@
       </ul>
     </li>
 
-    <li>
-      <a class="dropdown-toggle prime-tab" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-        <div class="prime-tab">
-          Sort by <span class="caret"></span>
-        </div>
-      </a>
-      <ul class="dropdown-menu filterbar-prime-dropdown-menu">
-        <li class="dropdown-item" href="#">Sensitivity</li>
-        <li class="dropdown-item" href="#">Creation date</li>
-        <li class="dropdown-item" href="#">Last modified date</li>
-      </ul>
-    </li>
-    <li> <%= link_to "?selected=true", class:"checkout-button prime-tab" do %>
+
+    <li> <%= link_to "?selected=true",id:"filterbar-button", class:"checkout-button prime-tab" do %>
       Make your <span id="compteur"> <%= @selection.size %></span> elements private
       <% end %>
 

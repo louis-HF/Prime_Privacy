@@ -1,5 +1,11 @@
 <div class="container">
   <div class="prime-container">
+    <div class="row heightbigger">
+      <% if @userstatistic.date = Date.today %>
+        <%= link_to "Go to your public content", contents_path, class: "btn-white-and-blue text-center" %>
+      <% end %>
+    </div>
+
     <div class="row">
       <div class="col-xs-12 col-sm-4 text-center">
         <%= image_tag "photo-flat.png", class: "cards-icon" %>
