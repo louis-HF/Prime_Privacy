@@ -38,3 +38,4 @@
 "politics"
 "abortion"
 "legal"
+"speech"
