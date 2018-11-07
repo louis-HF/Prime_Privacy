@@ -13,12 +13,11 @@ class BackgroundsController < ApplicationController
   end
 
   def shouldwego
-    length = 6 + Topic.where(user: @current_user).length
-    a = nil
-    if Userstatistic.find_by(user: @current_user, date: Date.today).nil?
+    length = 6 + Topic.where(user: current_user).length
+    if Userstatistic.find_by(user: current_user, date: Date.today).nil?
       a = nil
-    elsif Userstatistic.find_by(user: @current_user, date: Date.today).topicstatistics.length == length
-      Userstatistic.find_by(user: @current_user, date: Date.today).topicstatistics.length
+    elsif Userstatistic.find_by(user: current_user, date: Date.today).topicstatistics.length == length
+      a = Userstatistic.find_by(user: current_user, date: Date.today).id
     else
       a = nil
     end
