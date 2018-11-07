@@ -1,22 +1,24 @@
-<form action="/topics" class="topic-form" method="POST" hidden>
+<form action="/topics" class="topic-form" method="POST" >
   <h1 class="topic-header center">Edit a sensitivity topic</h1>
   <div id="mainform-topic">
     <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-    <input id="topic-name" name="topic[name]" class="input-box topic-input" type="text" value="Topic name">
-    <input id="add-topic-btn" class="submit-btn-topic" type="submit" value="Add">
+    <input id="topic-name" name="topic[name]" class="input-box topic-input" type="text" value="<%= @topic.name %>">
+    <input id="add-topic-btn" class="submit-btn-topic" type="submit" value="Edit">
   </div>
 
-  <div id="subform-topic" hidden>
+  <div id="subform-topic" >
     <h2 id="topic-name-reminder" class="text-center"></h2>
     <h4 id="keyword-explanation" class="topiclist-explained text-center"></h4>
     <div id="words-wrapper">
-      <input name="keyword[]" class="input-box word-input" type="text" placeholder="New word" >
+      <% @topic.keywords.each do |keyword| %>
+        <input name="keyword[]" class="input-box word-input" type="text" placeholder="New word" value="<%= keyword.name %>">
+      <% end %>
     </div>
     <div id="words-form-btns">
       <input id="add-another-word" type="submit" value="⨁ Add another word">
       <div id="btn-submission-topic">
         <input id="cancel-btn" type="button" class="submit-btn-topic" value="Cancel" onClick="window.location.reload()">
-        <input id="confirm-topic-btn" class="submit-btn-topic" type="submit" value="Confirm addition">
+        <input id="confirm-topic-btn" class="submit-btn-topic" type="submit" value="Confirm modifications">
       </div>
     </div>
   </div>
