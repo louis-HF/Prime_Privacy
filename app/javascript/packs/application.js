@@ -82,6 +82,26 @@ jQuery(document).ready(function(){
       jQuery(this).val('Word');
     }
   });
+
+  // AJAX
+  // function refreshForm(innerHTML) {
+  //   const newKeywordForm = document.getElementById('new_keyword');
+  //   newKeywordForm.innerHTML = innerHTML;
+  // }
+
+  // function addkeyword(keywordHTML) {
+  //   const keywords = document.getElementById('keywords');
+  //   keywords.insertAdjacentHTML('beforeend', keywordHTML);
+  // }
+
+  // <% if @keyword.errors.any? %>
+  //   refreshForm('<%= j render "keywords/form", topic: @topic, keyword: @keyword %>');
+  // <% else %>
+  //   addKeyword('<%= j render "keywords/show", keyword: @keyword %>');
+  //   refreshForm('<%= j render "keywords/form", topic: @topic, keyword: Keyword.new %>');
+  // <% end %>
+  // AJAX
+
 });
 
 

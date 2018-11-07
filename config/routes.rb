@@ -6,9 +6,9 @@ Rails.application.routes.draw do
   get 'components' => 'pages#components'
   get 'loadingpage' => 'pages#loadingpage'
 
-  resources :preferences, only: [ :update, :index]
+  resources :preferences, only: [:index, :update, :destroy]
   resources :topics, only: [:new, :create, :update, :destroy]
-  resources :keywords, only: [ :create, :update, :destroy]
+  resources :keywords, only: [:new, :create, :update, :destroy]
   resources :contents, only: [ :index, :update]
   resources :userstatistics, only: [ :index, :show]
   require "sidekiq/web"
