@@ -1,16 +1,25 @@
+.socialmedia-explanation {
+  padding: 20px 0;
+  text-align: center;
+  width: 100%;
+  font-weight: 200;
+  background-color: #050D11;
+  color: white;
+  border-radius: 5px 5px 0px 0px;
+  padding: 30px 30px;
+}
 
 .social-network-logo {
   margin: 10px;
   position: relative;
 }
 
-.logo {
-  width: 110px;
-  height: 110px;
+.logo-social-media {
+  width: 90px;
+  height: 90px;
 }
 
-
-.validate {
+.validate-icon {
   width: 30px;
   height: 30px;
   position: absolute;
@@ -20,31 +29,43 @@
   border-radius: 50%
 }
 
-.icons {
+.socialmedia-icons {
   display: flex;
   justify-content: space-around;
+  padding: 15px 0;
 }
 
-.logo-small {
+.social-network-logo-small {
   width: 55px;
   height: 55px;
+  position: relative;
 }
 
-
-.validate-small {
+.validate-icon-small {
   width: 20px;
   height: 20px;
   position: absolute;
   bottom: 0px;
-  right: 0px;
+  left: 37px;
   background-color: white;
   border-radius: 50%
 }
 
+.small-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .banner-icons {
   background-color: white;
   border-radius: 5px;
   margin: 20px;
   padding: 10px;
+}
+
+@media (max-width:768px) {
+  .socialmedia-explanation {
+    border-radius: 0px;
+  }
 }

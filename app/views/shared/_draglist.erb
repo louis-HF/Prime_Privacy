@@ -8,7 +8,7 @@
         <% unless preference.topic.user != current_user %>
           <%= link_to '', edit_topic_path(preference.topic), remote: true, :class => "far fa-edit edit-picto" %>
         <% end %>
-        <%= link_to '', preference, method: :delete, data: { confirm: 'Are you sure?' }, remote: true, :class => "far fa-times-circle delete-cross" %>
+        <%= link_to '', preference, method: :delete, remote: true, :class => "far fa-times-circle delete-cross" %>
         <% end %>
         <i class="fas fa-arrows-alt-v drag"></i>
       </li>
