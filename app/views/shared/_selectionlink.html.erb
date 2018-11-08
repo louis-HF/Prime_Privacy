@@ -1,35 +1,40 @@
 <div class="col-xs-12 col-sm-6 col-md-4">
-  <div class="card">
+
     <% unless publication.nil? %>
-      <% if publication.file_type == "image" %>
-        <div class="image" style="background: url(<%=publication.url_image%>);" >
-          <a href="<%=publication.publication_url%>" target="_blank" class="card-link"></a>
-          <% unless publication.external_provider == "twitter"  %>
-            <div class="card-description">
-              <h2>Go to post</h2>
-            </div>
-          <% end %>
-        </div>
-      <% else %>
-        <div class="post">
-          <a href="<%=publication.publication_url%>" target="_blank" class="card-link"></a>
-          <% if publication.external_provider == "twitter" && publication.file_type == "like" %>
-            <h2 class="<%=publication.external_provider%>"> Subscription </h2>
-          <% else %>
-            <h2 class="<%=publication.external_provider%>""><%=publication.file_type.capitalize %></h2>
-          <% end %>
-          <div class="<%=publication.file_type%>-content">
-            <i class="far fa-thumbs-up"></i>
-            <p><%= publication.text_publication %></p>
+      <div class="card">
+        <% if publication.file_type == "image" %>
+          <div class="image" style="background: url(<%=publication.url_image%>);" >
+
+            <a href="<%=publication.publication_url%>" target="_blank" class="card-link"></a>
+            <% unless publication.external_provider == "twitter"  %>
+              <div class="card-description">
+                <h2>Go to post</h2>
+              </div>
+            <% end %>
           </div>
-        </div>
-      <%end%>
-      <% unless publication.external_provider == "twitter"  %>
-        <div class="card-description">
-          <h2>Go to post</h2>
-        </div>
-      <% end %>
-      <h2 class="category"> You have no content!</h2>
+        <% else %>
+          <div class="post">
+             <div class="card-link"></div>
+            <a href="<%=publication.publication_url%>" target="_blank" class="card-link"></a>
+            <% if publication.external_provider == "twitter" && publication.file_type == "like" %>
+              <h2 class="<%=publication.external_provider%>"> Subscription </h2>
+            <% else %>
+              <h2 class="<%=publication.external_provider%>""><%=publication.file_type.capitalize %></h2>
+            <% end %>
+            <div class="<%=publication.file_type%>-content">
+              <i class="far fa-thumbs-up"></i>
+              <p><%= publication.text_publication %></p>
+            </div>
+          </div>
+        <%end%>
+        <% unless publication.external_provider == "twitter"  %>
+          <div class="card-description">
+            <h2>Go to post</h2>
+          </div>
+        <% end %>
+        <h2 class="category"> You have no content!</h2>
+      </div>
     <% end %>
-  </div>
+
 </div>
+
