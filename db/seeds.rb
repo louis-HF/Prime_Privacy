@@ -64,9 +64,10 @@
 #DONT DELETE
 topics= ["Swearing", "Sexualy explicit",  "Alcohol and drugs", "Party", "Politics", "Religion"]
 glossaries = ["swearing", "sexualy_explicit", "alcohol_and_drugs", "party", "politics", "religion"]
+pictos = ["swearing.png", "sexualy_explicit.png", "alcohol_and_drugs.png", "party.png", "politics.png", "religion.png"]
 
 topics.each_with_index do |topic, index|
-  Topic.create(name: topic)
+  Topic.create(name: topic, picto: pictos[index])
   f =  File.read("app/assets/glossaries/#{glossaries[index]}.txt")
   f.each_line do |line|
     Keyword.create(name: line.tr("\"","").tr("\n",""), topic: Topic.last)

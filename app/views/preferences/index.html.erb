@@ -1,4 +1,3 @@
-<% PreferenceInitializer.new(current_user).create_pref if Preference.where(user: current_user).empty? %>
 
 <div class="prime-container">
   <div class="topic-management-title center">
@@ -14,12 +13,11 @@
     </div>
 
     <div class="add-new-topic">
-      <h1 class="topic-header center">Add a sensitivity topic</h1>
       <%= render 'shared/inputbox' %>
     </div>
   </div>
 
   <div class="topic-management-confirmation-zone bg-texture">
-    <%= link_to "Hide my secrets", loadingpage_path ,class:"blue-submit-btn topic-validation-button" %>
+    <%= link_to "Hide my secrets", loadingpage_path ,class:"blue-submit-btn topic-validation-button", :id => "trigger-loading" %>
   </div>
 </div>

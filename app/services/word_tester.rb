@@ -15,7 +15,7 @@ class WordTester
       @keywords.each do |keyword|
         if text.include?("#{keyword.name} ") || text.include?("#{keyword.name}\n") || text.include?("#{keyword.name}.") || text.include?("#{keyword.name}!") || text.include?("#{keyword.name}?")
           ContentKeyword.create(content: content, keyword: keyword)
-          coef = coef + Preference.where(user: @current_user).count + 7 - Preference.find_by(topic: Keyword.find(1).topic).rank
+          coef = coef + Preference.where(user: @current_user).count + 7 - Preference.find_by(topic: keyword.topic).rank
         end
       end
       content.coef_total = coef

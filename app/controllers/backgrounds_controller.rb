@@ -2,7 +2,7 @@ class BackgroundsController < ApplicationController
   skip_after_action :verify_authorized, only: [:loadingpage, :shouldwego]
 
   def loadingpage
-    PreferenceInitializer.new(current_user).create_pref if Preference.where(user: current_user).empty?
+
     if Content.where(user: current_user, scan_date: Date.today).empty?
       FacebookJob.perform_later(current_user.id)
     end
@@ -13,12 +13,15 @@ class BackgroundsController < ApplicationController
   end
 
   def shouldwego
-    # length = 6 + Topic.where(user: @current_user).length
-    # unless Userstatistic.find_by(user: @current_user, date: Date.today).nil?
-    #   if Userstatistic.find_by(user: @current_user, date: Date.today).topicstatistics.length == length
-    # end
-    # end
-    render json: [nil, nil, nil, nil, 1].sample.to_json
+    length = 6 + Topic.where(user: current_user).length
+    if Userstatistic.find_by(user: current_user, date: Date.today).nil?
+      a = nil
+    elsif Userstatistic.find_by(user: current_user, date: Date.today).topicstatistics.length == length
+      a = Userstatistic.find_by(user: current_user, date: Date.today).id
+    else
+      a = nil
+    end
+    render json: a.to_json
   end
 
 end

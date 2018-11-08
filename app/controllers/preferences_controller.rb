@@ -1,17 +1,23 @@
 class PreferencesController < ApplicationController
+  before_action :set_preference, only: [:destroy]
 
   def index
     @preferences = policy_scope(Preference)
+    @preferences = Preference.order(:rank).all
   end
 
-  def update
-    @preference = Preference.find(params[:id])
-    @preference.update(prefence_params)
+  def destroy
+    @preference.destroy
   end
 
   private
 
-  def prefence_params
+  def preference_params
      params.require(:article).permit(:rank)
+  end
+
+  def set_preference
+    @preference = Preference.find(params[:id])
+    authorize @preference
   end
 end
