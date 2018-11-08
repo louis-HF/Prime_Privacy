@@ -4,6 +4,7 @@ class StatisticService
   end
 
   def compute_userstat
+    Cloudinary::Api.delete_resources_by_tag(@current_user.id)
     Userstatistic.create(
       user: @current_user,
       date: Date.today,
