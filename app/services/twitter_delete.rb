@@ -11,7 +11,6 @@ class TwitterDelete
 
   def delete
     delete_posts_and_media
-    redirect_to :back
   end
 
   def delete_posts_and_media

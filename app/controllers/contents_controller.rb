@@ -1,7 +1,8 @@
 class ContentsController < ApplicationController
+    skip_after_action :verify_authorized, only: [:twitter_delete]
 
   def index
-    conditions = {}
+    conditions = {scan_date: Date.today}
     conditions[:external_provider] = params[:external_provider] if params[:external_provider].present?
     conditions[:file_type] = params[:file_type] if params[:file_type].present?
 
@@ -14,7 +15,7 @@ class ContentsController < ApplicationController
       @contents_provider =["facebook", "twitter"]
     end
 
-    @selection = policy_scope(Content.where(selected: true))
+    @selection = policy_scope(Content.where(selected: true, scan_date: Date.today))
   end
 
   def update
@@ -45,7 +46,7 @@ class ContentsController < ApplicationController
 
   def twitter_delete
     TwitterDelete.new(current_user).delete
-    redirect_to contents_path
+    redirect_to '/contents?selected=true'
   end
 
   private
