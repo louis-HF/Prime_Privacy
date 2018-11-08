@@ -4,9 +4,11 @@
       <% if publication.file_type == "image" %>
         <div class="image" style="background: url(<%=publication.url_image%>);" >
           <a href="<%=publication.publication_url%>" target="_blank" class="card-link"></a>
-          <div class="card-description">
-            <h2>Go to post</h2>
-          </div>
+          <% unless publication.external_provider == "twitter"  %>
+            <div class="card-description">
+              <h2>Go to post</h2>
+            </div>
+          <% end %>
         </div>
       <% else %>
         <div class="post">
@@ -18,10 +20,11 @@
           </div>
         </div>
       <%end%>
-      <div class="card-description">
-        <h2>Go to post</h2>
-      </div>
-    <% else %>
+      <% unless publication.external_provider == "twitter"  %>
+        <div class="card-description">
+          <h2>Go to post</h2>
+        </div>
+      <% end %>
       <h2 class="category"> You have no content!</h2>
     <% end %>
   </div>
