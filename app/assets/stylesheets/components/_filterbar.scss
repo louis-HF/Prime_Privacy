@@ -7,6 +7,16 @@
   font-weight: 100;
 }
 
+.back-to-content-btn {
+  text-decoration: none;
+  color: white;
+  transition: all .3s ease;
+}
+
+.back-to-content-btn:hover {
+  text-decoration: none;
+}
+
 .dropdown-item {
   transition: color 0.3s ease;
   font-weight: lighter !important;
@@ -46,6 +56,7 @@
 
 a.dropdown-toggle {
   margin-right: 0 !important;
+  width: 210px;
 }
 
 .prime-tabs {
@@ -54,7 +65,7 @@ a.dropdown-toggle {
 
 .prime-tab {
   padding: 0 30px;
-  line-height: 2;
+  line-height: 2.3;
   height: 60px;
 }
 
@@ -85,7 +96,7 @@ a.dropdown-toggle {
 }
 
 .filterbar-prime-dropdown-menu {
-  min-width: 100%;
+  width: 210px;
   margin-top: 15px;
   border-color: white;
   border-radius: 3px;
@@ -108,6 +119,44 @@ a.dropdown-toggle {
   box-shadow: -5px rgba(255, 255, 255,0.25),  0 5px rgba(255, 255, 255,0.25);
 }
 
+#filterbar-button {
+  border-radius: 0px;
+  font-weight: 200;
+  text-decoration: none;
+  background-color: $blue;
+  width: 210px;
+  height: 60px;
+  color: white;
+  transition: 0.4s;
+  font-weight: regular;
+  text-align: center;
+  padding: 5px 0;
+}
+
+#filterbar-button:hover {
+  text-decoration: none;
+  transition: 0.4s;
+  color: $blue;
+  background-color: white;
+  color: white;
+  transition: all 0.3 ease-in-out;
+  border: none;
+}
+
+#backtocontent {
+  font-weight: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  height: 60px;
+}
+
+#backtocontent:hover {
+  transition: all 0.3 ease-in-out;
+  text-decoration: none;
+}
+
 // Conditional behaviour
 @media (max-width:768px) {
   .filterbar-prime {
@@ -117,13 +166,3 @@ a.dropdown-toggle {
     align-items: stretch;
   }
 }
-
-#filterbar-button{
-  border-radius: 0px;
-  font-weight: 200;
-}
-
-#backtocontent{
-
-}
-
