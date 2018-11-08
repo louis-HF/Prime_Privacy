@@ -9,8 +9,8 @@ class TwitterService
     @client = Twitter::REST::Client.new do |config|
       config.consumer_key        = ENV['TWITTER_API']
       config.consumer_secret     = ENV['TWITTER_SECRET_API']
-      config.access_token        = user.twitter.accesstoken
-      config.access_token_secret = user.twitter.tokensecret
+      config.access_token        = @current_user.twitter.accesstoken
+      config.access_token_secret = @current_user.twitter.tokensecret
     end
   end
 
@@ -21,16 +21,13 @@ class TwitterService
 
   def try
     options = {count: 200, include_rts: true}
-    while !@client.user_timeline(@current_user.twitter.uid, options).nil?
-      @client.user_timeline(@current_user.twitter.uid, options).each_with_index do |tweet, index|
-      unless tweet.media.nil? || tweet.media.empty?
-        twitter_image(tweet)
-      else
-        twitter_post(tweet)
-      end
-        tweet.media[0].media_url.to_s unless tweet.media.nil? || tweet.media.empty?
-
-      p tweet.text
+    while !@client.user_timeline(@current_user.twitter.uid.to_i, options).nil?
+      @client.user_timeline(@current_user.twitter.uid.to_i, options).each_with_index do |tweet, index|
+        unless tweet.media.nil? || tweet.media.empty?
+          twitter_image(tweet)
+        else
+          twitter_post(tweet)
+        end
         if index == 199
           options = {count: 200, include_rts: true, max_id: tweet.id}
         end
@@ -60,8 +57,8 @@ class TwitterService
   end
 
   def twitter_image(tweet)
-    image = tweet.media_url.to_s
-    cloudinary_url = Cloudinary::Uploader.upload(image)["url"]
+    image = tweet.media[0].media_url.to_s
+    cloudinary_url = Cloudinary::Uploader.upload(image, tags: @current_user.id)
       Content.create(
             user: @current_user,
             external_provider: "twitter",

@@ -15,20 +15,32 @@ class TwitterDelete
   end
 
   def delete_posts_and_media
-    @content_post = Content.where(selected: true, provider: "twitter", file_type: "post")
-    @content_image= Content.where(selected: true, provider: "twitter", file_type: "image")
-    @content_post.each do |content|
-      @client.destroy_status(content.external_id)
+    @content_post = Content.where(selected: true, external_provider: "twitter", file_type: "post")
+    @content_image= Content.where(selected: true, external_provider: "twitter", file_type: "image")
+    unless @content_post.empty?
+      @content_post.each do |content|
+        unless content.deleted == true
+          @client.destroy_status(content.external_id)
+        end
+      end
     end
-    @content_image.each do |content|
-      @client.destroy_status(content.external_id)
+    unless @content_image.empty?
+      @content_image.each do |content|
+        unless content.deleted == true
+          @client.destroy_status(content.external_id)
+        end
+      end
     end
   end
 
   def delete_follow
-    @content_follow = Content.where(selected: true, provider: "twitter", file_type: "like")
-    @content_follow.each do |content|
-      @client.friendships.unfollow(content.external_id)
+    @content_follow = Content.where(selected: true, external_provider: "twitter", file_type: "like")
+    unless @content_follow.empty?
+      @content_follow.each do |content|
+        unless content.deleted == true
+          @client.unfollow(content.external_id.to_i)
+        end
+      end
     end
   end
 end
