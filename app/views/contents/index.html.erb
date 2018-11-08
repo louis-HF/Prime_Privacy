@@ -37,6 +37,7 @@
       <div class="container" id="container-cards" >
         <!-- trier d'abord par provider  trier par media  -->
         <% unless @contents.nil? %>
+
           <% if params[:selected]%>
 
             <% unless @selection.where(external_provider: "facebook").nil? %>
@@ -58,7 +59,11 @@
             <!-- Button trigger modal -->
             <div class="call-to-action-zone-homepage">
               <div class="call-to-action-zone-homepage">
+<<<<<<< HEAD
+                <%= link_to "delete elements", twitter_delete_path, method: :post, class: "btn-white-and-blue" %>
+=======
                 <%= link_to "delete elements", twitter_delete_path, method: :post, remote: true, class: "btn-white-and-blue" %>
+>>>>>>> master
               </div>
             </div>
 
