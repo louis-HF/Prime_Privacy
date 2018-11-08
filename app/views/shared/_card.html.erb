@@ -13,7 +13,11 @@
             <div class="image" style="background-image: url(<%=publication.url_image%>);" ></div>
           <% else %>
             <div class="post">
-              <h2><%=publication.file_type.capitalize %></h2>
+              <% if publication.external_provider == "twitter" && publication.file_type == "like" %>
+                <h2 class="<%=publication.external_provider%>"> Subscription </h2>
+              <% else %>
+                <h2 class="<%=publication.external_provider%>""><%=publication.file_type.capitalize %></h2>
+              <% end %>
               <div class="<%=publication.file_type%>-content">
               <% if publication.file_type == "like" && publication.external_provider == "twitter" %>
                 <i class="fab fa-twitter"></i>
