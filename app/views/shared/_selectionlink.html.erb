@@ -4,9 +4,8 @@
       <div class="card">
         <% if publication.file_type == "image" %>
           <div class="image" style="background: url(<%=publication.url_image%>);" >
-
-            <a href="<%=publication.publication_url%>" target="_blank" class="card-link"></a>
             <% unless publication.external_provider == "twitter"  %>
+              <a href="<%=publication.publication_url%>" target="_blank" class="card-link link-post2"></a>
               <div class="card-description">
                 <h2>Go to post</h2>
               </div>
@@ -15,19 +14,33 @@
         <% else %>
           <div class="post">
              <div class="card-link"></div>
-            <a href="<%=publication.publication_url%>" target="_blank" class="card-link"></a>
+
             <% if publication.external_provider == "twitter" && publication.file_type == "like" %>
               <h2 class="<%=publication.external_provider%>"> Subscription </h2>
             <% else %>
+              <% unless publication.external_provider == "twitter"%>
+                 <a href="<%=publication.publication_url%>" target="_blank" class="card-link link-post2"></a>
+              <% end %>
               <h2 class="<%=publication.external_provider%>""><%=publication.file_type.capitalize %></h2>
             <% end %>
             <div class="<%=publication.file_type%>-content">
-              <i class="far fa-thumbs-up"></i>
+              <% if publication.file_type == "like" && publication.external_provider == "twitter" %>
+                <i class="fab fa-twitter"></i>
+              <%else%>
+                <i class="far fa-thumbs-up"></i>
+              <%end%>
               <p><%= publication.text_publication %></p>
             </div>
           </div>
         <%end%>
-        <% unless publication.external_provider == "twitter"  %>
+        <% if publication.external_provider == "twitter" && publication.deleted == true %>
+          <div class="card-link link-post2"></div>
+          <div class="card-description ">
+            <h2 > Deleted </h2>
+          </div>
+        <% elsif publication.external_provider == "twitter" %>
+
+        <% else %>
           <div class="card-description">
             <h2>Go to post</h2>
           </div>
