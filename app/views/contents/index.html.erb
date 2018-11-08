@@ -10,7 +10,7 @@
         <div class="explanation">
           <h2>Informations</h2>
           <ul>
-            <li> Click on the publication to access the post on your social network </li>
+            <li> Click on your Facebook publications to access the post on your social network </li>
             <li> You can directly delete your Twitter's content thanks to the button "Hide my data"</li>
             <li> It is so easy </li>
           </ul>
@@ -39,22 +39,26 @@
         <% unless @contents.nil? %>
 
           <% if params[:selected]%>
+            <h2>Facebook Content</h2>
+            <% unless @selection.where(external_provider: "facebook").length == 0 %>
 
-            <% unless @selection.where(external_provider: "facebook").nil? %>
-              <h2>Facebook Content</h2>
               <div class="row">
                 <% @selection.where(external_provider: "facebook").each do |publication| %>
                 <%= render 'shared/selectionlink', publication: publication %>
                 <% end %>
               </div>
+            <% else %>
+              <h3>You don't have any public content</h3>
             <% end %>
-            <% unless @selection.where(external_provider: "twitter").nil? %>
-              <h2>Twitter Content</h2>
+            <h2>Twitter Content</h2>
+            <% unless @selection.where(external_provider: "twitter").length == 0 %>
               <div class="row">
                 <% @selection.where(external_provider: "twitter").each do |publication| %>
                 <%= render 'shared/selectionlink', publication: publication %>
                 <% end %>
               </div>
+            <% else %>
+              <h3>You don't have any public content</h3>
             <% end %>
             <!-- Button trigger modal -->
             <div class="call-to-action-zone-homepage">
@@ -68,17 +72,17 @@
             <% @contents_provider.each do |external_prov| %>
               <h2 class="category"> <%= external_prov.capitalize %> <%=params[:file_type].capitalize %>s </h2>
 
-                <div class="row">
-                  <% if @contents.where(file_type: params[:file_type], external_provider: external_prov);length == 0 %>
+                  <% if @contents.where(file_type: params[:file_type], external_provider: external_prov).length == 0 %>
                      <h3>You don't have any public content</h3>
                   <% else %>
-                    <%@contents.where(file_type: params[:file_type], external_provider: external_prov).each do |publication| %>
-                      <% unless publication.nil? %>
-                        <%= render 'shared/card', publication: publication %>
+                    <div class="row">
+                      <%@contents.where(file_type: params[:file_type], external_provider: external_prov).each do |publication| %>
+                        <% unless publication.nil? %>
+                          <%= render 'shared/card', publication: publication %>
+                        <% end %>
                       <% end %>
-                    <% end %>
+                    </div>
                 <% end %>
-                </div>
             <% end %>
 
           <% else %>
@@ -91,18 +95,16 @@
                   <% else %>
                   <%= type.capitalize %>s
                   <% end %> </h2>
-                  <div class="row">
-                    <% if @contents.where(file_type: type, external_provider: external_prov).length == 0  %>
-                      <h3> You don't have any public content </h3>
-                    <% else %>
+                  <% if @contents.where(file_type: type, external_provider: external_prov).length == 0  %>
+                    <h3> You don't have any public content </h3>
+                  <% else %>
+                    <div class="row">
                       <%@contents.where(file_type: type, external_provider: external_prov).limit(5).each do |publication| %>
-                          <%= render 'shared/card', publication: publication %>
+                        <%= render 'shared/card', publication: publication %>
                       <% end %>
-                    <% end %>
-                    <% unless @contents.where(file_type: type, external_provider: external_prov).nil? %>
                       <%= render 'shared/cardlink', publication: @contents.where(file_type: type, external_provider: external_prov).limit(6).last, external_prov: external_prov %>
-                    <% end %>
-                  </div>
+                    </div>
+                  <% end %>
               <% end %>
             <% end %>
           <%end%>
