@@ -1,15 +1,17 @@
 <div class="draglist-container bg-black">
   <ul class="sortable topic-list list-unstyled" id="draglist">
     <% @preferences.each_with_sortable_id do |preference, sortable_id| %>
-    <li class="draglist-box" id="<%= sortable_id %>">
-      <%= image_tag preference.topic.picto, class: 'picto' %>
-      <p class="topic-name"><%= preference.topic.name %></p>
-      <% unless preference.topic.user != current_user %>
-        <%= link_to '', edit_topic_path(preference.topic), remote: true, :class => "far fa-edit edit-picto" %>
-      <% end %>
-      <%= link_to '', preference, method: :delete, data: { confirm: 'Are you sure?' }, remote: true, :class => "far fa-times-circle delete-cross" %>
-      <i class="fas fa-arrows-alt-v drag"></i>
-    </li>
+      <li class="draglist-box" id="<%= sortable_id %>">
+        <% if preference.topic %>
+        <%= image_tag preference.topic.picto, class: 'picto' %>
+        <p class="topic-name"><%= preference.topic.name %></p>
+        <% unless preference.topic.user != current_user %>
+          <%= link_to '', edit_topic_path(preference.topic), remote: true, :class => "far fa-edit edit-picto" %>
+        <% end %>
+        <%= link_to '', preference, method: :delete, data: { confirm: 'Are you sure?' }, remote: true, :class => "far fa-times-circle delete-cross" %>
+        <% end %>
+        <i class="fas fa-arrows-alt-v drag"></i>
+      </li>
     <% end %>
   </ul>
 </div>

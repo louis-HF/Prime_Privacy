@@ -7,6 +7,21 @@
   font-weight: 100;
 }
 
+.dropdown-item {
+  transition: color 0.3s ease;
+  font-weight: lighter !important;
+  color: #999999 !important;
+  font-size: 14px !important;
+  line-height: 18px !important;
+  padding: 10px 20px;
+}
+
+.dropdown-item:hover {
+  background: transparent !important;
+  color: white !important;
+  box-shadow: -5px rgba(255, 255, 255,0.25),  0 5px rgba(255, 255, 255,0.25);
+}
+
 .filterbar-prime a:hover, a:focus {
   transition: color 0.3s;
   transition: background-color 0.3s ease-in-out;
@@ -39,7 +54,7 @@ a.dropdown-toggle {
 
 .prime-tab {
   padding: 0 30px;
-  line-height: 1.7;
+  line-height: 2;
   height: 60px;
 }
 
@@ -86,6 +101,7 @@ a.dropdown-toggle {
   line-height: 18px !important;
   padding: 10px 20px;
 }
+
 .filterbar-prime-dropdown-menu li:hover {
   background: transparent !important;
   color: white !important;
