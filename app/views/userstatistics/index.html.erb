@@ -2,7 +2,7 @@
   <%= render 'shared/social_network_connector' %>
   <% unless Authentication.where(user: current_user).empty? %>
     <div class="row text-center">
-      <%= link_to "Hide your data", loadingpage_path, class: "blue-submit-btn", id: "trigger-loading"%>
+      <%= link_to "Hide your data", preferences_path, class: "blue-submit-btn", id: "trigger-loading"%>
     </div>
   <% end %>
   <% if !@userstatistics.empty? %>

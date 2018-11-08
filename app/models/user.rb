@@ -23,7 +23,7 @@ class User < ApplicationRecord
   end
 
   def apply_omniauth(omniauth)
-    authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'], :accesstoken => omniauth['credentials']['token'], :photo => omniauth['info']['image'])
+    authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'], :accesstoken => omniauth['credentials']['token'], :photo => omniauth['info']['image'], :tokensecret => omniauth['credentials']['secret'])
   end
 
   def password_required?
