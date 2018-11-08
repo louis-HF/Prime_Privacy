@@ -12,9 +12,9 @@ class TopicsController < ApplicationController
 
   def create
     # Topic creation
-    authorize @topic
     @topic = current_user.topics.new(topic_params)
     @topic.picto = "personal.png"
+    authorize @topic
     @topic.save
     puts "CREATE: Topic is saved?"
     p @topic.errors.messages
