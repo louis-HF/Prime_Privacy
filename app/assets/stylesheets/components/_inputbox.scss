@@ -6,7 +6,9 @@
 
 .topic-form {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   padding-bottom: 60px;
 }
 
@@ -51,6 +53,18 @@
   color: $black;
 }
 
+.keyword-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: normal;
+  height: 35px;
+}
+
+.word-edit {
+  width: 100%
+}
+
 #confirm-topic-btn {
   margin-top: 60px;
 }
@@ -79,4 +93,31 @@
 #add-another-word:hover, #add-another-word:focus {
   outline: none !important;
   box-shadow: 0 0 8px;
+}
+
+#topic-name-reminder {
+  text-decoration: underline $blue;
+  font-weight: bold;
+}
+
+#btn-submission-topic {
+  display: inline;
+  margin-bottom: 30px;
+}
+
+#cancel-btn {
+  background-color: $red;
+}
+
+#subform-topic {
+  width: 60%;
+}
+
+#delete-a-word {
+  font-size: 36px;
+  background: none;
+  border: none;
+  padding: 3px;
+  color: $red;
+  text-decoration: none;
 }

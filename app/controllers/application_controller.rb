@@ -30,7 +30,12 @@ class ApplicationController < ActionController::Base
   end
 
   def skip_pundit?
-    devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
+    sortable_controller? || devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
+  end
+
+  # Issue: sortable controller not protected by pundit
+  def sortable_controller?
+    params[:controller] =~ /(sortable)/
   end
 
 end
