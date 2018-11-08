@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   }
 
   // Prevent ghost drag
-  draglist.addEventListener("dragstart", function(e) {
+  document.getElementById("draglist").addEventListener("dragstart", function(e) {
     var crt = this.cloneNode(true);
     crt.style.visibility = "hidden";
     document.body.appendChild(crt);

@@ -7,6 +7,31 @@
   font-weight: 100;
 }
 
+.back-to-content-btn {
+  text-decoration: none;
+  color: white;
+  transition: all .3s ease;
+}
+
+.back-to-content-btn:hover {
+  text-decoration: none;
+}
+
+.dropdown-item {
+  transition: color 0.3s ease;
+  font-weight: lighter !important;
+  color: #999999 !important;
+  font-size: 14px !important;
+  line-height: 18px !important;
+  padding: 10px 20px;
+}
+
+.dropdown-item:hover {
+  background: transparent !important;
+  color: white !important;
+  box-shadow: -5px rgba(255, 255, 255,0.25),  0 5px rgba(255, 255, 255,0.25);
+}
+
 .filterbar-prime a:hover, a:focus {
   transition: color 0.3s;
   transition: background-color 0.3s ease-in-out;
@@ -29,9 +54,10 @@
   background-image: none;
 }
 
-// a.dropdown-toggle {
-//   margin-right: 0 !important;
-// }
+a.dropdown-toggle {
+  margin-right: 0 !important;
+  width: 210px;
+}
 
 .prime-tabs {
   border: none;
@@ -39,7 +65,7 @@
 
 .prime-tab {
   padding: 0 30px;
-  line-height: 1.7;
+  line-height: 2.3;
   height: 60px;
 }
 
@@ -70,7 +96,7 @@
 }
 
 .filterbar-prime-dropdown-menu {
-  min-width: 100%;
+  width: 210px;
   margin-top: 15px;
   border-color: white;
   border-radius: 3px;
@@ -86,10 +112,49 @@
   line-height: 18px !important;
   padding: 10px 20px;
 }
+
 .filterbar-prime-dropdown-menu li:hover {
   background: transparent !important;
   color: white !important;
   box-shadow: -5px rgba(255, 255, 255,0.25),  0 5px rgba(255, 255, 255,0.25);
+}
+
+#filterbar-button {
+  border-radius: 0px;
+  font-weight: 200;
+  text-decoration: none;
+  background-color: $blue;
+  width: 210px;
+  height: 60px;
+  color: white;
+  transition: 0.4s;
+  font-weight: regular;
+  text-align: center;
+  padding: 5px 0;
+}
+
+#filterbar-button:hover {
+  text-decoration: none;
+  transition: 0.4s;
+  color: $blue;
+  background-color: white;
+  color: white;
+  transition: all 0.3 ease-in-out;
+  border: none;
+}
+
+#backtocontent {
+  font-weight: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  height: 60px;
+}
+
+#backtocontent:hover {
+  transition: all 0.3 ease-in-out;
+  text-decoration: none;
 }
 
 // Conditional behaviour
@@ -101,13 +166,3 @@
     align-items: stretch;
   }
 }
-
-#filterbar-button{
-  border-radius: 0px;
-  font-weight: 200;
-}
-
-#backtocontent{
-
-}
-
