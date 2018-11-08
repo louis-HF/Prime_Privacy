@@ -10,7 +10,7 @@ Chartkick.addAdapter(Chart);
 import Sortable from 'sortablejs'
 
 
-// Sensitivity page
+// Preferences page
 document.addEventListener("DOMContentLoaded", function(event) {
   // Draglist
   if (document.getElementById("draglist")) {
@@ -26,12 +26,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
   }
 
   // Prevent ghost drag
-  document.getElementById("draglist").addEventListener("dragstart", function(e) {
-    var crt = this.cloneNode(true);
-    crt.style.visibility = "hidden";
-    document.body.appendChild(crt);
-    e.dataTransfer.setDragImage(crt, 0, 0);
-  }, false);
+  // document.getElementById("draglist").addEventListener("dragstart", function(e) {
+  //   var crt = this.cloneNode(true);
+  //   crt.style.visibility = "hidden";
+  //   document.body.appendChild(crt);
+  //   e.dataTransfer.setDragImage(crt, 0, 0);
+  // }, false);
 
   // New topic form management (hide-show)
   $("#add-topic-btn").click(function(){
@@ -44,31 +44,37 @@ document.addEventListener("DOMContentLoaded", function(event) {
       $("#subform-topic").toggle("hidden");
   });
 
-  // Btn behaviour
-  document.getElementById("add-topic-btn").addEventListener("click", function(event){
-      event.preventDefault();
-      var topic_name = document.getElementById('topic-name').value;
-      document.getElementById('topic-name-reminder').innerHTML += topic_name;
-      document.getElementById('keyword-explanation').innerHTML += "Please add the words linked to the topic: " + topic_name;
-  });
+  // Inputbox
+  if (document.querySelector(".add-new-topics")) {
+     // Btn behaviour
+    document.getElementById("add-topic-btn").addEventListener("click", function(event){
+        event.preventDefault();
+        var topic_name = document.getElementById('topic-name').value;
+        document.getElementById('topic-name-reminder').innerHTML += topic_name;
+        document.getElementById('keyword-explanation').innerHTML += "Please add the words linked to the topic: " + topic_name;
+    });
 
-  document.getElementById("add-another-word").addEventListener("click", function(event){
-      event.preventDefault();
-      const wordinputs = document.getElementById("words-wrapper");
-      const input = document.createElement("input");
-      input.name = "keyword[]";
-      input.classList = "input-box word-input";
-      input.type = "text";
-      input.placeholder = "New word"
-      wordinputs.appendChild(input);
-  });
+    document.getElementById("add-another-word").addEventListener("click", function(event){
+        event.preventDefault();
+        const wordinputs = document.getElementById("words-wrapper");
+        const input = document.createElement("input");
+        input.name = "keyword[]";
+        input.classList = "input-box word-input";
+        input.type = "text";
+        input.placeholder = "New word"
+        wordinputs.appendChild(input);
+    });
+  };
 
-  document.getElementById("trigger-loading").addEventListener("click", function(event){
-    setTimeout(function() {
-      form.submit();
-    }, 400);
-    $("body").fadeOut(300);
-  });
+  // Validation zone preference page
+  if (document.querySelector(".topic-management-confirmation-zone")) {
+    document.getElementById("trigger-loading").addEventListener("click", function(event){
+      setTimeout(function() {
+        form.submit();
+      }, 400);
+      $("body").fadeOut(300);
+    });
+  };
 });
 
 

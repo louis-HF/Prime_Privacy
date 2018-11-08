@@ -91,6 +91,8 @@
   margin-top: 15px;
   border-color: white;
   border-radius: 3px;
+  position: top;
+  z-index: 1;
 }
 .navbar-prime-dropdown-menu li > a {
   transition: color 0.3s ease;
