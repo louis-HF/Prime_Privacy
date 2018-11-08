@@ -9,8 +9,8 @@ class TwitterService
     @client = Twitter::REST::Client.new do |config|
       config.consumer_key        = ENV['TWITTER_API']
       config.consumer_secret     = ENV['TWITTER_SECRET_API']
-      config.access_token        = @current_user.twitter.accesstoken
-      config.access_token_secret = @current_user.twitter.tokensecret
+      config.access_token        = user.twitter.accesstoken
+      config.access_token_secret = user.twitter.tokensecret
     end
   end
 
