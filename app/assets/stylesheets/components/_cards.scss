@@ -191,20 +191,13 @@
   margin-top: 8vh;
 }
 
-// Conditional behaviour
-@media (max-width:992px) {
-  // .topic-list {
-  //   width: 80%
-  // }
-}
-
-@media (max-width:768px) {
-  // .topic-list {
-  //   width: 100%
-  // }
-
-  // .topic-name {
-  //   position: absolute;
-  //   left: 60px;
-  // }
+.deletedo{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  background: black;
+  opacity: 0;
+  background: linear-gradient(135deg, rgba(96,108,136,1) 0%,rgba(63,76,107,1) 100%);
 }
