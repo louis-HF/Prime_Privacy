@@ -11,6 +11,7 @@
 // checkbox
 #container-cards {
   padding-bottom: 100px;
+  width: 100%;
   input[type=checkbox]{
     display:none ;
   }
@@ -173,4 +174,22 @@
 
 .category{
   margin-top: 8vh;
+}
+
+// Conditional behaviour
+@media (max-width:992px) {
+  // .topic-list {
+  //   width: 80%
+  // }
+}
+
+@media (max-width:768px) {
+  // .topic-list {
+  //   width: 100%
+  // }
+
+  // .topic-name {
+  //   position: absolute;
+  //   left: 60px;
+  // }
 }
