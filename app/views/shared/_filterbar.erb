@@ -29,7 +29,7 @@
       <ul class="dropdown-menu filterbar-prime-dropdown-menu">
         <li class="dropdown-item"><%= link_to 'Images', params[:external_provider] ? "?external_provider=#{params[:external_provider]}&file_type=image" : "?file_type=image" , class:"linkto"%></li>
         <li class="dropdown-item"><%= link_to 'Posts', params[:external_provider] ? "?external_provider=#{params[:external_provider]}&file_type=post" : "?file_type=post" , class:"linkto"%></li>
-        <li class="dropdown-item" href="#"><%= link_to 'Likes', params[:external_provider] ? "?external_provider=#{params[:external_provider]}&file_type=like" : "?file_type=like" , class:"linkto"%></li>
+        <li class="dropdown-item" href="#"><%= link_to 'Likes / Subscriptions', params[:external_provider] ? "?external_provider=#{params[:external_provider]}&file_type=like" : "?file_type=like" , class:"linkto"%></li>
       </ul>
     </li>
 

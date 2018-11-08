@@ -14,13 +14,17 @@
             <div class="post">
               <h2><%=publication.file_type.capitalize %></h2>
               <div class="<%=publication.file_type%>-content">
+              <% if publication.file_type == "like" && publication.external_provider == "twitter" %>
+                <i class="fab fa-twitter"></i>
+              <%else%>
                 <i class="far fa-thumbs-up"></i>
+              <%end%>
                 <p><%= publication.text_publication %></p>
               </div>
             </div>
           <% end %>
         <% end %>
-                          
+
         <% if publication.coef_total > 0 %>
         <%=image_tag "warning.svg", class:"sensitive-card" %>
         <%end%>
