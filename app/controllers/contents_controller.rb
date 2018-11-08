@@ -1,4 +1,5 @@
 class ContentsController < ApplicationController
+    skip_after_action :verify_authorized, only: [:twitter_delete]
 
   def index
     conditions = {scan_date: Date.today}
@@ -45,7 +46,7 @@ class ContentsController < ApplicationController
 
   def twitter_delete
     TwitterDelete.new(current_user).delete
-    redirect_to contents_path
+    redirect_to '/contents?selected=true'
   end
 
   private

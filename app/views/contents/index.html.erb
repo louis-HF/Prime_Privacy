@@ -31,15 +31,6 @@
           </div>
         <% end %>
 
-
-        <!-- Button trigger modal -->
-        <div class="call-to-action-zone-homepage">
-          <%= link_to "delete elements", twitter_delete_path, method: :post, remote: true, class: "btn-white-and-blue" %>
-        </div>
-
-
-
-
         <div class="container" id="container-cards" >
           <!-- trier d'abord par provider  trier par media  -->
           <% if params[:selected]%>
@@ -61,9 +52,9 @@
             <% end %>
             <!-- Button trigger modal -->
             <div class="call-to-action-zone-homepage">
-              <button type="button" class="blue-submit-btn" id="hide-btn-final"data-toggle="modal" data-target="#exampleModal">
-                Hide this data
-              </button>
+              <div class="call-to-action-zone-homepage">
+                <%= link_to "delete elements", twitter_delete_path, method: :post, class: "btn-white-and-blue" %>
+              </div>
             </div>
 
           <% elsif params[:file_type] %>
