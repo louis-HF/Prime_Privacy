@@ -9,9 +9,9 @@ class ContentsController < ApplicationController
     @contents_file_type =["image", "post", "like"]
 
     if params[:external_provider]
-    @contents_provider = [params[:external_provider]]
+      @contents_provider = [params[:external_provider]]
     else
-    @contents_provider =["facebook", "twitter"]
+      @contents_provider =["facebook", "twitter"]
     end
 
     @selection = policy_scope(Content.where(selected: true))
@@ -41,6 +41,11 @@ class ContentsController < ApplicationController
                     .order(coef_total: :desc)
                     .limit(number.to_i)
     end
+  end
+
+  def twitter_delete
+    TwitterDelete.new(current_user).delete
+    redirect_to contents_path
   end
 
   private
