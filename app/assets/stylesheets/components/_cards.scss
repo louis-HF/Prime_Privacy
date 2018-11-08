@@ -41,6 +41,14 @@
 
 // post
 
+.post .twitter{
+  background-color:#009DF6;
+}
+
+.post .facebook{
+  background-color: #4260B4;
+}
+
 .post{
   height: 175px;
   overflow: hidden;
@@ -57,6 +65,8 @@
     padding-left: 10px;
   }
 }
+
+
 
 .post-content{
   height: 135px;
@@ -94,6 +104,11 @@
 }
 
 .fa-thumbs-up{
+  color: black;
+  font-size: 40px
+}
+
+.fa-twitter{
   color: black;
   font-size: 40px
 }

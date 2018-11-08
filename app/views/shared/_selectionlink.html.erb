@@ -13,7 +13,11 @@
       <% else %>
         <div class="post">
           <a href="<%=publication.publication_url%>" target="_blank" class="card-link"></a>
-          <h2><%=publication.file_type.capitalize %></h2>
+          <% if publication.external_provider == "twitter" && publication.file_type == "like" %>
+            <h2 class="<%=publication.external_provider%>"> Subscription </h2>
+          <% else %>
+            <h2 class="<%=publication.external_provider%>""><%=publication.file_type.capitalize %></h2>
+          <% end %>
           <div class="<%=publication.file_type%>-content">
             <i class="far fa-thumbs-up"></i>
             <p><%= publication.text_publication %></p>
