@@ -2,9 +2,11 @@
 
 <div class="row">
   <div class="prime-container bottom-margin">
-    <% if current_user.facebook.nil?  && current_user.twitter.nil? %>
-      <h3 margin>First, let's connect the account(s) you want to clean: </h3>
-    <% end %>
+  <% if current_user.facebook.nil?  && current_user.twitter.nil? %>
+    <div class="explanation">
+      <h3 margin>First, connect the account(s) you want to clean: </h3>
+    </div>
+  <% end %>
     <div class="hidden-xs icons">
       <div class="facebook-icon social-network-logo">
         <%= image_tag 'facebook-logo.png', class: 'logo' %>

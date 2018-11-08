@@ -36,7 +36,7 @@
               </div>
               <p class="publicnumber hidden-xs"><%= stat.total_fb_public + stat.total_tw_public%> public elements</p>
               <p class="sensitivenumber hidden-xs"><%= stat.total_fb_public_sensitive + stat.total_tw_public_sensitive %> sensitive elements</p>
-              <div class="seedashb"> <%= link_to "see dashboard", userstatistic_path(stat), class: "btn-white-and-blue"%></div>
+              <div class="seedashb"> <%= link_to "see details", userstatistic_path(stat), class: "btn-white-and-blue"%></div>
             </div>
           <% end %>
         </div>

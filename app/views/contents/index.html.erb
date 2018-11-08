@@ -31,9 +31,20 @@
       <% if params[:selected]%>
         <div class="row">
           <% @selection.each do |publication| %>
-            <%= render 'shared/selectionlink', publication: publication %>
-           <% end %>
+            <% if publication.external_provider == "facebook" %>
+              <%= render 'shared/selectionlink', publication: publication %>
+            <%end %>
+          <%end %>
         </div>
+        <div class="row">
+          <% @selection.each do |publication| %>
+            <% if publication.external_provider == "twitter" %>
+              <%= render 'shared/selectionlink', publication: publication %>
+            <%end %>
+          <%end %>
+        </div>
+      </div>
+
         <!-- Button trigger modal -->
         <div class="call-to-action-zone-homepage">
           <button type="button" class="blue-submit-btn" id="hide-btn-final"data-toggle="modal" data-target="#exampleModal">

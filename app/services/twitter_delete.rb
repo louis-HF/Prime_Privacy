@@ -28,6 +28,8 @@ class TwitterDelete
       @content_image.each do |content|
         unless content.deleted == true
           @client.destroy_status(content.external_id)
+          content.deleted = true
+          content.save
         end
       end
     end
@@ -39,6 +41,8 @@ class TwitterDelete
       @content_follow.each do |content|
         unless content.deleted == true
           @client.unfollow(content.external_id.to_i)
+          content.deleted = true
+          content.save
         end
       end
     end
