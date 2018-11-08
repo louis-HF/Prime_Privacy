@@ -56,3 +56,10 @@
 "buddha"
 "synagogue"
 "temple"
+"basilica"
+"cathedral"
+"hindu"
+"pilgrimage"
+"place of worship"
+"apostolic faith"
+

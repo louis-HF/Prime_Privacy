@@ -71,3 +71,7 @@
 "shots"
 "drunk"
 "hookah"
+"alcoholic beverage"
+"beer"
+"distilled"
+"liqueur"
