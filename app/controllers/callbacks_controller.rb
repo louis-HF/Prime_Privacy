@@ -6,7 +6,7 @@ class CallbacksController < Devise::OmniauthCallbacksController
       flash[:notice] = "Signed in successfully."
       sign_in_and_redirect(:user, authentication.user)
     elsif current_user
-      current_user.authentications.create!(:provider => omniauth['provider'], :uid => omniauth['uid'], :accesstoken => omniauth['credentials']['token'], :photo => omniauth['info']['image'])
+      current_user.authentications.create!(:provider => omniauth['provider'], :uid => omniauth['uid'], :accesstoken => omniauth['credentials']['token'], :photo => omniauth['info']['image'], :tokensecret => omniauth['credentials']['secret'])
       flash[:notice] = "Authentication successful."
       redirect_to userstatistics_url
     else
