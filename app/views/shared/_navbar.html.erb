@@ -1,13 +1,24 @@
 <div class="navbar-prime navbar-fixed-top">
   <!-- Left Navigation -->
   <div class="navbar-prime-left hidden-xs">
-    <%= link_to "Prime Privacy", "/", class: "navbar-prime-title" %>
+    <% if current_user.nil? %>
+      <%= link_to "Prime Privacy", "/", class: "navbar-prime-title" %>
+    <% else %>
+      <%= link_to "Prime Privacy", userstatistics_path, class: "navbar-prime-title" %>
+    <% end %>
   </div>
 
   <!-- Logo -->
-  <%= link_to root_path, class: "navbar-prime-logo page-top page-center" do %>
-    <%= image_tag "logo.png" %>
+  <% if current_user.nil? %>
+    <%= link_to root_path, class: "navbar-prime-logo page-top page-center" do %>
+      <%= image_tag "logo.png" %>
+    <% end %>
+  <% else %>
+    <%= link_to userstatistics_path, class: "navbar-prime-logo page-top page-center" do %>
+      <%= image_tag "logo.png" %>
+    <% end %>
   <% end %>
+
 
   <!-- Right Navigation -->
   <div class="navbar-prime-right">

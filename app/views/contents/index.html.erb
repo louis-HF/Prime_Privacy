@@ -47,9 +47,7 @@
 
         <!-- Button trigger modal -->
         <div class="call-to-action-zone-homepage">
-          <button type="button" class="blue-submit-btn" id="hide-btn-final"data-toggle="modal" data-target="#exampleModal">
-            Hide this data
-          </button>
+          <%= link_to "delete elements", twitter_delete_path, method: :post, remote: true, class: "btn-white-and-blue" %>
         </div>
 
       <% elsif params[:file_type] %>
@@ -80,27 +78,6 @@
           <% end %>
         <% end %>
       <%end%>
-    </div>
-  </div>
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Congrats</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        We've erased your selected elements
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn-white-and-blue" data-dismiss="modal">Close</button>
-        <%= link_to "Go to your user dashboard", userstatistics_path, class: "btn-white-and-blue" %>
-      </div>
     </div>
   </div>
 </div>
