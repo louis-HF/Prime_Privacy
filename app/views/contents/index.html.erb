@@ -1,16 +1,21 @@
-<%= render 'shared/filterbar'%>
 
+<!-- Mettre filtre scan_date = Date.today -->
+
+<%= render 'shared/filterbar'%>
+<img src="../../assets/images/cover-link.png">
 <div class="offset_filterbar">
   <div class=" prime-container">
 
       <% if params[:selected] %>
         <div class="explanation">
+          <h2>Informations</h2>
           <ul>
             <li> Click on the publication to access the post on your social network </li>
             <li> You can directly delete your Twitter's content thanks to the button "Hide my data"</li>
             <li> It is so easy </li>
           </ul>
         </div>
+
       <% elsif params[:file_type] || params[:external_provider] %>
 
       <% else %>
@@ -29,22 +34,22 @@
     <div class="container" id="container-cards" >
       <!-- trier d'abord par provider  trier par media  -->
       <% if params[:selected]%>
-        <div class="row">
-          <% @selection.each do |publication| %>
-            <% if publication.external_provider == "facebook" %>
-              <%= render 'shared/selectionlink', publication: publication %>
-            <%end %>
-          <%end %>
-        </div>
-        <div class="row">
-          <% @selection.each do |publication| %>
-            <% if publication.external_provider == "twitter" %>
-              <%= render 'shared/selectionlink', publication: publication %>
-            <%end %>
-          <%end %>
-        </div>
-      </div>
-
+        <% unless @selection.where(external_provider: "facebook").nil? %>
+          <h2>Facebook Content</h2>
+          <div class="row">
+            <% @selection.where(external_provider: "facebook").each do |publication| %>
+            <%= render 'shared/selectionlink', publication: publication %>
+            <% end %>
+          </div>
+          <% end %>
+        <% unless @selection.where(external_provider: "twitter").nil? %>
+          <h2>Twitter Content</h2>
+          <div class="row">
+            <% @selection.where(external_provider: "twitter").each do |publication| %>
+            <%= render 'shared/selectionlink', publication: publication %>
+            <% end %>
+          </div>
+        <% end %>
         <!-- Button trigger modal -->
         <div class="call-to-action-zone-homepage">
           <%= link_to "delete elements", twitter_delete_path, method: :post, remote: true, class: "btn-white-and-blue" %>
@@ -52,7 +57,8 @@
 
       <% elsif params[:file_type] %>
         <% @contents_provider.each do |external_prov| %>
-          <h2 class="category"> <%= external_prov.capitalize %> <%=params[:file_type].capitalize%>s </h2>
+          <h2 class="category"> <%= external_prov.capitalize %> <%=params[:file_type].capitalize %>s </h2>
+
             <div class="row">
               <%@contents.where(file_type: params[:file_type], external_provider: external_prov).each do |publication| %>
                 <% unless publication.nil? %>
@@ -64,7 +70,12 @@
       <% else %>
         <% @contents_provider.each do |external_prov| %>
           <%@contents_file_type.each do |type| %>
-            <h2 class="category"> <%= external_prov.capitalize %> <%= type.capitalize %>s </h2>
+            <h2 class="category"> <%= external_prov.capitalize %>
+              <% if external_prov == "twitter" && type == "like" %>
+                Subscriptions
+              <% else %>
+              <%= type.capitalize %>s
+              <% end %> </h2>
               <div class="row">
                 <%@contents.where(file_type: type, external_provider: external_prov).limit(5).each do |publication| %>
                   <% unless publication.nil? %>

@@ -13,7 +13,11 @@
           <%= link_to '',"?external_provider=#{external_prov}&file_type=#{publication.file_type}", class:"card-link link-post"%>
           <h2><%=publication.file_type.capitalize %></h2>
           <div class="<%=publication.file_type%>-content">
-            <i class="far fa-thumbs-up"></i>
+            <% if publication.file_type == "like" && publication.external_provider == "twitter" %>
+                <i class="fab fa-twitter"></i>
+            <%else%>
+              <i class="far fa-thumbs-up"></i>
+            <%end%>
             <p><%= publication.text_publication %></p>
           </div>
         </div>
