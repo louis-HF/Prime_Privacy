@@ -127,7 +127,7 @@ class FacebookService
       test = true
     end
     if test
-      cloudinary_url = Cloudinary::Uploader.upload(image)["url"]
+      cloudinary_url = Cloudinary::Uploader.upload(image)
       Content.create(
             user: @current_user,
             external_provider: "facebook",
