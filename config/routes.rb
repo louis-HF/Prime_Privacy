@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'components' => 'pages#components'
   get 'loadingpage' => 'backgrounds#loadingpage', as: :loadingpage
   get 'shouldwego' => 'backgrounds#shouldwego', as: :shouldwego
+  post 'twitter_delete' => 'contents#twitter_delete', as: :twitter_delete
 
   resources :preferences, only: [:index, :update, :destroy]
   resources :topics, only: [:new, :create, :update, :destroy, :edit]
