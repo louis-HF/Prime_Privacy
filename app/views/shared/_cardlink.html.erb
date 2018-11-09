@@ -18,7 +18,7 @@
           <% end %>
           <div class="<%=publication.file_type%>-content">
             <% if publication.file_type == "like" && publication.external_provider == "twitter" %>
-                <i class="fab fa-twitter"></i>
+              <i class="fab fa-twitter"></i>
             <%else%>
               <i class="far fa-thumbs-up"></i>
             <%end%>
@@ -30,7 +30,6 @@
         <h2>See All</h2>
       </div>
     <% else %>
-      <h2 class="category"> You have no content!</h2>
     <% end %>
   </div>
 </div>

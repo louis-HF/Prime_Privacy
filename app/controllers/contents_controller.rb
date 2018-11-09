@@ -11,6 +11,10 @@ class ContentsController < ApplicationController
 
     if params[:external_provider]
       @contents_provider = [params[:external_provider]]
+    elsif current_user.facebook.nil?
+      @contents_provider =["twitter"]
+    elsif current_user.twitter.nil?
+      @contents_provider = ["facebook"]
     else
       @contents_provider =["facebook", "twitter"]
     end
