@@ -263,3 +263,18 @@
   opacity: 0;
   background: linear-gradient(135deg, rgba(96,108,136,1) 0%,rgba(63,76,107,1) 100%);
 }
+
+
+
+.arrow-elements {
+  display: flex;
+  position: relative;
+}
+
+.bluearrow {
+  color: $blue;
+  font-size: 20px;
+  position: absolute;
+  right: -27px;
+  top: 10px;
+}
