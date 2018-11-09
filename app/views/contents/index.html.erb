@@ -1,117 +1,104 @@
-
-
-
 <%= render 'shared/filterbar'%>
-
 <div class="offset_filterbar">
   <div class=" prime-container">
-
-      <% if params[:selected] %>
-        <div class="explanation">
-          <h2>Informations</h2>
-          <ul>
-            <li> Click on your Facebook publications to access the post on your social network </li>
-            <li> You can directly delete your Twitter's content thanks to the button "Hide my data"</li>
-            <li> It is so easy </li>
-          </ul>
-        </div>
-
-      <% elsif params[:file_type] || params[:external_provider] %>
-
-      <% else %>
-        <div class="explanation">
-           <h2>Informations</h2>
-          <ul>
-            <li> Sensitive Content are highlighted thanks to red icons </li>
-            <li> You can select a publication clicking on select </li>
-            <li> You can use the navigation bar below to go where you need easily</li>
-            <li> Once you have selected what you wanted Go to "Make my elements private"</li>
-            <li> Everytime you want to comeback to this page just hit the "Back to content button"</li>
-          </ul>
-        </div>
-      <% end %>
-
-
-
-
-      <div class="container" id="container-cards" >
+    <% unless params[:selected] || params[:file_type] || params[:external_provider] %>
+      <div class="explanation snexplanation">
+          <h4> Sensitive Content are highlighted with  <img class="tiny-icon" src="/assets/warning-e7d5c8dccc71b98b5057f9970a212f96547b2b7cebd56c3602af8d81496ecda3.svg"> </h4>
+          <div class="select-text">
+            <h4> Select the elements you want to get rid of with  </h4>
+          <div class="label-Select"><div class="text-select"></div> Select <img class="image-select" src="/assets/check-square-regular.svg"></div>
+          </div>
+          <h4> Once you've made your choice click on "Make my elements private" up here</h4>
+        </ul>
+      </div>
+    <% end %>
         <!-- trier d'abord par provider  trier par media  -->
-        <% unless @contents.nil? %>
-
-          <% if params[:selected]%>
-            <h2>Facebook Content</h2>
-            <% unless @selection.where(external_provider: "facebook").length == 0 %>
-
+    <div class="container" id="container-cards" >
+      <% unless @contents.nil? %>
+        <% if params[:selected]%>
+          <% unless @selection.where(external_provider: "facebook").nil? %>
+            <div class="text-center">
+              <h2>Facebook Content</h2>
+              <div class="row">
+                <div class="sn-explanation">
+                  <div class="text-sn">
+                    <h4>Click on your posts and images and change the privacy settings to private</h4>
+                    <h4>Unlike your sensitive likes</h4>
+                  </div>
+                </div>
+              </div>
               <div class="row">
                 <% @selection.where(external_provider: "facebook").each do |publication| %>
-                <%= render 'shared/selectionlink', publication: publication %>
+                  <%= render 'shared/selectionlink', publication: publication %>
                 <% end %>
-              </div>
-            <% else %>
-              <h3>You don't have any public content</h3>
-            <% end %>
-            <h2>Twitter Content</h2>
-            <% unless @selection.where(external_provider: "twitter").length == 0 %>
-              <div class="row">
-                <% @selection.where(external_provider: "twitter").each do |publication| %>
-                <%= render 'shared/selectionlink', publication: publication %>
-                <% end %>
-              </div>
-            <% else %>
-              <h3>You don't have any public content</h3>
-            <% end %>
-            <!-- Button trigger modal -->
-            <div class="call-to-action-zone-homepage">
-              <div class="call-to-action-zone-homepage">
-                <%= link_to "delete elements", twitter_delete_path, method: :post, remote: true, class: "btn-white-and-blue" %>
               </div>
             </div>
-
-          <% elsif params[:file_type] %>
-
-            <% @contents_provider.each do |external_prov| %>
-              <h2 class="category"> <%= external_prov.capitalize %> <%=params[:file_type].capitalize %>s </h2>
-
-                  <% if @contents.where(file_type: params[:file_type], external_provider: external_prov).length == 0 %>
-                     <h3>You don't have any public content</h3>
-                  <% else %>
-                    <div class="row">
-                      <%@contents.where(file_type: params[:file_type], external_provider: external_prov).each do |publication| %>
-                        <% unless publication.nil? %>
-                          <%= render 'shared/card', publication: publication %>
-                        <% end %>
-                      <% end %>
-                    </div>
+          <% end %>
+          <% if !@selection.where(external_provider: "facebook").nil? && !@selection.where(external_provider: "twitter").nil? %>
+            <div class="line"></div>
+          <% end %>
+          <% unless @selection.where(external_provider: "twitter").nil? %>
+            <div class="text-center">
+              <h2>Twitter Content</h2>
+              <div class="row">
+                <div class="sn-explanation">
+                  <div class="text-sn">
+                    <h4>Clink on the button at the bottom to delete your tweets</h4>
+                    <h4>as well as your twitter subscriptions</h4>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <% @selection.where(external_provider: "twitter").each do |publication| %>
+                  <%= render 'shared/selectionlink', publication: publication %>
                 <% end %>
-            <% end %>
-
-          <% else %>
-
-            <% @contents_provider.each do |external_prov| %>
-              <%@contents_file_type.each do |type| %>
-                <h2 class="category"> <%= external_prov.capitalize %>
-                  <% if external_prov == "twitter" && type == "like" %>
-                    Subscriptions
-                  <% else %>
-                  <%= type.capitalize %>s
-                  <% end %> </h2>
-                  <% if @contents.where(file_type: type, external_provider: external_prov).length == 0  %>
-                    <h3> You don't have any public content </h3>
-                  <% else %>
-                    <div class="row">
-                      <%@contents.where(file_type: type, external_provider: external_prov).limit(5).each do |publication| %>
-                        <%= render 'shared/card', publication: publication %>
-                      <% end %>
-                      <%= render 'shared/cardlink', publication: @contents.where(file_type: type, external_provider: external_prov).limit(6).last, external_prov: external_prov %>
-                    </div>
+              </div>
+              <%= link_to "delete elements", twitter_delete_path, method: :post, class: "blue-submit-btn" %>
+            </div>
+          <% end %>
+        <% elsif params[:file_type] %>
+          <% @contents_provider.each do |external_prov| %>
+            <h2 class="category"> <%= external_prov.capitalize %> <%=params[:file_type].capitalize %>s </h2>
+              <% if @contents.where(file_type: params[:file_type], external_provider: external_prov).empty? %>
+                <h3>You don't have any public content</h3>
+              <% else %>
+              <div class="row">
+                <%@contents.where(file_type: params[:file_type], external_provider: external_prov).each do |publication| %>
+                  <% unless publication.nil? %>
+                    <%= render 'shared/card', publication: publication %>
                   <% end %>
+                <% end %>
+              </div>  
               <% end %>
-            <% end %>
-          <%end%>
+          <% end %>
         <% else %>
-          <h2>Content is missing!</h2>
-        <% end%>
-      </div>
+          <% @contents_provider.each do |external_prov| %>
+            <%@contents_file_type.each do |type| %>
+               <h2 class="category"> <%= external_prov.capitalize %>
+                 <% if external_prov == "twitter" && type == "like" %>
+                    Subscriptions
+                 <% else %>
+                   <%= type.capitalize %>s
+                 <% end %>
+               </h2>
+               <% if @contents.where(file_type: type, external_provider: external_prov).empty?  %>
+                 <h3> You don't have any public content </h3>
+               <% else %>
+                 <div class="row">
+                    <%@contents.where(file_type: type, external_provider: external_prov).limit(5).each do |publication| %>
+                      <%= render 'shared/card', publication: publication %>
+                    <% end %>
+                    <%= render 'shared/cardlink', publication: @contents.where(file_type: type, external_provider: external_prov).limit(6).last, external_prov: external_prov %>
+                 </div>
+               <%end%>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% else %>
+        <div class="text-center"> <h2> You don"t have any public content! Congrats 🎉 </h2> </div>
+      <% end %>
     </div>
   </div>
 </div>
+
+
