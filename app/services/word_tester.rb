@@ -9,11 +9,11 @@ class WordTester
     @contents.each do |content|
       content["text_publication"].nil? ? text_publication = "" : text_publication = content["text_publication"]
       content["description"].nil? ? description = "" : description = content["description"]
-      text = text_publication + " " + description
+      text = text_publication + " " + description + " "
       text = text.downcase
       coef = 0
       @keywords.each do |keyword|
-        if text.include?("#{keyword.name} ") || text.include?("#{keyword.name}\n") || text.include?("#{keyword.name}.") || text.include?("#{keyword.name}!") || text.include?("#{keyword.name}?")
+        if text.include?("#{keyword.name.downcase} ") || text.include?("#{keyword.name.downcase}\n") || text.include?("#{keyword.name.downcase}.") || text.include?("#{keyword.name.downcase}!") || text.include?("#{keyword.name.downcase}?")
           ContentKeyword.create(content: content, keyword: keyword)
           coef = coef + Preference.where(user: @current_user).count + 7 - Preference.find_by(topic: keyword.topic).rank
         end

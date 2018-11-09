@@ -32,5 +32,13 @@
         <% if publication.coef_total > 0 %>
         <%=image_tag "warning.svg", class:"sensitive-card" %>
         <%end%>
+
+        <% if publication.external_provider == "twitter" && publication.deleted == true %>
+          <div class="card-link link-post2"></div>
+          <div class="card-description ">
+            <h2 > Deleted </h2>
+          </div>
+        <% else %>
+        <% end %>
       </div>
     </div>
