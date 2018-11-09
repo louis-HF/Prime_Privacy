@@ -3,12 +3,12 @@
   <div class=" prime-container">
     <% unless params[:selected] || params[:file_type] || params[:external_provider] %>
       <div class="explanation snexplanation">
-          <h4> Sensitive Content are highlighted with  <img class="tiny-icon" src="/assets/warning-e7d5c8dccc71b98b5057f9970a212f96547b2b7cebd56c3602af8d81496ecda3.svg"> </h4>
+          <h4> Sensitive contents are highlighted with  <img class="tiny-icon" src="/assets/warning-e7d5c8dccc71b98b5057f9970a212f96547b2b7cebd56c3602af8d81496ecda3.svg"> </h4>
           <div class="select-text">
             <h4> Select the elements you want to get rid of with  </h4>
           <div class="label-Select"><div class="text-select"></div> Select <img class="image-select" src="/assets/check-square-regular.svg"></div>
           </div>
-          <h4> Once you've made your choice click on "Make my elements private" up here</h4>
+          <div class="arrow-elements"><h4> Once you've made your choice click on "Make my elements private" up here</h4><i class="far fa-arrow-alt-circle-up bluearrow"></i></div>
         </ul>
       </div>
     <% end %>
@@ -16,7 +16,7 @@
     <div class="container" id="container-cards" >
       <% unless @contents.nil? %>
         <% if params[:selected]%>
-          <% unless @selection.where(external_provider: "facebook").nil? %>
+          <% unless @selection.where(external_provider: "facebook").empty? %>
             <div class="text-center">
               <h2>Facebook Content</h2>
               <div class="row">
@@ -34,10 +34,10 @@
               </div>
             </div>
           <% end %>
-          <% if !@selection.where(external_provider: "facebook").nil? && !@selection.where(external_provider: "twitter").nil? %>
+          <% if !@selection.where(external_provider: "facebook").empty? && !@selection.where(external_provider: "twitter").empty? %>
             <div class="line"></div>
           <% end %>
-          <% unless @selection.where(external_provider: "twitter").nil? %>
+          <% unless @selection.where(external_provider: "twitter").empty? %>
             <div class="text-center">
               <h2>Twitter Content</h2>
               <div class="row">
@@ -68,7 +68,7 @@
                     <%= render 'shared/card', publication: publication %>
                   <% end %>
                 <% end %>
-              </div>  
+              </div>
               <% end %>
           <% end %>
         <% else %>
