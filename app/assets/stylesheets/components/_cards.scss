@@ -43,10 +43,16 @@
 .sn-explanation {
   padding: 5px;
   margin: 5px;
-  background-color: $light-gray;
+  background-color: $gray-dark;
   display: flex;
   justify-content: center;
-  align-items: center
+  align-items: center;
+  margin-right: 0px;
+  margin-left: 0px;
+  h4{
+    color: white;
+    font-size: 17px;
+  }
 }
 
 .snexplanation {
@@ -176,6 +182,7 @@
   position: absolute;
   bottom: -14px;
   right: -14px;
+  z-index: 1;
 }
 
 // image

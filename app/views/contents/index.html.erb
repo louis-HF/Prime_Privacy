@@ -53,7 +53,8 @@
                   <%= render 'shared/selectionlink', publication: publication %>
                 <% end %>
               </div>
-              <%= link_to "delete elements", twitter_delete_path, method: :post, class: "blue-submit-btn" %>
+              <br>
+              <%= link_to "Delete elements", twitter_delete_path, method: :post, class: "blue-submit-btn" %>
             </div>
           <% end %>
         <% elsif params[:file_type] %>
