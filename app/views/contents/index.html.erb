@@ -8,7 +8,7 @@
             <h4> Select the elements you want to get rid of with  </h4>
           <div class="label-Select"><div class="text-select"></div> Select <img class="image-select" src="/assets/check-square-regular.svg"></div>
           </div>
-          <h4> Once you've made your choice click on "Make my elements private"</h4>
+          <h4> Once you've made your choice click on "Make my elements private" up here</h4>
         </ul>
       </div>
     <% end %>
@@ -59,36 +59,38 @@
         <% elsif params[:file_type] %>
           <% @contents_provider.each do |external_prov| %>
             <h2 class="category"> <%= external_prov.capitalize %> <%=params[:file_type].capitalize %>s </h2>
-            <div class="row">
-              <% if @contents.where(file_type: params[:file_type], external_provider: external_prov);length == 0 %>
+              <% if @contents.where(file_type: params[:file_type], external_provider: external_prov).empty? %>
                 <h3>You don't have any public content</h3>
               <% else %>
+              <div class="row">
                 <%@contents.where(file_type: params[:file_type], external_provider: external_prov).each do |publication| %>
                   <% unless publication.nil? %>
                     <%= render 'shared/card', publication: publication %>
                   <% end %>
                 <% end %>
+              </div>  
               <% end %>
-            </div>
           <% end %>
         <% else %>
           <% @contents_provider.each do |external_prov| %>
             <%@contents_file_type.each do |type| %>
-              <% unless @contents.where(file_type: type, external_provider: external_prov).length == 0  %>
-                <h2 class="category"> <%= external_prov.capitalize %>
-                  <% if external_prov == "twitter" && type == "like" %>
+               <h2 class="category"> <%= external_prov.capitalize %>
+                 <% if external_prov == "twitter" && type == "like" %>
                     Subscriptions
-                  <% else %>
-                    <%= type.capitalize %>s
-                  <% end %>
-                </h2>
-                <div class="row">
-                  <%@contents.where(file_type: type, external_provider: external_prov).limit(5).each do |publication| %>
-                    <%= render 'shared/card', publication: publication %>
-                  <% end %>
-                  <%= render 'shared/cardlink', publication: @contents.where(file_type: type, external_provider: external_prov).limit(6).last, external_prov: external_prov %>
-                </div>
-              <%end%>
+                 <% else %>
+                   <%= type.capitalize %>s
+                 <% end %>
+               </h2>
+               <% if @contents.where(file_type: type, external_provider: external_prov).empty?  %>
+                 <h3> You don't have any public content </h3>
+               <% else %>
+                 <div class="row">
+                    <%@contents.where(file_type: type, external_provider: external_prov).limit(5).each do |publication| %>
+                      <%= render 'shared/card', publication: publication %>
+                    <% end %>
+                    <%= render 'shared/cardlink', publication: @contents.where(file_type: type, external_provider: external_prov).limit(6).last, external_prov: external_prov %>
+                 </div>
+               <%end%>
             <% end %>
           <% end %>
         <% end %>
