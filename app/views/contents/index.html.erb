@@ -4,12 +4,12 @@
     <div class=" prime-container">
       <% unless params[:selected] || params[:file_type] || params[:external_provider] %>
         <div class="explanation snexplanation">
-            <h4> Sensitive Content are highlighted with  <img class="tiny-icon" src="/assets/warning-e7d5c8dccc71b98b5057f9970a212f96547b2b7cebd56c3602af8d81496ecda3.svg"> </h4>
+            <h4> Sensitive contents are highlighted with  <img class="tiny-icon" src="/assets/warning-e7d5c8dccc71b98b5057f9970a212f96547b2b7cebd56c3602af8d81496ecda3.svg"> </h4>
             <div class="select-text">
               <h4> Select the elements you want to get rid of with  </h4>
             <div class="label-Select"><div class="text-select"></div> Select <img class="image-select" src="/assets/check-square-regular.svg"></div>
             </div>
-            <h4> Once you've made your choice click on "Make my elements private" up here</h4>
+            <div class="arrow-elements"><h4> Once you've made your choice click on "Make my elements private" up here</h4><i class="far fa-arrow-alt-circle-up bluearrow"></i></div>
           </ul>
         </div>
       <% end %>
@@ -17,7 +17,7 @@
       <div class="container" id="container-cards" >
         <% unless @contents.nil? %>
           <% if params[:selected]%>
-            <% unless @selection.where(external_provider: "facebook").nil? %>
+            <% unless @selection.where(external_provider: "facebook").empty? %>
               <div class="text-center">
                 <h2>Facebook Content</h2>
                 <div class="row">
@@ -27,44 +27,35 @@
                       <h4>Unlike your sensitive likes</h4>
                     </div>
                   </div>
-                  <div class="row">
-                    <% @selection.where(external_provider: "facebook").each do |publication| %>
-                      <%= render 'shared/selectionlink', publication: publication %>
-                    <% end %>
-                  </div>
                 </div>
-              <% end %>
-              <% if !@selection.where(external_provider: "facebook").nil? && !@selection.where(external_provider: "twitter").nil? %>
-                <div class="line"></div>
-              <% end %>
-              <% unless @selection.where(external_provider: "twitter").nil? %>
-                <div class="text-center">
-                  <h2>Twitter Content</h2>
-                  <div class="row">
-                    <div class="sn-explanation">
-                      <div class="text-sn">
-                        <h4>Clink on the button at the bottom to delete your tweets</h4>
-                        <h4>as well as your twitter subscriptions</h4>
-                      </div>
+                <div class="row">
+                  <% @selection.where(external_provider: "facebook").each do |publication| %>
+                    <%= render 'shared/selectionlink', publication: publication %>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+            <% if !@selection.where(external_provider: "facebook").empty? && !@selection.where(external_provider: "twitter").empty? %>
+              <div class="line"></div>
+            <% end %>
+            <% unless @selection.where(external_provider: "twitter").empty? %>
+              <div class="text-center">
+                <h2>Twitter Content</h2>
+                <div class="row">
+                  <div class="sn-explanation">
+                    <div class="text-sn">
+                      <h4>Clink on the button at the bottom to delete your tweets</h4>
+                      <h4>as well as your twitter subscriptions</h4>
                     </div>
                   </div>
-                  <div class="row">
-                    <% @selection.where(external_provider: "twitter").each do |publication| %>
-                      <%= render 'shared/selectionlink', publication: publication %>
-                    <% end %>
-                  </div>
-                  <%= link_to "delete elements", twitter_delete_path, method: :post, class: "blue-submit-btn" %>
                 </div>
-              <% end %>
-            <% elsif params[:file_type] %>
-              <% @contents_provider.each do |external_prov| %>
-                <h2 class="category"> <%= external_prov.capitalize %> <%=params[:file_type].capitalize %>s </h2>
                 <div class="row">
                   <% @selection.where(external_provider: "twitter").each do |publication| %>
                     <%= render 'shared/selectionlink', publication: publication %>
                   <% end %>
                 </div>
-                <%= link_to "delete elements", twitter_delete_path, method: :post, class: "blue-submit-btn" %>
+                <br>
+                <%= link_to "Delete elements", twitter_delete_path, method: :post, class: "blue-submit-btn" %>
               </div>
             <% end %>
           <% elsif params[:file_type] %>
@@ -104,14 +95,11 @@
                  <%end%>
               <% end %>
             <% end %>
-          <% else %>
-            <div class="text-center"> <h2> You don"t have any public content! Congrats 🎉 </h2> </div>
           <% end %>
-        </div>
+        <% else %>
+          <div class="text-center"> <h2> You don"t have any public content! Congrats 🎉 </h2> </div>
+        <% end %>
       </div>
     </div>
   </div>
 </div>
-
-
-

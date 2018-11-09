@@ -16,7 +16,7 @@ class FacebookService
   end
 
   def facebook_feed
-    url = "https://graph.facebook.com/v3.2/#{@current_user.facebook.uid}/feed?fields=object_id%2Cfull_picture%2Cpicture%2Cid%2Ccreated_time%2Ctype%2Cupdated_time%2Clink%2Cmessage%2Cprivacy&access_token=#{@current_user.facebook.accesstoken}"
+    url = "https://graph.facebook.com/v3.2/#{@current_user.facebook.uid}/feed?fields=object_id%2Cpermalink_url%2Cfull_picture%2Cpicture%2Cid%2Ccreated_time%2Ctype%2Cupdated_time%2Clink%2Cmessage%2Cprivacy&access_token=#{@current_user.facebook.accesstoken}"
     content_serialized = open(url).read
     content_opened = JSON.parse(content_serialized)
     while !url.nil?
@@ -86,7 +86,7 @@ class FacebookService
             text_publication: content["message"],
             url_image: nil,
             scan_date: Date.today,
-            publication_url: content["link"]
+            publication_url: content["permalink_url"]
             )
     end
   end
