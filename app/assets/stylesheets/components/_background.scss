@@ -1,11 +1,12 @@
 .bg-texture-faded {
-  background: linear-gradient(53deg, rgba(255, 255, 255, 0.25) 5.65%, $light-gray 28%), url('background.png') no-repeat;
-  height: 594px;
+  background: linear-gradient(53deg, rgba(255, 255, 255, 0.25) 5.65%, $light-gray 28%), image-url('background.png') no-repeat;
+  height: 100%;
   width: 100%;
+  background-size: cover;
 }
 
 .bg-texture {
-  background: url('background.png') no-repeat;
+  background: image-url('background.png') no-repeat;
   width: 100%;
   border-radius: 5px;
   max-width: 100%;
